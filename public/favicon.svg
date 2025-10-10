@@ -1,0 +1,34 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="16" fill="#1a1a1a"/>
+  
+  <!-- Managerius Logo - Stylized 'M' -->
+  <path
+    d="M8 24L16 8L24 24"
+    stroke="#ffffff"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Aviation wing elements -->
+  <path
+    d="M10 20L12 16L14 20L16 16L18 20L20 16L22 20"
+    stroke="#ffffff"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.8"
+  />
+  
+  <!-- Center accent circle -->
+  <circle
+    cx="16"
+    cy="16"
+    r="2.5"
+    stroke="#ffffff"
+    stroke-width="1"
+    fill="none"
+    opacity="0.6"
+  />
+</svg>
