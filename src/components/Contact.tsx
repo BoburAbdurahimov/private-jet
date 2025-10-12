@@ -58,9 +58,23 @@ export const Contact = () => {
         }),
       });
 
-      const result = await response.json();
-
+      // Check if response is ok
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API Error Response:', errorText);
+        throw new Error(`Server error: ${response.status}`);
+      }
+
+      // Try to parse JSON response
+      let result;
+      try {
+        result = await response.json();
+      } catch (jsonError) {
+        console.error('JSON Parse Error:', jsonError);
+        throw new Error('Invalid response from server');
+      }
+
+      if (!result.success) {
         throw new Error(result.error || 'Failed to send email');
       }
       
