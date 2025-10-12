@@ -25,15 +25,18 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
-    // Create transporter using Gmail SMTP
+    // Create transporter using PrivateEmail SMTP
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'mail.privateemail.com',
+      port: 587,
+      secure: false, // true for 465, false for other ports
       auth: {
         user: 'hello@managerius.com',
         pass: 'sr4msy)rxdKTVA-'
       },
-      secure: true,
-      port: 465
+      tls: {
+        rejectUnauthorized: false
+      }
     });
 
     // Email content
