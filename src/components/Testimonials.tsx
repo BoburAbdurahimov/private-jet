@@ -104,7 +104,7 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-32 bg-secondary">
+    <section id="testimonials" className="py-32 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">

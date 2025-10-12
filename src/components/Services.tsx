@@ -27,7 +27,7 @@ const services = [
 
 export const Services = () => {
   return (
-    <section className="py-32 bg-background">
+    <section id="services" className="py-32 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
           <div>

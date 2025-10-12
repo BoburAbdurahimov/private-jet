@@ -54,7 +54,7 @@ const partners = [
 
 export const Partners = () => {
   return (
-    <section className="py-32 bg-background">
+    <section id="partners" className="py-32 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -111,7 +111,7 @@ export const Partners = () => {
                     </div>
                     <div className="mt-4">
                       <Link to={partner.link}>
-                        <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-primary transition-colors">
+                        <Button variant="outline" size="sm" className="w-full group-hover:border-primary group-hover:text-muted-foreground transition-colors">
                           Learn More
                           <ArrowRight className="w-3 h-3 ml-2" />
                         </Button>

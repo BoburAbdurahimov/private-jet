@@ -39,12 +39,11 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/partners" className="hover:text-primary transition-colors">Private Charter</Link></li>
-              <li><Link to="/partners" className="hover:text-primary transition-colors">Business Aviation</Link></li>
-              <li><Link to="/partners" className="hover:text-primary transition-colors">Leisure Travel</Link></li>
-              <li><Link to="/partners" className="hover:text-primary transition-colors">Group Travel</Link></li>
-              <li><Link to="/partners" className="hover:text-primary transition-colors">Jet Card Programs</Link></li>
-              <li><Link to="/partners" className="hover:text-primary transition-colors">Fractional Ownership</Link></li>
+              <li><Link to="/jet-luxe" className="hover:text-primary transition-colors">Jet Luxe</Link></li>
+              <li><Link to="/villiers-jets" className="hover:text-primary transition-colors">Villiers Jets</Link></li>
+              <li><Link to="/fast-private-jet" className="hover:text-primary transition-colors">Fast Private Jet</Link></li>
+              <li><Link to="/air-acer" className="hover:text-primary transition-colors">Air Acer</Link></li>
+              <li><Link to="/private-jet-finder" className="hover:text-primary transition-colors">Private Jet Finder</Link></li>
             </ul>
           </div>
 
@@ -52,12 +51,9 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold">Company</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/blog" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/blog" className="hover:text-primary transition-colors">Our Fleet</Link></li>
-              <li><Link to="/blog" className="hover:text-primary transition-colors">Safety</Link></li>
-              <li><Link to="/blog" className="hover:text-primary transition-colors">News & Insights</Link></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Press</a></li>
+              <li><Link to="/partners" className="hover:text-primary transition-colors">Partners</Link></li>
+              <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 

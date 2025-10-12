@@ -23,7 +23,7 @@ const aircraft = [
 
 export const Fleet = () => {
   return (
-    <section className="py-32 bg-secondary">
+    <section id="fleet" className="py-32 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6">

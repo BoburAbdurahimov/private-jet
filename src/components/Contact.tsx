@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import emailjs from '@emailjs/browser';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -42,11 +43,23 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // EmailJS configuration
+      const serviceId = 'service_managerius';
+      const templateId = 'template_contact';
+      const publicKey = 'VkFdF7NYu7NsWbr90'; // You'll need to get this from EmailJS
       
-      // Log the form data (in real app, send to your backend)
-      console.log("Contact form submission:", data);
+      // Prepare template parameters
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        service_type: data.serviceType,
+        message: data.message,
+        to_email: 'hello@managerius.com'
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
       // Show success message
       toast({
@@ -61,6 +74,7 @@ export const Contact = () => {
       setTimeout(() => setIsSubmitted(false), 3000);
       
     } catch (error) {
+      console.error('EmailJS error:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",

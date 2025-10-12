@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Calendar, Clock, ArrowLeft, Share2, Tag } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const LuxuryJetInteriors = () => {
@@ -11,22 +11,23 @@ const LuxuryJetInteriors = () => {
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Back Button */}
-            <Link
-              to="/blog"
+            <Link 
+              to="/blog" 
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
 
-            {/* Article Header */}
-            <header className="mb-12">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="bg-primary/10 text-primary px-3 py-1 text-sm font-medium rounded-full">
+            <article className="prose prose-lg max-w-none">
+              <div className="mb-8">
+                <span className="bg-primary text-primary-foreground px-3 py-1 text-sm font-medium rounded-full">
                   Luxury
                 </span>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <h1 className="font-serif text-4xl md:text-5xl mt-6 mb-4">
+                  Luxury Redefined: The Most Exclusive Private Jet Interiors
+                </h1>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     March 18, 2025
@@ -37,88 +38,41 @@ const LuxuryJetInteriors = () => {
                   </div>
                 </div>
               </div>
-              
-              <h1 className="font-serif text-4xl md:text-5xl mb-6">
-                Luxury Redefined: The Most Exclusive Private Jet Interiors
-              </h1>
-              
-              <p className="text-xl text-muted-foreground mb-8">
-                Take a look inside the world's most opulent private aircraft with custom-designed luxury amenities that redefine airborne comfort.
-              </p>
 
-              <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-8">
+              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=450&fit=crop&crop=center" 
-                  alt="Luxury private jet interior"
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=450&fit=crop&crop=center"
+                  alt="Luxury Jet Interiors"
                   className="w-full h-full object-cover"
                 />
               </div>
-            </header>
 
-            {/* Article Content */}
-            <article className="prose prose-lg max-w-none">
-              <div className="space-y-8 text-muted-foreground leading-relaxed">
+              <div className="text-lg text-muted-foreground leading-relaxed space-y-6">
                 <p>
-                  The world of private aviation has reached new heights of luxury, with interior designers and aircraft manufacturers collaborating to create flying palaces that rival the most exclusive hotels and residences on earth.
+                  The world of private aviation has evolved far beyond simple transportation. Today's most exclusive private jets feature interiors that rival the finest luxury hotels and residences, creating truly bespoke environments that reflect the discerning tastes of their owners.
                 </p>
 
-                <h2 className="font-serif text-2xl text-foreground mt-12 mb-6">The Art of Airborne Luxury</h2>
-                
+                <h2 className="font-serif text-2xl mt-8 mb-4">Bespoke Design Philosophy</h2>
                 <p>
-                  Modern private jet interiors are masterpieces of design and engineering, combining cutting-edge technology with timeless elegance. From hand-stitched leather seating to marble surfaces and gold accents, these aircraft represent the pinnacle of airborne luxury.
+                  Leading aircraft interior designers work closely with clients to create completely custom environments. From handcrafted leather seating to rare wood veneers and precious metal accents, every element is carefully selected and meticulously crafted to create a unique flying experience.
                 </p>
 
-                <h3 className="font-serif text-xl text-foreground mt-8 mb-4">Custom Design Elements</h3>
-                
+                <h2 className="font-serif text-2xl mt-8 mb-4">Cutting-Edge Technology Integration</h2>
                 <p>
-                  Today's most exclusive private jets feature entirely custom interiors, with every element designed to the owner's specifications. This includes everything from the layout and materials to the entertainment systems and lighting, creating truly unique flying experiences.
+                  Modern luxury jet interiors seamlessly integrate state-of-the-art technology with elegant design. Hidden entertainment systems, mood lighting, and climate control systems work together to create the perfect ambiance for any occasion, whether business or leisure.
                 </p>
 
-                <h3 className="font-serif text-xl text-foreground mt-8 mb-4">Premium Materials and Craftsmanship</h3>
-                
+                <h2 className="font-serif text-2xl mt-8 mb-4">Art and Craftsmanship</h2>
                 <p>
-                  The finest materials from around the world are used in these interiors: Italian leather, French marble, rare woods, and precious metals. Master craftsmen spend months perfecting every detail, ensuring that each surface and fixture meets the highest standards of luxury and durability.
+                  Many private jet interiors feature original artwork, custom furniture pieces, and artisanal details that transform the aircraft into a flying gallery. These elements not only provide aesthetic pleasure but also serve as conversation pieces and status symbols.
                 </p>
 
-                <h2 className="font-serif text-2xl text-foreground mt-12 mb-6">Technology Integration</h2>
-                
+                <h2 className="font-serif text-2xl mt-8 mb-4">The Ultimate Expression of Success</h2>
                 <p>
-                  Luxury doesn't mean sacrificing functionality. These interiors seamlessly integrate the latest technology, from 4K entertainment systems and high-speed internet to advanced climate control and soundproofing that creates an oasis of tranquility at 40,000 feet.
-                </p>
-
-                <h2 className="font-serif text-2xl text-foreground mt-12 mb-6">The Future of Luxury Aviation</h2>
-                
-                <p>
-                  As technology advances, we're seeing even more innovative luxury features, including virtual reality entertainment systems, smart glass that can transform from transparent to opaque, and even in-flight spas and gyms. The sky is truly the limit when it comes to airborne luxury.
+                  For those who have achieved the highest levels of success, a custom-designed private jet interior represents the ultimate expression of personal style and achievement. It's a mobile sanctuary that reflects their values, tastes, and aspirations.
                 </p>
               </div>
             </article>
-
-            {/* Tags */}
-            <div className="flex items-center gap-2 mt-12 pt-8 border-t border-border">
-              <Tag className="w-4 h-4 text-muted-foreground" />
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-muted text-muted-foreground px-2 py-1 text-xs rounded">Luxury</span>
-                <span className="bg-muted text-muted-foreground px-2 py-1 text-xs rounded">Interior Design</span>
-                <span className="bg-muted text-muted-foreground px-2 py-1 text-xs rounded">Custom Design</span>
-                <span className="bg-muted text-muted-foreground px-2 py-1 text-xs rounded">Premium Materials</span>
-              </div>
-            </div>
-
-            {/* Share Section */}
-            <div className="flex items-center justify-between mt-8 pt-8 border-t border-border">
-              <Link
-                to="/blog"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to All Articles
-              </Link>
-              <button className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                <Share2 className="w-4 h-4" />
-                Share Article
-              </button>
-            </div>
           </div>
         </div>
       </main>
