@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const affiliates = [
   {
     name: "Villiers Jets",
-    url: "https://villiersjets.com",
+    url: "https://www.villiersjets.com/?id=11413",
     description: "Global private jet charter service with access to over 10,000 aircraft worldwide",
     category: "Global Charter",
     rating: "5.0",
@@ -15,7 +15,7 @@ const affiliates = [
   },
   {
     name: "Jet Luxe",
-    url: "https://jetluxe.com",
+    url: "https://valens.jetluxe.com/affiliate/managerius",
     description: "Premium private aviation with transparent pricing and exceptional service",
     category: "Luxury Charter",
     rating: "4.9",

@@ -12,7 +12,7 @@ const blogPosts = [
     excerpt: "Exploring eco-friendly innovations in private jet technology and carbon-neutral flight solutions.",
     date: "March 20, 2025",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop&crop=center",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop&crop=center",
     category: "Innovation"
   },
   {
