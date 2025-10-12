@@ -11,8 +11,8 @@ const PrivateJetSafety = () => {
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <Link 
-              to="/blog" 
+            <Link
+              to="/blog"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -38,10 +38,10 @@ const PrivateJetSafety = () => {
                   </div>
                 </div>
               </div>
-
+              
               <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center"
+                  src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center" 
                   alt="Private Jet Safety"
                   className="w-full h-full object-cover"
                 />

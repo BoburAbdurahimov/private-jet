@@ -9,7 +9,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import emailjs from '@emailjs/browser';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -21,7 +20,7 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-export const Contact = () => {
+export const ContactFallback = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -43,41 +42,43 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // EmailJS configuration
-      const serviceId = 'service_jyd4hyd'; // Default service ID
-      const templateId = 'template_65vpqrn'; // Default template ID
-      const publicKey = 'VkFdF7NYu7NsWbr90'; // Your public key
-      
-      // Prepare template parameters
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone,
-        service_type: data.serviceType,
-        message: data.message,
-        to_email: 'hello@managerius.com'
-      };
+      // Create mailto link as fallback
+      const subject = `Contact Form Submission from ${data.name}`;
+      const body = `
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+Service Type: ${data.serviceType}
 
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+Message:
+${data.message}
+
+---
+This message was sent from the Managerius website contact form.
+      `;
+      
+      const mailtoLink = `mailto:hello@managerius.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.open(mailtoLink, '_blank');
       
       // Show success message
       toast({
-        title: "Message Sent Successfully!",
-        description: "We'll get back to you within 24 hours.",
+        title: "Email Client Opened!",
+        description: "Please send the email from your email client to hello@managerius.com",
       });
       
       setIsSubmitted(true);
       reset();
       
-      // Reset success state after 3 seconds
-      setTimeout(() => setIsSubmitted(false), 3000);
+      // Reset success state after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
       
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Error:', error);
       toast({
         title: "Error",
-        description: `Failed to send message: ${error}. Please check your EmailJS configuration.`,
+        description: "Failed to open email client. Please email hello@managerius.com directly.",
         variant: "destructive",
       });
     } finally {
@@ -137,9 +138,9 @@ export const Contact = () => {
             {isSubmitted ? (
               <div className="text-center py-8">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h3 className="font-serif text-xl mb-2">Message Sent!</h3>
+                <h3 className="font-serif text-xl mb-2">Email Client Opened!</h3>
                 <p className="text-muted-foreground">
-                  Thank you for contacting us. We'll get back to you soon.
+                  Please send the email from your email client to hello@managerius.com
                 </p>
               </div>
             ) : (
@@ -220,7 +221,7 @@ export const Contact = () => {
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Sending...
+                      Opening Email...
                     </>
                   ) : (
                     <>
