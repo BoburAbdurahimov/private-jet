@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import emailjs from '@emailjs/browser';
+// Removed EmailJS import
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -43,23 +43,26 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // EmailJS configuration
-      const serviceId = 'service_jyd4hyd'; // Default service ID
-      const templateId = 'template_65vpqrn'; // Default template ID
-      const publicKey = 'VkFdF7NYu7NsWbr90'; // Your public key
-      
-      // Prepare template parameters
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone,
-        service_type: data.serviceType,
-        message: data.message,
-        to_email: 'hello@managerius.com'
-      };
+      // Send email using Nodemailer API
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          serviceType: data.serviceType,
+          message: data.message,
+        }),
+      });
 
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send email');
+      }
       
       // Show success message
       toast({
@@ -74,10 +77,10 @@ export const Contact = () => {
       setTimeout(() => setIsSubmitted(false), 3000);
       
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Email error:', error);
       toast({
         title: "Error",
-        description: `Failed to send message: ${error}. Please check your EmailJS configuration.`,
+        description: `Failed to send message: ${error.message}. Please try again.`,
         variant: "destructive",
       });
     } finally {
