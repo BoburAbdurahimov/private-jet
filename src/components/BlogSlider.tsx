@@ -130,6 +130,9 @@ export const BlogSlider = () => {
                         <img 
                           src={post.image} 
                           alt={post.title}
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute top-3 left-3">
