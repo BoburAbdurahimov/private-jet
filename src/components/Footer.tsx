@@ -20,16 +20,16 @@ export const Footer = () => {
               Experience luxury, convenience, and unmatched service.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" aria-label="Visit our Facebook" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center justify-center" style={{ width: 44, height: 44 }}>
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" aria-label="Visit our Twitter" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center justify-center" style={{ width: 44, height: 44 }}>
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" aria-label="Visit our Instagram" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center justify-center" style={{ width: 44, height: 44 }}>
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" aria-label="Visit our LinkedIn" className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center justify-center" style={{ width: 44, height: 44 }}>
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>

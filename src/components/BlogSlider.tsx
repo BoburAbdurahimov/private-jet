@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ChevronLeft, ChevronRight } from "lucide-react";
@@ -127,9 +129,14 @@ export const BlogSlider = () => {
                   <div key={index} className="w-1/3 flex-shrink-0 px-4">
                     <Card className="group border-border bg-card overflow-hidden hover:border-primary transition-all duration-300 cursor-pointer hover:shadow-xl hover:shadow-primary/10 h-full flex flex-col">
                       <div className="aspect-video overflow-hidden relative">
-                        <img 
-                          src={post.image} 
+                        <LazyLoadImage
+                          src={post.image}
                           alt={post.title}
+                          effect="opacity"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                          width={800}
+                          height={450}
+                          wrapperClassName="w-full h-full"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute top-3 left-3">
@@ -155,7 +162,7 @@ export const BlogSlider = () => {
                             {post.readTime}
                           </div>
                         </div>
-                        <Link to={`/blog/${post.id}`}>
+                        <Link to={`/blog/${post.id}`} aria-label={`Read article: ${post.title}`}>
                           <Button variant="outline" size="sm" className="w-full hover:border-primary hover:text-primary transition-colors">
                             Read Article
                           </Button>

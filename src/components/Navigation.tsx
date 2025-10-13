@@ -16,9 +16,9 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2" aria-label="Go to Managerius home">
           <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
             <ManageriusIcon className="w-5 h-5 text-primary" />
           </div>
@@ -47,7 +47,7 @@ export const Navigation = () => {
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
@@ -65,7 +65,7 @@ export const Navigation = () => {
                     key={item.href}
                     to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg font-medium hover:text-primary transition-colors py-2"
+                    className="text-lg font-medium hover:text-primary transition-colors py-3"
                   >
                     {item.label}
                   </Link>

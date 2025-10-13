@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Star, Award, Globe, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 import { ManageriusIcon } from "./ManageriusIcon";
 
 const partners = [
@@ -77,9 +79,14 @@ export const Partners = () => {
             {partners.map((partner) => (
               <Card key={partner.id} className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 border-border bg-card">
                 <div className="aspect-video overflow-hidden rounded-t-lg">
-                  <img 
-                    src={partner.image} 
+                  <LazyLoadImage
+                    src={partner.image}
                     alt={partner.name}
+                    effect="opacity"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    width={1000}
+                    height={562}
+                    wrapperClassName="w-full h-full"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -110,7 +117,7 @@ export const Partners = () => {
                       ))}
                     </div>
                     <div className="mt-4">
-                      <Link to={partner.link}>
+                      <Link to={partner.link} aria-label={`Learn more about ${partner.name}`}>
                         <Button variant="outline" size="sm" className="w-full hover:border-primary hover:text-black transition-colors">
                           Learn More
                           <ArrowRight className="w-3 h-3 ml-2" />
