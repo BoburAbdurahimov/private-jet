@@ -1,16 +1,16 @@
 import { Suspense, lazy } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-const Marquee = lazy(() => import("@/components/Marquee"));
-const Services = lazy(() => import("@/components/Services"));
-const Fleet = lazy(() => import("@/components/Fleet"));
-const Partners = lazy(() => import("@/components/Partners"));
-const BlogSlider = lazy(() => import("@/components/BlogSlider"));
-// const QuoteCalculator = lazy(() => import("@/components/QuoteCalculator"));
-const Testimonials = lazy(() => import("@/components/Testimonials"));
-const FAQ = lazy(() => import("@/components/FAQ"));
-const Contact = lazy(() => import("@/components/Contact"));
-const Footer = lazy(() => import("@/components/Footer"));
+const Marquee = lazy(() => import("@/components/Marquee").then(m => ({ default: m.Marquee })));
+const Services = lazy(() => import("@/components/Services").then(m => ({ default: m.Services })));
+const Fleet = lazy(() => import("@/components/Fleet").then(m => ({ default: m.Fleet })));
+const Partners = lazy(() => import("@/components/Partners").then(m => ({ default: m.Partners })));
+const BlogSlider = lazy(() => import("@/components/BlogSlider").then(m => ({ default: m.BlogSlider })));
+// const QuoteCalculator = lazy(() => import("@/components/QuoteCalculator").then(m => ({ default: m.QuoteCalculator })));
+const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
+const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
+const Contact = lazy(() => import("@/components/Contact").then(m => ({ default: m.Contact })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 import { SEOHead } from "@/components/SEOHead";
 
 const Index = () => {
