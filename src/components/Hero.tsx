@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { LazyImage } from "./LazyImage";
 import { ManageriusIcon } from "./ManageriusIcon";
 import heroJet from "@/assets/hero-jet.jpg";
 
@@ -8,15 +9,10 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroJet}
-          alt="Luxury private jet"
-          className="w-full h-full object-cover opacity-40"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width={1920}
-          height={1080}
+        <LazyImage 
+          src={heroJet} 
+          alt="Luxury private jet" 
+          className="w-full h-full opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
       </div>
