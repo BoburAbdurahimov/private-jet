@@ -172,8 +172,8 @@ const PrivacyPolicy = () => {
                 <div className="bg-muted/50 rounded-lg p-4 mt-4">
                   <p className="text-sm">
                     <strong>Privacy Officer:</strong> hello@managerius.com<br />
-                    <strong>Phone:</strong> +1 (555) 123-4567<br />
-                    <strong>Address:</strong> Los Angeles, California
+                    <strong>Phone:</strong> +19295674215<br />
+                    <strong>Address:</strong> 63 N. Burritt Ave Room 100 East Buffalo, WY 82834 United States
                   </p>
                 </div>
               </section>

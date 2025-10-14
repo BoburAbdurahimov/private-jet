@@ -5,33 +5,6 @@ import { Link } from "react-router-dom";
 
 const affiliates = [
   {
-    name: "Villiers Jets",
-    url: "https://www.villiersjets.com/?id=11413",
-    description: "Global private jet charter service with access to over 10,000 aircraft worldwide",
-    category: "Global Charter",
-    rating: "5.0",
-    specialties: ["Global Network", "Instant Quotes", "24/7 Service"],
-    landingPage: "/villiers-jets"
-  },
-  {
-    name: "Jet Luxe",
-    url: "https://valens.jetluxe.com/affiliate/managerius",
-    description: "Premium private aviation with transparent pricing and exceptional service",
-    category: "Luxury Charter",
-    rating: "4.9",
-    specialties: ["Transparent Pricing", "Luxury Service", "Premium Fleet"],
-    landingPage: "/jet-luxe"
-  },
-  {
-    name: "Fast Private Jet",
-    url: "https://www.fastprivatejet.com/",
-    description: "Quick quotes and instant booking for private jet charters worldwide",
-    category: "Instant Booking",
-    rating: "4.8",
-    specialties: ["Quick Quotes", "Instant Booking", "Global Access"],
-    landingPage: "/fast-private-jet"
-  },
-  {
     name: "Air Acer",
     url: "https://airacer.com/",
     description: "Luxury private jet solutions for business and leisure travel",

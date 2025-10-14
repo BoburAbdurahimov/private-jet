@@ -221,8 +221,8 @@ export const FAQ = () => {
               <a href="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                 Contact Our Team
               </a>
-              <a href="tel:+15551234567" className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-lg font-medium hover:border-primary transition-colors">
-                Call +1 (555) 123-4567
+              <a href="tel:+19295674215" className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-lg font-medium hover:border-primary transition-colors">
+                Call +19295674215
               </a>
             </div>
           </div>

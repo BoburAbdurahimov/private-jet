@@ -39,9 +39,6 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/jet-luxe" className="hover:text-primary transition-colors">Jet Luxe</Link></li>
-              <li><Link to="/villiers-jets" className="hover:text-primary transition-colors">Villiers Jets</Link></li>
-              <li><Link to="/fast-private-jet" className="hover:text-primary transition-colors">Fast Private Jet</Link></li>
               <li><Link to="/air-acer" className="hover:text-primary transition-colors">Air Acer</Link></li>
               <li><Link to="/private-jet-finder" className="hover:text-primary transition-colors">Private Jet Finder</Link></li>
             </ul>
@@ -70,15 +67,15 @@ export const Footer = () => {
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 mt-0.5" />
                 <div>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+19295674215</p>
                   <p>24/7 Emergency Line</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5" />
                 <div>
-                  <p>Los Angeles, California</p>
-                  <p>Global Network</p>
+                  <p>63 N. Burritt Ave Room 100</p>
+                  <p>East Buffalo, WY 82834 United States</p>
                 </div>
               </div>
             </div>

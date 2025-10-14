@@ -6,33 +6,6 @@ import { ManageriusIcon } from "./ManageriusIcon";
 
 const partners = [
   {
-    id: "jet-luxe",
-    name: "Jet Luxe",
-    description: "Premium private aviation with transparent pricing and exceptional service.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    rating: 5.0,
-    features: ["Transparent Pricing", "Luxury Service", "Premium Fleet"],
-    link: "/jet-luxe"
-  },
-  {
-    id: "villiers-jets",
-    name: "Villiers Jets",
-    description: "Global private jet charter with access to 10,000+ aircraft worldwide.",
-    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    rating: 4.9,
-    features: ["Global Network", "24/7 Service", "Instant Quotes"],
-    link: "/villiers-jets"
-  },
-  {
-    id: "fast-private-jet",
-    name: "Fast Private Jet",
-    description: "Quick quotes and instant booking for private jet charters worldwide.",
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    rating: 4.8,
-    features: ["Quick Quotes", "Instant Booking", "Global Coverage"],
-    link: "/fast-private-jet"
-  },
-  {
     id: "private-jet-finder",
     name: "Private Jet Finder",
     description: "Compare and book from trusted private jet operators worldwide.",

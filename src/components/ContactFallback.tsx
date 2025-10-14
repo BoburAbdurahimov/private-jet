@@ -110,14 +110,14 @@ This message was sent from the Managerius website contact form.
                 <Phone className="w-6 h-6 text-accent mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                  <p className="text-muted-foreground">+19295674215</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-accent mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Headquarters</h3>
-                  <p className="text-muted-foreground">Los Angeles, California</p>
+                  <p className="text-muted-foreground">63 N. Burritt Ave Room 100 East Buffalo, WY 82834 United States</p>
                 </div>
               </div>
             </div>

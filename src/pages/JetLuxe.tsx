@@ -140,32 +140,6 @@ const JetLuxe = () => {
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Link
-                  to="/villiers-jets"
-                  className="group block p-6 border border-border rounded-lg hover:border-primary transition-colors"
-                >
-                  <h3 className="font-serif text-lg mb-2 group-hover:text-primary transition-colors">Villiers Jets</h3>
-                  <p className="text-sm text-muted-foreground mb-4">Global private jet charter with 10,000+ aircraft</p>
-                  <div className="pt-2">
-                    <div className="text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
-                      Learn More →
-                    </div>
-                  </div>
-                </Link>
-                
-                <Link
-                  to="/fast-private-jet"
-                  className="group block p-6 border border-border rounded-lg hover:border-primary transition-colors"
-                >
-                  <h3 className="font-serif text-lg mb-2 group-hover:text-primary transition-colors">Fast Private Jet</h3>
-                  <p className="text-sm text-muted-foreground mb-4">Quick quotes and instant booking worldwide</p>
-                  <div className="pt-2">
-                    <div className="text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
-                      Learn More →
-                    </div>
-                  </div>
-                </Link>
-                
-                <Link
                   to="/private-jet-finder"
                   className="group block p-6 border border-border rounded-lg hover:border-primary transition-colors"
                 >
