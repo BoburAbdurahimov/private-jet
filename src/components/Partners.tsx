@@ -14,15 +14,7 @@ const partners = [
     features: ["Compare Options", "Trusted Operators", "Best Prices"],
     link: "/private-jet-finder"
   },
-  {
-    id: "air-acer",
-    name: "Air Acer",
-    description: "Luxury private aviation with personalized service and premium amenities.",
-    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    rating: 4.9,
-    features: ["Personalized Service", "Premium Amenities", "VIP Treatment"],
-    link: "/air-acer"
-  }
+  // Air Acer hidden
 ];
 
 export const Partners = () => {

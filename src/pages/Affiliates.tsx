@@ -5,15 +5,6 @@ import { Link } from "react-router-dom";
 
 const affiliates = [
   {
-    name: "Air Acer",
-    url: "https://airacer.com/",
-    description: "Luxury private jet solutions for business and leisure travel",
-    category: "Business Aviation",
-    rating: "4.9",
-    specialties: ["Business Travel", "Leisure Charter", "Custom Solutions"],
-    landingPage: "/air-acer"
-  },
-  {
     name: "Private Jet Finder",
     url: "https://privatejetfinder.com",
     description: "Compare and book private jets from trusted operators worldwide",
