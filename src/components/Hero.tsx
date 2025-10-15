@@ -35,12 +35,12 @@ export const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-          <Link to="/partners">
+          <a href="https://privatejetfinder.com" className="cta-track">
             <Button variant="hero" size="hero" className="group">
               Book Your Flight
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </Link>
+          </a>
           {/* <Button variant="outline" size="hero" className="group">
             <Play className="w-4 h-4 mr-2" />
             Watch Our Story

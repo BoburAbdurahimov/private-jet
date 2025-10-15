@@ -38,7 +38,12 @@ export const Navigation = () => {
           ))}
           <a href="https://privatejetfinder.com" className="cta-track">
             <Button variant="hero" size="default">
-              Book a demo
+              Book a flight
+            </Button>
+          </a>
+          <a href="https://privatejetfinder.com" className="cta-track">
+            <Button variant="outline" size="default">
+              Book your flight
             </Button>
           </a>
         </div>
@@ -73,7 +78,12 @@ export const Navigation = () => {
                 
                 <a href="https://privatejetfinder.com" className="cta-track" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="hero" size="lg" className="mt-6">
-                    Book a demo
+                    Book a flight
+                  </Button>
+                </a>
+                <a href="https://privatejetfinder.com" className="cta-track" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="outline" size="lg">
+                    Book your flight
                   </Button>
                 </a>
               </div>
