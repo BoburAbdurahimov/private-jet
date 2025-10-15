@@ -194,7 +194,7 @@ const PrivateJetFinder = () => {
                 <div className="max-w-4xl mx-auto">
                   <div className="_pjf" data-usercode="EF6E0F262E1F" data-lang="en" data-skin="GB">
                     <a href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F" style={{display: 'block', textAlign: 'right'}}>
-                      <img src="https://www.privatejetfinder.com/skins/partners/img/pjf.png" alt="www.privatejetfinder.com" width="100" height="20" border="0" />
+                      <img src="https://www.privatejetfinder.com/skins/partners/img/pjf.png" alt="www.privatejetfinder.com/?tk=EF6E0F262E1F" width="100" height="20" border="0" />
                     </a>
                   </div>
                   

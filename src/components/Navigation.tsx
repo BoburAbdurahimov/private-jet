@@ -36,16 +36,16 @@ export const Navigation = () => {
               {item.label}
             </Link>
           ))}
-          <a href="https://privatejetfinder.com" className="cta-track">
+          <a href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F" className="cta-track">
             <Button variant="hero" size="default">
               Book a flight
             </Button>
           </a>
-          <a href="https://privatejetfinder.com" className="cta-track">
+          {/* <a href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F" className="cta-track">
             <Button variant="outline" size="default">
               Book your flight
             </Button>
-          </a>
+          </a> */}
         </div>
 
         {/* Mobile Navigation */}
