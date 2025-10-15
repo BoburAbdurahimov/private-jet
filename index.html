@@ -40,6 +40,25 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function(){
+        const u = new URL(location.href);
+        const rid = u.searchParams.get('rid');
+        const cid = u.searchParams.get('cid');
+        if (rid) document.cookie = 'rid='+encodeURIComponent(rid)+';path=/;max-age=2592000';
+        if (cid) document.cookie = 'cid='+encodeURIComponent(cid)+';path=/;max-age=2592000';
+        function getCookie(k){const m=document.cookie.match(new RegExp('(?:^|; )'+k+'=([^;]+)'));return m?decodeURIComponent(m[1]):null;}
+        const getRid = () => rid || getCookie('rid') || 'unknown';
+        const getCid = () => cid || getCookie('cid') || 'unknown';
+        function logCTA(evt){
+          const payload = {event_type:'cta', rid:getRid(), cid:getCid(), url:location.href, ts:new Date().toISOString()};
+          navigator.sendBeacon('https://YOUR_N8N_DOMAIN/webhook/cta', new Blob([JSON.stringify(payload)], {type:'application/json'}));
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+          document.querySelectorAll('.cta-track').forEach(btn => btn.addEventListener('click', logCTA));
+        });
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
