@@ -5,7 +5,7 @@ const Marquee = lazy(() => import("@/components/Marquee").then(m => ({ default: 
 const Services = lazy(() => import("@/components/Services").then(m => ({ default: m.Services })));
 const Fleet = lazy(() => import("@/components/Fleet").then(m => ({ default: m.Fleet })));
 const Partners = lazy(() => import("@/components/Partners").then(m => ({ default: m.Partners })));
-const BlogSlider = lazy(() => import("@/components/BlogSlider").then(m => ({ default: m.BlogSlider })));
+// const BlogSlider = lazy(() => import("@/components/BlogSlider").then(m => ({ default: m.BlogSlider })));
 // const QuoteCalculator = lazy(() => import("@/components/QuoteCalculator").then(m => ({ default: m.QuoteCalculator })));
 const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({ default: m.Testimonials })));
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
@@ -35,9 +35,9 @@ const Index = () => {
       <Suspense fallback={<div className="py-12" />}>
         <Fleet />
       </Suspense>
-      <Suspense fallback={<div className="py-12" />}>
+      {/* <Suspense fallback={<div className="py-12" />}>
         <BlogSlider />
-      </Suspense>
+      </Suspense> */}
       {/* <Suspense fallback={<div className="py-12" />}>
         <QuoteCalculator />
       </Suspense> */}
