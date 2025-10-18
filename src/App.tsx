@@ -19,6 +19,14 @@ import BusinessAviationTrends from "./pages/blog/BusinessAviationTrends";
 import PrivateJetEtiquette from "./pages/blog/PrivateJetEtiquette";
 import GlobalHotspots2024 from "./pages/blog/GlobalHotspots2024";
 import PrivateJetSafety from "./pages/blog/PrivateJetSafety";
+import DynamicBlogPost from "./pages/DynamicBlogPost";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import SimpleAdminDashboard from "./pages/SimpleAdminDashboard";
+import SimpleAdminBlogForm from "./pages/SimpleAdminBlogForm";
+import AdvancedAdminBlogForm from "./pages/AdvancedAdminBlogForm";
+import AdminBlogForm from "./pages/AdminBlogForm";
+import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,12 +45,20 @@ const App = () => (
           {/* Removed routes for Villiers Jets, Jet Luxe, and Fast Private Jet */}
           <Route path="/air-acer" element={<AirAcer />} />
           <Route path="/private-jet-finder" element={<PrivateJetFinder />} />
+          {/* Legacy blog routes for existing posts */}
           <Route path="/blog/sustainable-private-aviation" element={<SustainablePrivateAviation />} />
           <Route path="/blog/luxury-jet-interiors" element={<LuxuryJetInteriors />} />
           <Route path="/blog/business-aviation-trends" element={<BusinessAviationTrends />} />
           <Route path="/blog/private-jet-etiquette" element={<PrivateJetEtiquette />} />
           <Route path="/blog/global-hotspots-2024" element={<GlobalHotspots2024 />} />
           <Route path="/blog/private-jet-safety" element={<PrivateJetSafety />} />
+          {/* Dynamic blog post route */}
+          <Route path="/blog/:id" element={<DynamicBlogPost />} />
+          {/* Admin routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<SimpleAdminDashboard />} />
+          <Route path="/admin/posts/new" element={<AdvancedAdminBlogForm />} />
+          <Route path="/admin/posts/:id/edit" element={<AdvancedAdminBlogForm />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />

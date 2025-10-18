@@ -95,7 +95,7 @@ export const Partners = () => {
             <div className="text-center p-6 border border-border bg-card rounded-lg">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-6 h-6 text-primary" />
-              </div>
+              </div>8
               <h3 className="font-serif text-xl mb-2">Global Coverage</h3>
               <p className="text-muted-foreground text-sm">
                 Access to private jets and airports worldwide through our extensive partner network
