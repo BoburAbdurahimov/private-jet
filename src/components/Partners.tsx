@@ -90,7 +90,6 @@ export const Partners = () => {
               </Card>
             ))}
           </div>
-
           {/* Features Section */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center p-6 border border-border bg-card rounded-lg">
