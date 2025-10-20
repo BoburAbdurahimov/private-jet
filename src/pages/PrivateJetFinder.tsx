@@ -6,21 +6,7 @@ import { useEffect } from "react";
 
 const PrivateJetFinder = () => {
   useEffect(() => {
-    // Ensure the Private Jet Finder script is loaded
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://www.privatejetfinder.com/js/partner.min.js';
-    script.async = true;
-    
-    // Check if script already exists
-    const existingScript = document.querySelector('script[src="https://www.privatejetfinder.com/js/partner.min.js"]');
-    if (!existingScript) {
-      document.head.appendChild(script);
-    }
-    
-    return () => {
-      // Cleanup if needed
-    };
+    // Page retained for legacy routing; no external script needed
   }, []);
 
   return (
@@ -37,19 +23,19 @@ const PrivateJetFinder = () => {
                 Partner Spotlight
               </div>
               <h1 className="font-serif text-5xl md:text-6xl mb-6">
-                Private Jet Finder
+                Jet Luxe
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Compare and book private jets from trusted operators worldwide. Find the best deals with complete transparency.
+                Premium private aviation with transparent pricing and exceptional service.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F"
+                  href="https://valens.jetluxe.com/affiliate/managerius"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Visit Private Jet Finder <ArrowRight className="w-4 h-4" />
+                  Visit Jet Luxe <ArrowRight className="w-4 h-4" />
                 </a>
                 <Link
                   to="/partners"
@@ -182,52 +168,36 @@ const PrivateJetFinder = () => {
               </div>
             </div>
 
-            {/* Widget Section */}
+            {/* CTA to Jet Luxe */}
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl mb-6">Search & Compare Private Jets</h2>
+              <h2 className="font-serif text-3xl mb-6">Book With Jet Luxe</h2>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Use our integrated Private Jet Finder widget to search, compare, and book private jets directly from our website.
+                Compare options and book your luxury charter with transparent pricing.
               </p>
-              
-              {/* Private Jet Finder Widget */}
-              <div className="bg-card border border-border rounded-lg p-8">
-                <div className="max-w-4xl mx-auto">
-                  <div className="_pjf" data-usercode="EF6E0F262E1F" data-lang="en" data-skin="GB">
-                    <a href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F" style={{display: 'block', textAlign: 'right'}}>
-                      <img src="https://www.privatejetfinder.com/skins/partners/img/pjf.png" alt="www.privatejetfinder.com/?tk=EF6E0F262E1F" width="100" height="20" border="0" />
-                    </a>
-                  </div>
-                  
-                  {/* Fallback content if widget doesn't load */}
-                  <div className="mt-8 text-center">
-                    <p className="text-muted-foreground mb-4">If the widget doesn't appear above, click below to search:</p>
-                    <a
-                      href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                    >
-                      Search Private Jets <Search className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <a
+                href="https://valens.jetluxe.com/affiliate/managerius"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                Book Now <Plane className="w-4 h-4" />
+              </a>
             </div>
 
             {/* CTA Section */}
             <div className="text-center bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-lg p-8">
-              <h2 className="font-serif text-3xl mb-4">Find Your Perfect Private Jet Today</h2>
+              <h2 className="font-serif text-3xl mb-4">Fly Jet Luxe Today</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Join thousands of smart travelers who use Private Jet Finder to compare prices and book the best private jet deals from trusted operators worldwide.
+                Join discerning travelers who choose Jet Luxe for their private aviation needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F"
+                  href="https://valens.jetluxe.com/affiliate/managerius"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Compare & Book <Plane className="w-4 h-4" />
+                  Book Now <Plane className="w-4 h-4" />
                 </a>
                 <Link
                   to="/partners"

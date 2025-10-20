@@ -36,7 +36,7 @@ export const Navigation = () => {
               {item.label}
             </Link>
           ))}
-          <a href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F" className="cta-track">
+          <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track">
             <Button variant="hero" size="default">
               Book a flight
             </Button>
@@ -77,12 +77,12 @@ export const Navigation = () => {
                 ))}
                 
                 
-                <a href="https://privatejetfinder.com" className="cta-track" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="hero" size="lg" className="mt-6">
                     Book a flight
                   </Button>
                 </a>
-                <a href="https://privatejetfinder.com" className="cta-track" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="outline" size="lg">
                     Book your flight
                   </Button>

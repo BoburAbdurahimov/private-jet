@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const affiliates = [
   {
-    name: "Private Jet Finder",
-    url: "https://privatejetfinder.com",
-    description: "Compare and book private jets from trusted operators worldwide",
-    category: "Comparison Platform",
-    rating: "4.7",
-    specialties: ["Compare Prices", "Trusted Operators", "Best Deals"],
-    landingPage: "/private-jet-finder"
+    name: "Jet Luxe",
+    url: "https://valens.jetluxe.com/affiliate/managerius",
+    description: "Premium private aviation with transparent pricing and exceptional service",
+    category: "Luxury Charter",
+    rating: "4.9",
+    specialties: ["Transparent Pricing", "Luxury Service", "Premium Fleet"],
+    landingPage: "/jet-luxe"
   }
 ];
 

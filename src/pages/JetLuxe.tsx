@@ -139,18 +139,21 @@ const JetLuxe = () => {
               </p>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <Link
-                  to="/private-jet-finder"
+                {/* Unhide Jet Luxe only; remove Private Jet Finder link from this section */}
+                <a
+                  href="https://valens.jetluxe.com/affiliate/managerius"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group block p-6 border border-border rounded-lg hover:border-primary transition-colors"
                 >
-                  <h3 className="font-serif text-lg mb-2 group-hover:text-primary transition-colors">Private Jet Finder</h3>
-                  <p className="text-sm text-muted-foreground mb-4">Compare and book from trusted operators</p>
+                  <h3 className="font-serif text-lg mb-2 group-hover:text-primary transition-colors">Book with Jet Luxe</h3>
+                  <p className="text-sm text-muted-foreground mb-4">Transparent pricing and premium service</p>
                   <div className="pt-2">
                     <div className="text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">
-                      Learn More →
+                      Book Now →
                     </div>
                   </div>
-                </Link>
+                </a>
               </div>
               
               <div className="text-center mt-8">

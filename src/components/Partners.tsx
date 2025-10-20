@@ -3,18 +3,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Star, Award, Globe, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ManageriusIcon } from "./ManageriusIcon";
+import heroJet from "@/assets/hero-jet.jpg";
 
 const partners = [
   {
-    id: "private-jet-finder",
-    name: "Private Jet Finder",
-    description: "Compare and book from trusted private jet operators worldwide.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    rating: 4.7,
-    features: ["Compare Options", "Trusted Operators", "Best Prices"],
-    link: "/private-jet-finder"
+    id: "jet-luxe",
+    name: "Jet Luxe",
+    description: "Premium private aviation with transparent pricing and exceptional service.",
+    image: heroJet,
+    rating: 4.9,
+    features: ["Transparent Pricing", "Luxury Service", "Premium Fleet"],
+    link: "/jet-luxe"
   },
-  // Air Acer hidden
 ];
 
 export const Partners = () => {
@@ -95,7 +95,7 @@ export const Partners = () => {
             <div className="text-center p-6 border border-border bg-card rounded-lg">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-6 h-6 text-primary" />
-              </div>8
+              </div>
               <h3 className="font-serif text-xl mb-2">Global Coverage</h3>
               <p className="text-muted-foreground text-sm">
                 Access to private jets and airports worldwide through our extensive partner network

@@ -13,6 +13,7 @@ import TermsOfService from "./pages/TermsOfService";
 // Removed partner-specific pages that are no longer in use
 import AirAcer from "./pages/AirAcer";
 import PrivateJetFinder from "./pages/PrivateJetFinder";
+import JetLuxe from "./pages/JetLuxe";
 import SustainablePrivateAviation from "./pages/blog/SustainablePrivateAviation";
 import LuxuryJetInteriors from "./pages/blog/LuxuryJetInteriors";
 import BusinessAviationTrends from "./pages/blog/BusinessAviationTrends";
@@ -42,9 +43,10 @@ const App = () => (
           <Route path="/partners" element={<Affiliates />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
-          {/* Removed routes for Villiers Jets, Jet Luxe, and Fast Private Jet */}
+          {/* Partner routes */}
           <Route path="/air-acer" element={<AirAcer />} />
           <Route path="/private-jet-finder" element={<PrivateJetFinder />} />
+          <Route path="/jet-luxe" element={<JetLuxe />} />
           {/* Legacy blog routes for existing posts */}
           <Route path="/blog/sustainable-private-aviation" element={<SustainablePrivateAviation />} />
           <Route path="/blog/luxury-jet-interiors" element={<LuxuryJetInteriors />} />

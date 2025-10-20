@@ -35,7 +35,7 @@ export const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-          <a href="https://www.privatejetfinder.com/?tk=EF6E0F262E1F" className="cta-track">
+          <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track">
             <Button variant="hero" size="hero" className="group">
               Book Your Flight
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
