@@ -4,6 +4,9 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { BlogDataManager, BlogPost } from "@/lib/blog-data";
+import SEOHead from "@/components/SEOHead";
+import ArticleSchema from "@/components/ArticleSchema";
+import BlogCTA from "@/components/BlogCTA";
 
 const DynamicBlogPost = () => {
   const { id } = useParams();
@@ -87,6 +90,21 @@ const DynamicBlogPost = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title={post.seoTitle}
+        description={post.seoDescription}
+        canonical={`https://managerius.com/blog/${post.id}`}
+        ogTitle={post.seoTitle}
+        ogImage={post.image}
+        coverImage={post.image}
+      />
+      <ArticleSchema 
+        title={post.title}
+        description={post.seoDescription}
+        coverImage={post.image}
+        date={post.date}
+        canonical={`https://managerius.com/blog/${post.id}`}
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">
@@ -131,6 +149,8 @@ const DynamicBlogPost = () => {
               <div className="text-lg text-muted-foreground leading-relaxed">
                 {renderContent(post.content)}
               </div>
+              
+              <BlogCTA />
             </article>
           </div>
         </div>

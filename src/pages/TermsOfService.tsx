@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { SEOHead } from "@/components/SEOHead";
+import SEOHead from "@/components/SEOHead";
 import { FileText, Scale, AlertTriangle, Shield } from "lucide-react";
 
 const TermsOfService = () => {
@@ -9,7 +9,7 @@ const TermsOfService = () => {
       <SEOHead 
         title="Terms of Service - Managerius"
         description="Read the terms and conditions for using Managerius private aviation services."
-        keywords="terms of service, terms and conditions, legal, Managerius"
+        canonical="https://managerius.com/terms-of-service"
       />
       <Navigation />
       

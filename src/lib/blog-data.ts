@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 
+// Blog post interface
 export interface BlogPost {
   id: string;
   title: string;
@@ -12,10 +13,9 @@ export interface BlogPost {
   tags: string[];
   published: boolean;
   scheduled: boolean;
-  scheduledDate?: string;
-  seoTitle?: string;
-  seoDescription?: string;
-  seoKeywords?: string[];
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string[];
   author: string;
   views: number;
   likes: number;
@@ -26,258 +26,702 @@ export interface BlogPost {
 // Default blog posts data
 const defaultBlogPosts: BlogPost[] = [
   {
-    id: "sustainable-private-aviation",
-    title: "The Future of Sustainable Private Aviation",
-    excerpt: "Exploring eco-friendly innovations in private jet technology and carbon-neutral flight solutions.",
-    content: `The private aviation industry is at a pivotal moment in its evolution. As environmental consciousness grows and technology advances, sustainable private aviation is no longer a distant dream but an emerging reality that's reshaping how we think about luxury travel.
+    id: "private-jet-travel-benefits",
+    title: "Why Choose Private Jet Travel with JetLuxe: Top 5 Benefits",
+    excerpt: "Discover 5 powerful reasons leaders prefer flying private—time, privacy, flexibility, safety, and tailored service.",
+    content: `---
+title: "Why Choose Private Jet Travel with JetLuxe: Top 5 Benefits"
+slug: "private-jet-travel-benefits"
+description: "Discover 5 powerful reasons leaders prefer flying private—time, privacy, flexibility, safety, and tailored service."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1557161045-995e41c2a5b3"
+tags: ["private jets","JetLuxe","luxury travel","business travel"]
+primaryKeyword: "private jet travel benefits"
+secondaryKeywords: ["JetLuxe private jet","why fly private","private jet charter benefits"]
+ogTitle: "Why Fly Private with JetLuxe – 5 Exclusive Benefits"
+ogImage: "https://images.unsplash.com/photo-1557161045-995e41c2a5b3"
+canonical: "https://managerius.com/blog/private-jet-travel-benefits"
+readingTimeMinutes: 7
+---
 
-## Carbon-Neutral Flight Technologies
+Private jet travel offers unparalleled advantages that go far beyond luxury. Here are the top 5 benefits that make private aviation the smart choice for business and leisure travelers.
 
-Leading aircraft manufacturers are investing heavily in sustainable aviation fuels (SAFs) and electric propulsion systems. These innovations promise to reduce carbon emissions by up to 80% compared to traditional jet fuel, making private aviation more environmentally responsible.
+## 1. Time is Your Most Valuable Asset
 
-## Electric and Hybrid Aircraft
+Private jets save you hours of travel time. No security lines, no waiting at gates, no connecting flights. Arrive 15 minutes before departure and be wheels-up within minutes.
 
-The development of electric and hybrid-electric aircraft is accelerating rapidly. Companies like Eviation and Heart Aerospace are pioneering electric aircraft that could revolutionize short-haul private travel while maintaining the luxury and convenience that discerning travelers expect.
+## 2. Unmatched Privacy & Security
 
-## Carbon Offset Programs
+Conduct sensitive business discussions, protect confidential information, and travel with complete discretion. Your conversations stay private.
 
-Many private aviation companies are implementing comprehensive carbon offset programs, allowing clients to neutralize their flight emissions through verified environmental projects. These programs range from reforestation initiatives to renewable energy investments.
+## 3. Ultimate Flexibility
 
-## The Path Forward
+Change your schedule, add passengers, or modify your route with minimal notice. Your aircraft adapts to your needs, not the other way around.
 
-As we look toward the future, sustainable private aviation represents not just an environmental imperative but a competitive advantage. Clients increasingly value companies that demonstrate environmental responsibility while maintaining the highest standards of luxury and service.`,
-    date: "March 20, 2025",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop&crop=center",
-    category: "Innovation",
-    tags: ["sustainability", "aviation", "technology", "environment"],
+## 4. Personalized Service
+
+Every detail is tailored to your preferences. From catering to ground transportation, your experience is designed around your specific needs.
+
+## 5. Enhanced Safety & Health
+
+Private jets offer superior safety standards with fewer passengers, controlled environments, and the ability to avoid crowded airports and terminals.`,
+    date: "December 19, 2024",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&crop=center",
+    category: "Benefits",
+    tags: ["private jets", "benefits", "luxury travel", "business aviation"],
     published: true,
     scheduled: false,
-    seoTitle: "Sustainable Private Aviation: The Future of Eco-Friendly Luxury Travel",
-    seoDescription: "Discover how private aviation is embracing sustainability with electric aircraft, SAF fuels, and carbon offset programs for environmentally conscious luxury travel.",
-    seoKeywords: ["sustainable aviation", "private jets", "eco-friendly travel", "carbon neutral flights"],
+    seoTitle: "Why Choose Private Jet Travel with JetLuxe: Top 5 Benefits",
+    seoDescription: "Discover 5 powerful reasons leaders prefer flying private—time, privacy, flexibility, safety, and tailored service.",
+    seoKeywords: ["private jet travel benefits", "luxury aviation", "business travel", "jet charter"],
     author: "Managerius Team",
-    views: 1247,
-    likes: 89,
-    createdAt: "2025-03-20T10:00:00Z",
-    updatedAt: "2025-03-20T10:00:00Z"
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
   },
   {
-    id: "luxury-jet-interiors",
-    title: "Luxury Redefined: The Most Exclusive Private Jet Interiors",
-    excerpt: "Take a look inside the world's most opulent private aircraft with custom-designed luxury amenities.",
-    content: `The world of private aviation has always been synonymous with luxury, but today's most exclusive private jet interiors are pushing the boundaries of opulence and sophistication to unprecedented heights.
+    id: "how-to-charter-private-jet",
+    title: "How to Charter a Private Jet: Step-by-Step Guide",
+    excerpt: "A no-nonsense guide to booking a private jet—process, aircraft types, pricing, and what to expect end-to-end.",
+    content: `---
+title: "How to Charter a Private Jet: Step-by-Step Guide"
+slug: "how-to-charter-private-jet"
+description: "A no-nonsense guide to booking a private jet—process, aircraft types, pricing, and what to expect end-to-end."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde"
+tags: ["private jet charter","JetLuxe","aviation guide","jet booking"]
+primaryKeyword: "how to charter a private jet"
+secondaryKeywords: ["private jet booking process","jet charter guide","JetLuxe charter"]
+ogTitle: "Complete Guide: How to Charter a Private Jet with JetLuxe"
+ogImage: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde"
+canonical: "https://managerius.com/blog/how-to-charter-private-jet"
+readingTimeMinutes: 8
+---
 
-## The Art of Custom Design
+Chartering a private jet doesn't have to be complicated. Follow this step-by-step process to ensure a smooth booking experience and successful flight.
 
-Modern private jet interiors are no longer just about comfort—they're about creating a truly personalized flying experience that reflects the owner's unique style and preferences. From hand-stitched leather seating to custom wood veneers, every detail is carefully crafted to perfection.
+## Step 1: Define Your Requirements
 
-## Cutting-Edge Amenities
+**Route & Dates**: Specify your departure and arrival airports, travel dates, and preferred departure times.
 
-Today's luxury private jets feature amenities that rival the finest hotels and resorts. From full-size bedrooms with en-suite bathrooms to gourmet kitchens and entertainment systems, these aircraft offer everything needed for the ultimate in comfort and convenience.
+**Passenger Count**: Determine the number of passengers to select the appropriate aircraft size.
 
-## Sustainable Luxury
+**Budget**: Establish your budget range to help narrow down aircraft options.
 
-Even in the world of ultra-luxury, sustainability is becoming increasingly important. Many of today's most exclusive private jets incorporate eco-friendly materials and energy-efficient systems without compromising on luxury or performance.
+## Step 2: Choose Your Aircraft
 
-## The Future of Luxury Aviation
+**Light Jets**: Perfect for short trips (1-4 passengers). Examples: Citation CJ3+, Phenom 300.
 
-As technology continues to advance, we can expect to see even more innovative and luxurious private jet interiors that push the boundaries of what's possible in aviation design.`,
-    date: "March 18, 2025",
+**Midsize Jets**: Ideal for medium-range flights (4-8 passengers). Examples: Citation XLS+, Challenger 350.
+
+**Heavy Jets**: Best for long-range travel (8-12 passengers). Examples: Gulfstream G550, Bombardier Global 6000.
+
+## Step 3: Get Quotes & Compare
+
+Request quotes from multiple operators. Compare pricing, aircraft availability, and included services. Look for transparent pricing with no hidden fees.
+
+## Step 4: Review & Book
+
+Carefully review the quote details including aircraft specifications, crew experience, and included amenities. Confirm your booking and provide passenger information.
+
+## Step 5: Pre-Flight Preparation
+
+Complete final preparations including passenger manifests, special requests, and travel documents. Submit passenger manifests, arrange ground transportation, confirm special requests, and review travel documents.`,
+    date: "December 19, 2024",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
+    category: "Guide",
+    tags: ["charter guide", "private jets", "booking", "aviation"],
+    published: true,
+    scheduled: false,
+    seoTitle: "How to Charter a Private Jet: Step-by-Step Guide",
+    seoDescription: "A no-nonsense guide to booking a private jet—process, aircraft types, pricing, and what to expect end-to-end.",
+    seoKeywords: ["how to charter a private jet", "private jet booking", "jet charter guide", "aviation booking"],
+    author: "Managerius Team",
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
+  },
+  {
+    id: "private-jet-cost-breakdown",
+    title: "The True Cost of Flying Private: Transparent Price Breakdown",
+    excerpt: "Understand private jet pricing—hourly rates, fees, variables—and how to avoid surprise costs.",
+    content: `---
+title: "The True Cost of Flying Private: Transparent Price Breakdown"
+slug: "private-jet-cost-breakdown"
+description: "Understand private jet pricing—hourly rates, fees, variables—and how to avoid surprise costs."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1542010589005-5e0b0f2cfe5a"
+tags: ["private jet cost","JetLuxe pricing","aviation costs","jet charter pricing"]
+primaryKeyword: "private jet cost"
+secondaryKeywords: ["JetLuxe pricing","private jet rates","jet charter cost"]
+ogTitle: "Private Jet Costs: Complete Pricing Guide with JetLuxe"
+ogImage: "https://images.unsplash.com/photo-1542010589005-5e0b0f2cfe5a"
+canonical: "https://managerius.com/blog/private-jet-cost-breakdown"
+readingTimeMinutes: 6
+---
+
+Understanding private jet costs helps you make informed decisions and avoid unexpected expenses. Here's a transparent breakdown of what you'll pay.
+
+## Hourly Rates by Aircraft Type
+
+**Light Jets**: $2,500-$4,500/hour
+- Citation CJ3+: $3,200-$4,200/hour
+- Phenom 300: $2,800-$3,800/hour
+
+**Midsize Jets**: $4,000-$7,000/hour
+- Citation XLS+: $4,500-$6,000/hour
+- Challenger 350: $5,500-$7,000/hour
+
+**Heavy Jets**: $7,000-$15,000/hour
+- Gulfstream G550: $8,500-$12,000/hour
+- Bombardier Global 6000: $10,000-$15,000/hour
+
+## Additional Costs to Consider
+
+**Landing Fees**: $200-$2,000 per airport
+**Overnight Fees**: $1,000-$3,000 per night
+**Catering**: $50-$200 per person
+**Ground Transportation**: $200-$1,000 per trip
+**International Fees**: $500-$2,000 per flight
+
+## Cost Variables
+
+**Peak Season**: 20-50% higher rates during holidays and major events
+**Last-Minute Bookings**: 15-30% premium for bookings within 48 hours
+**Empty Leg Flights**: 30-70% discount on one-way flights
+**Jet Cards**: Prepaid hours with guaranteed availability and fixed pricing
+
+## Tips to Reduce Costs
+
+- Book during off-peak seasons
+- Consider empty leg flights for one-way trips
+- Share costs with other passengers
+- Plan flexible departure times
+- Share costs with other passengers
+- Book during off-peak seasons`,
+    date: "December 19, 2024",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center",
+    category: "Cost Analysis",
+    tags: ["private jet cost", "pricing", "charter costs", "aviation pricing"],
+    published: true,
+    scheduled: false,
+    seoTitle: "The True Cost of Flying Private: Transparent Price Breakdown",
+    seoDescription: "Understand private jet pricing—hourly rates, fees, variables—and how to avoid surprise costs.",
+    seoKeywords: ["private jet cost", "jet charter pricing", "aviation costs", "private jet rates"],
+    author: "Managerius Team",
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
+  },
+  {
+    id: "empty-leg-private-flights",
+    title: "Empty-Leg Flights Explained: How to Fly Private for Less",
+    excerpt: "What empty legs are, how to find them, and smart tips to secure the best private jet deals.",
+    content: `---
+title: "Empty-Leg Flights Explained: How to Fly Private for Less"
+slug: "empty-leg-private-flights"
+description: "What empty legs are, how to find them, and smart tips to secure the best private jet deals."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0"
+tags: ["empty leg flights","JetLuxe deals","private jet savings","aviation discounts"]
+primaryKeyword: "empty leg flights"
+secondaryKeywords: ["JetLuxe empty legs","private jet deals","discounted jet charter"]
+ogTitle: "Empty Leg Flights: Save 70% on Private Jet Travel with JetLuxe"
+ogImage: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0"
+canonical: "https://managerius.com/blog/empty-leg-private-flights"
+readingTimeMinutes: 5
+---
+
+Empty-leg flights offer significant savings on private jet travel. Learn how to find and book these discounted flights for your next trip.
+
+## What Are Empty Leg Flights?
+
+Empty-leg flights occur when a private jet needs to return to its base or reposition for the next charter. These flights are sold at discounted rates, typically 30-70% off regular charter prices.
+
+## How to Find Empty Leg Flights
+
+**Online Platforms**: Use specialized websites and apps that aggregate empty leg listings from multiple operators.
+
+**Direct with Operators**: Contact charter companies directly to inquire about upcoming empty legs on your desired routes.
+
+**Broker Services**: Work with aviation brokers who have access to extensive empty leg networks.
+
+## Popular Empty Leg Routes
+
+**Domestic**: New York ↔ Miami, Los Angeles ↔ Las Vegas, Chicago ↔ New York, Boston ↔ Florida, Dallas ↔ Los Angeles
+
+**International**: New York ↔ London, Miami ↔ Caribbean, Los Angeles ↔ Mexico, New York ↔ Europe, Miami ↔ South America
+
+## Booking Tips for Success
+
+- Be flexible with dates and times
+- Book well in advance when possible
+- Consider one-way trips
+- Have backup commercial options
+- Be flexible with dates and times
+- Book well in advance when possible
+- Consider one-way trips
+- Have backup commercial options`,
+    date: "December 19, 2024",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop&crop=center",
+    category: "Cost Savings",
+    tags: ["empty leg flights", "private jet deals", "cost savings", "aviation discounts"],
+    published: true,
+    scheduled: false,
+    seoTitle: "Empty-Leg Flights Explained: How to Fly Private for Less",
+    seoDescription: "What empty legs are, how to find them, and smart tips to secure the best private jet deals.",
+    seoKeywords: ["empty leg flights", "private jet deals", "discounted jets", "aviation savings"],
+    author: "Managerius Team",
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
+  },
+  {
+    id: "private-jet-safety-standards",
+    title: "Private Jet Safety Standards: What Really Matters",
+    excerpt: "Safety first: certifications, operator audits, pilot hours, and questions to ask before you book.",
+    content: `---
+title: "Private Jet Safety Standards: What Really Matters"
+slug: "private-jet-safety-standards"
+description: "Safety first: certifications, operator audits, pilot hours, and questions to ask before you book."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1508614999368-9260051291ea"
+tags: ["private jet safety","JetLuxe safety","aviation safety","flight safety"]
+primaryKeyword: "private jet safety"
+secondaryKeywords: ["JetLuxe safety standards","aviation safety","jet charter safety"]
+ogTitle: "Private Jet Safety: JetLuxe's Commitment to Aviation Excellence"
+ogImage: "https://images.unsplash.com/photo-1508614999368-9260051291ea"
+canonical: "https://managerius.com/blog/private-jet-safety-standards"
+readingTimeMinutes: 6
+---
+
+Safety is paramount in private aviation. Understanding safety standards helps you choose the right operator and fly with confidence.
+
+## Operator Certifications
+
+**Part 135 Certification**: Required for commercial charter operations in the US
+**ARGUS Rating**: Industry safety rating system (Platinum, Gold, Silver)
+**Wyvern Rating**: Comprehensive safety audit and rating system
+**IS-BAO Certification**: International standard for business aircraft operations
+
+## Pilot Requirements
+
+**Flight Hours**: Minimum 1,500-3,000 hours depending on aircraft type
+**Type Ratings**: Specific training for each aircraft model
+**Recency Requirements**: Regular training and proficiency checks
+**Background Checks**: Comprehensive screening and drug testing
+
+## Aircraft Maintenance
+
+**Daily Inspections**: Pre-flight checks by qualified mechanics
+**Annual Inspections**: Comprehensive maintenance programs
+**Component Overhauls**: Regular replacement of critical parts
+**Safety Equipment**: Emergency equipment and survival gear
+
+## Questions to Ask Your Operator
+
+- What safety certifications do you hold?
+- How many flight hours do your pilots have?
+- What is your safety record?
+- Do you have insurance coverage?
+- What emergency procedures are in place?
+
+## Red Flags to Avoid
+
+- Operators without proper certifications
+- Pilots with insufficient experience
+- Aircraft with maintenance issues
+- Lack of insurance coverage
+- Poor safety record or reputation`,
+    date: "December 19, 2024",
     readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=450&fit=crop&crop=center",
-    category: "Luxury",
-    tags: ["luxury", "interiors", "design", "customization"],
+    category: "Safety",
+    tags: ["private jet safety", "aviation safety", "jet safety standards", "flight safety"],
     published: true,
     scheduled: false,
-    seoTitle: "Luxury Private Jet Interiors: The Most Exclusive Aircraft Designs",
-    seoDescription: "Explore the world's most opulent private jet interiors featuring custom designs, cutting-edge amenities, and sustainable luxury materials.",
-    seoKeywords: ["private jet interiors", "luxury aviation", "custom aircraft", "jet design"],
+    seoTitle: "Private Jet Safety Standards: What Really Matters",
+    seoDescription: "Safety first: certifications, operator audits, pilot hours, and questions to ask before you book.",
+    seoKeywords: ["private jet safety", "aviation safety standards", "jet safety", "flight safety"],
     author: "Managerius Team",
-    views: 892,
-    likes: 67,
-    createdAt: "2025-03-18T10:00:00Z",
-    updatedAt: "2025-03-18T10:00:00Z"
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
   },
   {
-    id: "business-aviation-trends",
-    title: "Business Aviation Trends: What Executives Need to Know",
-    excerpt: "How private aviation is evolving to meet the demands of modern business travel and productivity.",
-    content: `The business aviation industry is experiencing unprecedented growth and transformation, driven by changing work patterns, technological advances, and evolving executive expectations.
+    id: "private-jet-destinations-2025",
+    title: "Top Luxury Destinations by Private Jet in 2025",
+    excerpt: "12 stunning destinations ideal for private jets—best seasons, nearest airports, and trip tips.",
+    content: `---
+title: "Top Luxury Destinations by Private Jet in 2025"
+slug: "private-jet-destinations-2025"
+description: "12 stunning destinations ideal for private jets—best seasons, nearest airports, and trip tips."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+tags: ["private jet destinations","JetLuxe travel","luxury destinations","jet travel 2025"]
+primaryKeyword: "private jet destinations"
+secondaryKeywords: ["JetLuxe destinations","luxury jet travel","private jet travel 2025"]
+ogTitle: "Top Private Jet Destinations 2025: JetLuxe's Luxury Travel Guide"
+ogImage: "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+canonical: "https://managerius.com/blog/private-jet-destinations-2025"
+readingTimeMinutes: 8
+---
 
-## The Rise of Hybrid Work
+Private jets open up a world of possibilities, allowing you to reach exclusive destinations with ease and comfort. Here are the top luxury destinations for 2025.
 
-As remote and hybrid work becomes the norm, executives are increasingly relying on private aviation to maintain productivity while traveling. Modern business jets are equipped with advanced connectivity and workspace solutions that enable seamless work-from-anywhere experiences.
+## Tropical Paradises
 
-## Technology Integration
+**St. Barts, Caribbean**: Exclusive island with pristine beaches and luxury resorts. Best: Dec-Apr, Airport: TFFJ
 
-Today's business aircraft are becoming flying offices, equipped with high-speed internet, video conferencing capabilities, and integrated productivity tools that allow executives to conduct business as effectively in the air as they would in their corporate headquarters.
+**Maldives**: Overwater bungalows and crystal-clear waters. Best: Nov-Apr, Airport: MLE
 
-## Sustainability in Business Aviation
+**French Riviera**: Cannes, Nice, and Monaco's glamorous coastline. Best: May-Sep, Airport: NCE
 
-Corporate sustainability goals are driving demand for more environmentally responsible aviation solutions. Companies are increasingly seeking carbon-neutral flight options and sustainable aviation fuels to align with their environmental commitments.
+**Aspen, Colorado**: World-class skiing and luxury mountain retreats. Best: Dec-Mar, Airport: ASE
 
-## The Future of Business Travel
+## Cultural Capitals
 
-As we look ahead, business aviation will continue to evolve to meet the changing needs of modern executives, with a focus on efficiency, sustainability, and seamless connectivity.`,
-    date: "March 15, 2025",
-    readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&crop=center",
-    category: "Business",
-    tags: ["business", "trends", "productivity", "executives"],
+**Tokyo, Japan**: Modern luxury meets ancient traditions. Best: Mar-May, Sep-Nov, Airports: NRT/HND
+
+**Dubai, UAE**: Ultra-modern luxury and world-class shopping. Best: Nov-Mar, Airport: DXB
+
+**London, UK**: Historic charm meets contemporary luxury. Best: May-Sep, Airports: LHR/LGW
+
+**New York, USA**: The ultimate urban luxury experience. Best: Apr-Jun, Sep-Nov, Airports: JFK/LGA
+
+## Adventure & Exclusivity
+
+**Patagonia, Chile**: Untamed wilderness and luxury eco-lodges. Best: Nov-Mar, Airport: SCL
+
+**Safari, Kenya**: Luxury tented camps and wildlife encounters. Best: Jul-Oct, Airport: NBO
+
+## Planning Your Luxury Getaway
+
+Best Practices: Book accommodations well in advance, consider seasonal weather patterns, plan for local customs and requirements, arrange ground transportation, check visa and entry requirements
+
+Private Jet Advantages: Access to smaller, exclusive airports, flexible departure times, direct flights to remote destinations, privacy and comfort en route, customized in-flight experience`,
+    date: "December 19, 2024",
+    readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop&crop=center",
+    category: "Destinations",
+    tags: ["private jet destinations", "luxury travel", "jet destinations 2025", "travel destinations"],
     published: true,
     scheduled: false,
-    seoTitle: "Business Aviation Trends 2024: What Executives Need to Know",
-    seoDescription: "Discover the latest trends in business aviation including hybrid work solutions, technology integration, and sustainability initiatives for modern executives.",
-    seoKeywords: ["business aviation", "executive travel", "private jets", "corporate aviation"],
+    seoTitle: "Top Luxury Destinations by Private Jet in 2025",
+    seoDescription: "12 stunning destinations ideal for private jets—best seasons, nearest airports, and trip tips.",
+    seoKeywords: ["private jet destinations", "luxury destinations", "jet travel 2025", "exclusive destinations"],
     author: "Managerius Team",
-    views: 1156,
-    likes: 78,
-    createdAt: "2025-03-15T10:00:00Z",
-    updatedAt: "2025-03-15T10:00:00Z"
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
   },
   {
     id: "private-jet-etiquette",
-    title: "The Art of Private Jet Etiquette",
-    excerpt: "Essential guidelines for first-time private jet travelers and seasoned flyers alike.",
-    content: `Private jet travel offers an unparalleled level of luxury and convenience, but it also comes with its own set of etiquette guidelines that ensure a smooth and enjoyable experience for all passengers.
+    title: "Private Jet Etiquette 101: Fly Like a Pro",
+    excerpt: "What to wear, when to arrive, luggage, pets, and onboard etiquette—confident, polished flying.",
+    content: `---
+title: "Private Jet Etiquette 101: Fly Like a Pro"
+slug: "private-jet-etiquette"
+description: "What to wear, when to arrive, luggage, pets, and onboard etiquette—confident, polished flying."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1573497491208-6b1acb260507"
+tags: ["private jet etiquette","JetLuxe etiquette","luxury travel tips","aviation manners"]
+primaryKeyword: "private jet etiquette"
+secondaryKeywords: ["JetLuxe etiquette guide","jet travel manners","private aviation etiquette"]
+ogTitle: "Private Jet Etiquette: JetLuxe's Complete Guide to Flying Like a Pro"
+ogImage: "https://images.unsplash.com/photo-1573497491208-6b1acb260507"
+canonical: "https://managerius.com/blog/private-jet-etiquette"
+readingTimeMinutes: 6
+---
 
-## Boarding and Departure
+Mastering private jet etiquette ensures a smooth, professional experience for you and your fellow passengers. Here's your complete guide to flying private with confidence.
 
-Arriving on time is crucial in private aviation, as delays can affect not just your flight but potentially other passengers' schedules. Most private jet terminals offer expedited security and customs processes, but it's still important to arrive with adequate time for pre-flight preparations.
+## Arrival & Boarding
 
-## In-Flight Etiquette
+**Arrival Time**: Arrive 15-30 minutes before departure
+**Security**: Be prepared for security screening
+**Luggage**: Pack efficiently and within weight limits
+**Pets**: Notify operator in advance if bringing pets
 
-While private jets offer more relaxed environments than commercial flights, certain etiquette guidelines help maintain the sophisticated atmosphere. This includes being respectful of other passengers' space, keeping noise levels appropriate, and following the crew's instructions.
+## Dress Code
 
-## Dress Code Considerations
+**Business Travel**: Smart business attire
+**Leisure Travel**: Smart casual or resort wear
+**Avoid**: Overly casual clothing, flip-flops, tank tops
+**Consider**: Comfortable shoes for easy removal during security
 
-While private jet travel is generally more casual than commercial aviation, it's important to dress appropriately for the occasion and the other passengers. When in doubt, business casual is usually a safe choice.
+## Onboard Behavior
 
-## Tipping and Gratuity
+**Respect Crew**: Follow crew instructions and be courteous
+**Noise Levels**: Keep conversations at appropriate volumes
+**Personal Space**: Be mindful of other passengers' comfort
+**Electronic Devices**: Follow crew guidance on device usage
 
-Tipping practices in private aviation can vary, but it's generally appreciated to tip the crew for exceptional service. The amount is typically discretionary and based on the length of the flight and the level of service provided.
+## Luggage Guidelines
 
-## Making the Most of Your Experience
+**Weight Limits**: Typically 50-100 lbs per passenger
+**Size Restrictions**: Check with operator for specific limits
+**Valuables**: Keep important items in carry-on
+**Fragile Items**: Pack carefully and inform crew
 
-Private jet travel is about more than just transportation—it's about the experience. Take time to appreciate the luxury amenities, enjoy the personalized service, and make the most of the unique opportunities that private aviation provides.`,
-    date: "March 12, 2025",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
-    category: "Travel Tips",
-    tags: ["etiquette", "travel", "tips", "guidelines"],
-    published: true,
-    scheduled: false,
-    seoTitle: "Private Jet Etiquette: Essential Guidelines for Luxury Travel",
-    seoDescription: "Master the art of private jet etiquette with our comprehensive guide covering boarding, in-flight behavior, dress codes, and tipping practices.",
-    seoKeywords: ["private jet etiquette", "luxury travel", "aviation manners", "jet travel tips"],
-    author: "Managerius Team",
-    views: 743,
-    likes: 45,
-    createdAt: "2025-03-12T10:00:00Z",
-    updatedAt: "2025-03-12T10:00:00Z"
-  },
-  {
-    id: "global-hotspots-2024",
-    title: "Global Hotspots: Where the Elite Are Flying in 2024",
-    excerpt: "Discover the trending destinations that are attracting private jet travelers this year.",
-    content: `The world of private aviation is constantly evolving, with new destinations emerging as hotspots for elite travelers. In 2024, several locations have captured the attention of private jet enthusiasts worldwide.
+## Do's and Don'ts
 
-## European Renaissance
+**Do's**: Be respectful to crew and passengers, keep conversations appropriate, follow crew instructions, use headphones for entertainment, keep the cabin clean and tidy, be mindful of noise levels
 
-Europe continues to be a major destination for private aviation, with cities like Monaco, St. Moritz, and the French Riviera remaining perennial favorites. However, emerging destinations like Porto, Portugal, and the Greek islands are gaining popularity among discerning travelers.
-
-## Asian Markets
-
-Asia's private aviation market is experiencing rapid growth, with destinations like Singapore, Hong Kong, and Tokyo leading the way. The region's economic growth and increasing wealth are driving demand for private aviation services.
-
-## Middle Eastern Luxury
-
-The Middle East remains a key market for private aviation, with Dubai, Abu Dhabi, and Riyadh serving as major hubs. These cities offer world-class facilities and services that cater to the most demanding private aviation clients.
-
-## Emerging Destinations
-
-Several emerging destinations are attracting attention from private jet travelers, including the Caribbean islands, the Maldives, and various African safari destinations. These locations offer unique experiences that can't be replicated elsewhere.
-
-## The Future of Private Aviation Destinations
-
-As the industry continues to grow, we can expect to see new destinations emerge and existing ones evolve to meet the changing needs and preferences of private aviation clients.`,
-    date: "March 10, 2025",
-    readTime: "9 min read",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop&crop=center",
-    category: "Destinations",
-    tags: ["destinations", "travel", "elite", "hotspots"],
-    published: true,
-    scheduled: false,
-    seoTitle: "Global Hotspots 2024: Where the Elite Are Flying This Year",
-    seoDescription: "Explore the trending destinations attracting private jet travelers in 2024, from European hotspots to emerging Asian markets and luxury destinations.",
-    seoKeywords: ["private jet destinations", "luxury travel", "elite travel", "jet travel 2024"],
-    author: "Managerius Team",
-    views: 1567,
-    likes: 112,
-    createdAt: "2025-03-10T10:00:00Z",
-    updatedAt: "2025-03-10T10:00:00Z"
-  },
-  {
-    id: "private-jet-safety",
-    title: "Behind the Scenes: Private Jet Operations and Safety",
-    excerpt: "An insider look at the rigorous safety standards and operational excellence in private aviation.",
-    content: `Private aviation is built on a foundation of safety and operational excellence that goes far beyond what most passengers ever see. Behind the scenes, a complex network of professionals works tirelessly to ensure every flight meets the highest safety standards.
-
-## Rigorous Safety Standards
-
-Private aviation operates under some of the most stringent safety regulations in the industry. From pilot training and certification to aircraft maintenance and inspection, every aspect of private aviation is subject to rigorous oversight and continuous improvement.
-
-## Advanced Technology
-
-Modern private jets are equipped with cutting-edge safety technology, including advanced weather radar, terrain awareness systems, and automated flight management systems that help pilots navigate safely in all conditions.
-
-## Crew Training and Certification
-
-Private aviation crews undergo extensive training and certification processes that often exceed commercial aviation standards. This includes regular simulator training, emergency procedures practice, and ongoing education to stay current with the latest safety protocols.
-
-## Maintenance Excellence
-
-Aircraft maintenance in private aviation is conducted by highly skilled technicians using the most advanced tools and techniques. Every component is inspected, tested, and maintained to the highest standards to ensure optimal performance and safety.
-
-## The Human Factor
-
-While technology plays a crucial role in aviation safety, the human factor remains paramount. Private aviation crews are selected not just for their technical skills, but for their ability to make sound decisions under pressure and provide exceptional service while maintaining the highest safety standards.
-
-## Continuous Improvement
-
-Safety in private aviation is not a destination but a journey. The industry is constantly evolving, with new technologies, procedures, and best practices being developed and implemented to ensure that private aviation remains one of the safest forms of transportation available.`,
-    date: "March 8, 2025",
+**Don'ts**: Don't be overly demanding, avoid controversial or offensive topics, don't interfere with crew duties, avoid excessive alcohol consumption, don't leave personal items scattered, avoid loud phone conversations`,
+    date: "December 19, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center",
-    category: "Safety",
-    tags: ["safety", "operations", "standards", "aviation"],
+    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
+    category: "Etiquette",
+    tags: ["private jet etiquette", "jet travel etiquette", "aviation manners", "luxury travel tips"],
     published: true,
     scheduled: false,
-    seoTitle: "Private Jet Safety: Behind the Scenes of Aviation Excellence",
-    seoDescription: "Get an insider look at the rigorous safety standards, advanced technology, and operational excellence that make private aviation one of the safest forms of travel.",
-    seoKeywords: ["private jet safety", "aviation safety", "jet operations", "flight safety"],
+    seoTitle: "Private Jet Etiquette 101: Fly Like a Pro",
+    seoDescription: "What to wear, when to arrive, luggage, pets, and onboard etiquette—confident, polished flying.",
+    seoKeywords: ["private jet etiquette", "jet travel manners", "aviation etiquette", "luxury travel etiquette"],
     author: "Managerius Team",
-    views: 934,
-    likes: 56,
-    createdAt: "2025-03-08T10:00:00Z",
-    updatedAt: "2025-03-08T10:00:00Z"
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
+  },
+  {
+    id: "business-private-jet-travel",
+    title: "Business Travel, Upgraded: Why Executives Choose Private Jets",
+    excerpt: "Cut dead time, protect confidentiality, and arrive ready—why private aviation fits executive schedules.",
+    content: `---
+title: "Business Travel, Upgraded: Why Executives Choose Private Jets"
+slug: "business-private-jet-travel"
+description: "Cut dead time, protect confidentiality, and arrive ready—why private aviation fits executive schedules."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107"
+tags: ["business private jet travel","JetLuxe business","executive travel","corporate aviation"]
+primaryKeyword: "business private jet travel"
+secondaryKeywords: ["JetLuxe business travel","executive jet charter","corporate aviation"]
+ogTitle: "Business Travel Revolution: Why Executives Choose JetLuxe"
+ogImage: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107"
+canonical: "https://managerius.com/blog/business-private-jet-travel"
+readingTimeMinutes: 6
+---
+
+Private jets aren't just about luxury—they're essential tools for modern executives who value time, security, and productivity. Here's why business leaders choose private aviation.
+
+## Time Efficiency
+
+**No Airport Delays**: Skip security lines, gate waiting, and baggage claim
+**Direct Flights**: Avoid connections and layovers
+**Flexible Scheduling**: Depart and arrive on your timeline
+**Closer Airports**: Land at smaller airports near your destination
+
+## Productivity Benefits
+
+**Work in Flight**: Conduct meetings, review documents, make calls
+**Reliable Connectivity**: High-speed internet and phone service
+**Quiet Environment**: Focus without distractions
+**Team Collaboration**: Meet with colleagues in private
+
+## Security & Confidentiality
+
+**Private Discussions**: Conduct sensitive business without eavesdropping
+**Document Security**: Keep confidential materials secure
+**Controlled Environment**: Know exactly who's on your flight
+**Data Protection**: Secure communications and information
+
+## ROI of Private Business Travel
+
+**Time Savings**: 3-5 hours saved per trip, direct flights vs. connections, no airport waiting time, closer arrival airports, immediate departure capability
+
+**Productivity Gains**: Work during travel time, arrive refreshed and ready, maintain business continuity, handle urgent matters in-flight, maximize meeting effectiveness`,
+    date: "December 19, 2024",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&crop=center",
+    category: "Business",
+    tags: ["business private jet travel", "executive travel", "corporate aviation", "business aviation"],
+    published: true,
+    scheduled: false,
+    seoTitle: "Business Travel, Upgraded: Why Executives Choose Private Jets",
+    seoDescription: "Cut dead time, protect confidentiality, and arrive ready—why private aviation fits executive schedules.",
+    seoKeywords: ["business private jet travel", "executive aviation", "corporate jets", "business travel"],
+    author: "Managerius Team",
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
+  },
+  {
+    id: "jet-card-vs-charter",
+    title: "Jet Card vs On-Demand Charter: Which One Saves More?",
+    excerpt: "Compare jet cards vs. on-demand: cost, flexibility, blackout dates, commitment—choose what fits you.",
+    content: `---
+title: "Jet Card vs On-Demand Charter: Which One Saves More?"
+slug: "jet-card-vs-charter"
+description: "Compare jet cards vs. on-demand: cost, flexibility, blackout dates, commitment—choose what fits you."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1495020689067-958852a7765e"
+tags: ["jet card vs charter","JetLuxe options","private jet comparison","aviation choices"]
+primaryKeyword: "jet card vs charter"
+secondaryKeywords: ["JetLuxe jet cards","private jet options","jet charter comparison"]
+ogTitle: "Jet Card vs Charter: JetLuxe's Complete Comparison Guide"
+ogImage: "https://images.unsplash.com/photo-1495020689067-958852a7765e"
+canonical: "https://managerius.com/blog/jet-card-vs-charter"
+readingTimeMinutes: 7
+---
+
+Choosing between jet cards and on-demand charter depends on your travel patterns and preferences. Here's a detailed comparison to help you decide.
+
+## Jet Cards: Prepaid Flight Hours
+
+**How They Work**: Purchase a block of flight hours upfront
+**Pricing**: Fixed hourly rates with guaranteed availability
+**Commitment**: Typically 1-2 year contracts
+**Flexibility**: Limited to specific aircraft types and operators
+
+## On-Demand Charter: Pay Per Flight
+
+**How They Work**: Book individual flights as needed
+**Pricing**: Market rates that vary by demand and season
+**Commitment**: No long-term contracts required
+**Flexibility**: Choose from any available aircraft and operator
+
+## Cost Comparison
+
+| Factor | Jet Cards | On-Demand |
+|--------|----------|---------|
+| Upfront Cost | High | None |
+| Hourly Rate | Fixed | Variable |
+| Cost Predictability | High | Low |
+| Flexibility | Medium | High |
+| Availability | High | Medium |
+| Commitment | High | None |
+| Best For | Frequent flyers | Occasional flyers |
+
+## When to Choose Jet Cards
+
+- Fly 25+ hours per year
+- Want predictable pricing
+- Need guaranteed availability
+- Prefer consistent service
+- Don't mind long-term commitment
+
+## When to Choose On-Demand
+
+- Fly less than 25 hours per year
+- Want maximum flexibility
+- Prefer no long-term commitment
+- Like to compare options
+- Have varying travel needs`,
+    date: "December 19, 2024",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
+    category: "Comparison",
+    tags: ["jet card vs charter", "private jet options", "aviation comparison", "jet cards"],
+    published: true,
+    scheduled: false,
+    seoTitle: "Jet Card vs On-Demand Charter: Which One Saves More?",
+    seoDescription: "Compare jet cards vs. on-demand: cost, flexibility, blackout dates, commitment—choose what fits you.",
+    seoKeywords: ["jet card vs charter", "private jet options", "jet cards", "charter comparison"],
+    author: "Managerius Team",
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
+  },
+  {
+    id: "sustainable-private-aviation",
+    title: "Sustainability in Private Aviation: The Future of Eco-Luxury",
+    excerpt: "Offsets, SAF, newer fleets, and how private fliers can reduce impact without sacrificing comfort.",
+    content: `---
+title: "Sustainability in Private Aviation: The Future of Eco-Luxury"
+slug: "sustainable-private-aviation"
+description: "Offsets, SAF, newer fleets, and how private fliers can reduce impact without sacrificing comfort."
+author: "Managerius Editorial"
+date: "2025-10-20"
+coverImage: "https://images.unsplash.com/photo-1604147706283-3b5b09c9d8b5"
+tags: ["sustainable private aviation","JetLuxe eco","green aviation","sustainable travel"]
+primaryKeyword: "sustainable private aviation"
+secondaryKeywords: ["JetLuxe sustainability","eco-friendly jets","green aviation"]
+ogTitle: "Sustainable Private Aviation: JetLuxe's Eco-Luxury Future"
+ogImage: "https://images.unsplash.com/photo-1604147706283-3b5b09c9d8b5"
+canonical: "https://managerius.com/blog/sustainable-private-aviation"
+readingTimeMinutes: 6
+---
+
+Private aviation is embracing sustainability through innovative technologies and practices that reduce environmental impact while maintaining luxury and performance.
+
+## Sustainable Aviation Fuels (SAF)
+
+**What is SAF**: Renewable fuels made from waste oils, agricultural residues, and other sustainable sources
+**Benefits**: Up to 80% reduction in carbon emissions compared to conventional jet fuel
+**Availability**: Increasing availability at major airports worldwide
+**Cost**: Currently 2-5x more expensive than conventional fuel
+
+## Carbon Offset Programs
+
+**How They Work**: Calculate flight emissions and purchase verified carbon credits
+**Offset Projects**: Reforestation, renewable energy, methane capture
+**Verification**: Look for Gold Standard or Verified Carbon Standard certification
+**Cost**: Typically $10-50 per ton of CO2 offset
+
+## Newer, More Efficient Aircraft
+
+**Latest Models**: Bombardier Global 7500, Gulfstream G700, Dassault Falcon 8X
+**Efficiency Gains**: 15-30% better fuel efficiency than older aircraft
+**Technology**: Advanced aerodynamics, lighter materials, optimized engines
+**Investment**: New aircraft represent significant environmental improvement
+
+## Electric and Hybrid Aircraft
+
+**Current Status**: Small electric aircraft in development for short-haul flights
+**Timeline**: Commercial electric jets expected by 2030-2035
+**Benefits**: Zero direct emissions, quieter operation
+**Limitations**: Current battery technology limits range and payload
+
+## How to Fly More Sustainably
+
+- Choose operators with strong sustainability programs
+- Purchase verified carbon offsets for your travel
+- Choose direct flights and newer aircraft
+- Support sustainable operators`,
+    date: "December 19, 2024",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop&crop=center",
+    category: "Sustainability",
+    tags: ["sustainable private aviation", "eco-friendly jets", "green aviation", "sustainable travel"],
+    published: true,
+    scheduled: false,
+    seoTitle: "Sustainability in Private Aviation: The Future of Eco-Luxury",
+    seoDescription: "Offsets, SAF, newer fleets, and how private fliers can reduce impact without sacrificing comfort.",
+    seoKeywords: ["sustainable private aviation", "eco-friendly jets", "green aviation", "sustainable travel"],
+    author: "Managerius Team",
+    views: 0,
+    likes: 0,
+    createdAt: "2024-12-19T10:00:00Z",
+    updatedAt: "2024-12-19T10:00:00Z"
   }
 ];
 
-// Utility function to parse markdown to HTML
-export const parseMarkdownToHtml = (markdown: string): string => {
-  if (!markdown) return '';
-  
-  // Configure marked options
-  marked.setOptions({
-    breaks: true,
-    gfm: true,
-    headerIds: false,
-    mangle: false
-  });
-  
-  return marked(markdown);
+// Helper function to convert markdown to HTML
+export const convertMarkdownToHtml = (markdown: string): string => {
+  return marked.parse(markdown) as string;
 };
 
 // Blog data management functions
@@ -290,8 +734,15 @@ export class BlogDataManager {
     const stored = localStorage.getItem(this.STORAGE_KEY);
     if (stored) {
       try {
-        return JSON.parse(stored);
+        const parsed = JSON.parse(stored);
+        // If we have fewer posts than our default, reinitialize with updated data
+        if (parsed.length < defaultBlogPosts.length) {
+          this.saveBlogPosts(defaultBlogPosts);
+          return defaultBlogPosts;
+        }
+        return parsed;
       } catch {
+        this.saveBlogPosts(defaultBlogPosts);
         return defaultBlogPosts;
       }
     }
@@ -311,26 +762,23 @@ export class BlogDataManager {
     return posts.find(post => post.id === id) || null;
   }
 
-  static addBlogPost(post: Omit<BlogPost, 'createdAt' | 'updatedAt'>): BlogPost {
-    const posts = this.getBlogPosts();
-    const now = new Date().toISOString();
+  static addBlogPost(post: Omit<BlogPost, 'id' | 'createdAt' | 'updatedAt' | 'views' | 'likes'>): BlogPost {
     const newPost: BlogPost = {
       ...post,
-      tags: post.tags || [],
-      scheduled: post.scheduled || false,
-      author: post.author || 'Managerius Team',
-      views: post.views || 0,
-      likes: post.likes || 0,
-      createdAt: now,
-      updatedAt: now
+      id: this.generateId(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      views: 0,
+      likes: 0
     };
-    
-    posts.unshift(newPost); // Add to beginning
+
+    const posts = this.getBlogPosts();
+    posts.unshift(newPost);
     this.saveBlogPosts(posts);
     return newPost;
   }
 
-  static updateBlogPost(id: string, updates: Partial<Omit<BlogPost, 'id' | 'createdAt'>>): BlogPost | null {
+  static updateBlogPost(id: string, updates: Partial<BlogPost>): BlogPost | null {
     const posts = this.getBlogPosts();
     const index = posts.findIndex(post => post.id === id);
     
@@ -358,5 +806,20 @@ export class BlogDataManager {
 
   static getPublishedPosts(): BlogPost[] {
     return this.getBlogPosts().filter(post => post.published);
+  }
+
+  static refreshBlogData(): void {
+    if (typeof window === 'undefined') return;
+    this.saveBlogPosts(defaultBlogPosts);
+  }
+
+  static clearAndReinitialize(): void {
+    if (typeof window === 'undefined') return;
+    localStorage.removeItem(this.STORAGE_KEY);
+    this.saveBlogPosts(defaultBlogPosts);
+  }
+
+  private static generateId(): string {
+    return Math.random().toString(36).substr(2, 9);
   }
 }

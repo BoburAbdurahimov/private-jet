@@ -1,42 +1,52 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 interface SEOHeadProps {
-  title?: string;
-  description?: string;
-  keywords?: string;
+  title: string;
+  description: string;
+  canonical: string;
+  ogTitle?: string;
+  ogImage?: string;
+  coverImage?: string;
 }
 
-export const SEOHead = ({
-  title = "Elysium Jets - Premium Private Aviation Services",
-  description = "Experience unparalleled luxury with Elysium Jets' exclusive private jet charter services. Travel in comfort, style, and privacy to destinations worldwide.",
-  keywords = "private jet, charter, aviation, luxury travel, business aviation, private aircraft, jet rental"
+const SEOHead = ({ 
+  title, 
+  description, 
+  canonical, 
+  ogTitle, 
+  ogImage, 
+  coverImage 
 }: SEOHeadProps) => {
+  const imageUrl = ogImage || coverImage;
+  
   useEffect(() => {
     // Update document title
     document.title = title;
     
     // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
+    let metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', description);
     } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = description;
-      document.head.appendChild(meta);
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      metaDescription.content = description;
+      document.head.appendChild(metaDescription);
     }
     
-    // Update meta keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords);
+    // Update canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', canonical);
     } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = keywords;
-      document.head.appendChild(meta);
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      canonicalLink.setAttribute('href', canonical);
+      document.head.appendChild(canonicalLink);
     }
-  }, [title, description, keywords]);
-
-  return null; // This component doesn't render anything
+  }, [title, description, canonical]);
+  
+  return null;
 };
+
+export default SEOHead;

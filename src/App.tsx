@@ -28,17 +28,24 @@ import SimpleAdminBlogForm from "./pages/SimpleAdminBlogForm";
 import AdvancedAdminBlogForm from "./pages/AdvancedAdminBlogForm";
 import AdminBlogForm from "./pages/AdminBlogForm";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ErrorBoundary from "./components/ErrorBoundary";
 import NotFound from "./pages/NotFound";
+import ServerError from "./pages/ServerError";
+import BadGateway from "./pages/BadGateway";
+import ServiceUnavailable from "./pages/ServiceUnavailable";
+import Forbidden from "./pages/Forbidden";
+import TooManyRequests from "./pages/TooManyRequests";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
+  <ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/partners" element={<Affiliates />} />
           <Route path="/blog" element={<Blog />} />
@@ -64,12 +71,19 @@ const App = () => (
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          {/* Error Pages */}
+          <Route path="/500" element={<ServerError />} />
+          <Route path="/502" element={<BadGateway />} />
+          <Route path="/503" element={<ServiceUnavailable />} />
+          <Route path="/403" element={<Forbidden />} />
+          <Route path="/429" element={<TooManyRequests />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;

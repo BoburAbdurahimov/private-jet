@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { SEOHead } from "@/components/SEOHead";
+import SEOHead from "@/components/SEOHead";
 import { Shield, Cookie, Settings, Eye } from "lucide-react";
 
 const CookiePolicy = () => {
@@ -9,7 +9,7 @@ const CookiePolicy = () => {
       <SEOHead 
         title="Cookie Policy - Managerius"
         description="Learn about how Managerius uses cookies and similar technologies to enhance your browsing experience."
-        keywords="cookie policy, privacy, data protection, Managerius"
+        canonical="https://managerius.com/cookie-policy"
       />
       <Navigation />
       

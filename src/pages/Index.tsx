@@ -11,7 +11,7 @@ const Testimonials = lazy(() => import("@/components/Testimonials").then(m => ({
 const FAQ = lazy(() => import("@/components/FAQ").then(m => ({ default: m.FAQ })));
 const Contact = lazy(() => import("@/components/Contact").then(m => ({ default: m.Contact })));
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
-import { SEOHead } from "@/components/SEOHead";
+import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   return (

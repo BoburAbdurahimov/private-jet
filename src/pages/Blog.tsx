@@ -10,6 +10,8 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Clear and reinitialize blog data to ensure latest posts are loaded
+    BlogDataManager.clearAndReinitialize();
     // Load published blog posts
     const publishedPosts = BlogDataManager.getPublishedPosts();
     setBlogPosts(publishedPosts);

@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { SEOHead } from "@/components/SEOHead";
+import SEOHead from "@/components/SEOHead";
 import { Shield, Lock, Eye, Users, Database } from "lucide-react";
 
 const PrivacyPolicy = () => {
@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
       <SEOHead 
         title="Privacy Policy - Managerius"
         description="Learn how Managerius collects, uses, and protects your personal information."
-        keywords="privacy policy, data protection, personal information, Managerius"
+        canonical="https://managerius.com/privacy-policy"
       />
       <Navigation />
       
