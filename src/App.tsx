@@ -29,6 +29,7 @@ import AdvancedAdminBlogForm from "./pages/AdvancedAdminBlogForm";
 import AdminBlogForm from "./pages/AdminBlogForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ErrorBoundary from "./components/ErrorBoundary";
+import SpeedInsights from "./components/SpeedInsights";
 import NotFound from "./pages/NotFound";
 import ServerError from "./pages/ServerError";
 import BadGateway from "./pages/BadGateway";
@@ -44,6 +45,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <SpeedInsights />
         <BrowserRouter>
           <Routes>
           <Route path="/" element={<Index />} />

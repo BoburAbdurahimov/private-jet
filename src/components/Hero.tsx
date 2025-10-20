@@ -3,9 +3,27 @@ import { ArrowRight, Play, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LazyImage } from "./LazyImage";
 import { ManageriusIcon } from "./ManageriusIcon";
+import { useSpeedInsights, SpeedInsightsEvents } from "@/hooks/useSpeedInsights";
 import heroJet from "@/assets/hero-jet.jpg";
 
 export const Hero = () => {
+  const { trackEvent, trackPageView } = useSpeedInsights();
+
+  const handleCTAClick = () => {
+    trackEvent(SpeedInsightsEvents.BUSINESS.CTA_CLICK, {
+      button: 'book-flight',
+      location: 'hero',
+      page: 'homepage'
+    });
+  };
+
+  const handleVideoClick = () => {
+    trackEvent('video_play', {
+      video: 'hero-video',
+      location: 'hero'
+    });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -35,7 +53,7 @@ export const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-          <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track">
+          <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track" onClick={handleCTAClick}>
             <Button variant="hero" size="hero" className="group">
               Book Your Flight
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
