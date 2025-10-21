@@ -43,6 +43,10 @@ export const Hero = () => {
           loading="eager"
           decoding="sync"
           fetchPriority="high"
+          onError={(e) => {
+            console.log('Image failed to load:', e);
+            e.currentTarget.style.display = 'none';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90"></div>
       </div>
@@ -50,6 +54,8 @@ export const Hero = () => {
       <div className="container mx-auto px-6 z-10 text-center pt-20">
         {/* Debug test */}
         <div className="text-white text-2xl mb-4">Hero Component is Rendering</div>
+        <div className="text-white text-lg mb-4">Domain: {window.location.hostname}</div>
+        <div className="text-white text-lg mb-4">Protocol: {window.location.protocol}</div>
         
         <div className="flex items-center justify-center gap-2 mb-8">
           <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
