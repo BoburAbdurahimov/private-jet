@@ -50,7 +50,14 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div style="background-color: #000; color: white; padding: 20px; text-align: center; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <div>
+          <h1 style="color: red; font-size: 24px;">Loading React App...</h1>
+          <p>If you see this for more than 5 seconds, there might be an issue.</p>
+        </div>
+      </div>
+    </div>
     <script>
       (function(){
         const u = new URL(location.href);
@@ -69,6 +76,16 @@
           document.querySelectorAll('.cta-track').forEach(btn => btn.addEventListener('click', logCTA));
         });
       })();
+    </script>
+    <script>
+      // Unregister any service workers that might be causing issues
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

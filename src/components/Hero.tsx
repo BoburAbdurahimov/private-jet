@@ -53,9 +53,18 @@ export const Hero = () => {
       
       <div className="container mx-auto px-6 z-10 text-center pt-20">
         {/* Debug test */}
-        <div className="text-white text-2xl mb-4">Hero Component is Rendering</div>
-        <div className="text-white text-lg mb-4">Domain: {window.location.hostname}</div>
-        <div className="text-white text-lg mb-4">Protocol: {window.location.protocol}</div>
+        <div style={{ color: 'white', fontSize: '24px', marginBottom: '20px', backgroundColor: 'red', padding: '10px' }}>
+          HERO COMPONENT IS RENDERING - IF YOU SEE THIS, THE COMPONENT WORKS
+        </div>
+        <div style={{ color: 'white', fontSize: '18px', marginBottom: '10px', backgroundColor: 'blue', padding: '5px' }}>
+          Domain: {window.location.hostname}
+        </div>
+        <div style={{ color: 'white', fontSize: '18px', marginBottom: '10px', backgroundColor: 'green', padding: '5px' }}>
+          Protocol: {window.location.protocol}
+        </div>
+        <div style={{ color: 'white', fontSize: '18px', marginBottom: '10px', backgroundColor: 'purple', padding: '5px' }}>
+          URL: {window.location.href}
+        </div>
         
         <div className="flex items-center justify-center gap-2 mb-8">
           <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />

@@ -49,13 +49,17 @@ const App = () => {
   }
   
   return (
-    <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <SpeedInsights />
-          <BrowserRouter>
+    <div style={{ backgroundColor: '#000', minHeight: '100vh', color: 'white' }}>
+      <div style={{ backgroundColor: 'red', padding: '20px', fontSize: '24px', textAlign: 'center' }}>
+        APP IS LOADING - IF YOU SEE THIS, REACT IS WORKING
+      </div>
+      <ErrorBoundary>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <SpeedInsights />
+            <BrowserRouter>
           <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/partners" element={<Affiliates />} />
@@ -95,6 +99,7 @@ const App = () => {
       </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>
+    </div>
   );
 };
 

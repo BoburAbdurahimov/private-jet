@@ -26,5 +26,9 @@ export default defineConfig(({ mode }) => ({
       }
     },
     chunkSizeWarningLimit: 1000
+  },
+  define: {
+    // Disable service worker
+    'process.env.NODE_ENV': JSON.stringify(mode)
   }
 }));
