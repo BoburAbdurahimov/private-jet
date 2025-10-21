@@ -25,13 +25,23 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{
+      background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'
+    }}>
       <div className="absolute inset-0 z-0">
-        <LazyImage 
-          src={heroJet} 
-          alt="Luxury private jet" 
-          className="w-full h-full opacity-40"
-        />
+        <picture>
+          <source srcSet={heroJet.replace('.jpg', '.webp')} type="image/webp" />
+          <img
+            src={heroJet}
+            alt="Luxury private jet"
+            className="w-full h-full object-cover opacity-40"
+            width={1920}
+            height={1080}
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
       </div>
       
