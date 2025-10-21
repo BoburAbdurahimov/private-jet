@@ -40,26 +40,14 @@ import TooManyRequests from "./pages/TooManyRequests";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Debug logging for production
-  console.log('App component rendering...');
-  
-  // Add a simple test to ensure the app is working
-  if (typeof window !== 'undefined') {
-    console.log('Window object available, app should render');
-  }
-  
   return (
-    <div style={{ backgroundColor: '#000', minHeight: '100vh', color: 'white' }}>
-      <div style={{ backgroundColor: 'red', padding: '20px', fontSize: '24px', textAlign: 'center' }}>
-        APP IS LOADING - IF YOU SEE THIS, REACT IS WORKING
-      </div>
-      <ErrorBoundary>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <SpeedInsights />
-            <BrowserRouter>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <SpeedInsights />
+          <BrowserRouter>
           <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/partners" element={<Affiliates />} />
@@ -99,7 +87,6 @@ const App = () => {
       </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>
-    </div>
   );
 };
 

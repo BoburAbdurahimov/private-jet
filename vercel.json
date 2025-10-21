@@ -24,10 +24,5 @@
         { "key": "X-XSS-Protection", "value": "1; mode=block" }
       ]
     }
-  ],
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "@vercel/node@3"
-    }
-  }
+  ]
 }

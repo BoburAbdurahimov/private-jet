@@ -6,9 +6,6 @@ import { ManageriusIcon } from "./ManageriusIcon";
 import heroJet from "@/assets/hero-jet.jpg";
 
 export const Hero = () => {
-  // Debug logging for production
-  console.log('Hero component rendering...');
-  
   // Temporarily disabled speed insights
   const trackEvent = (event: string, properties?: Record<string, any>) => {};
   const trackPageView = () => {};
@@ -52,20 +49,6 @@ export const Hero = () => {
       </div>
       
       <div className="container mx-auto px-6 z-10 text-center pt-20">
-        {/* Debug test */}
-        <div style={{ color: 'white', fontSize: '24px', marginBottom: '20px', backgroundColor: 'red', padding: '10px' }}>
-          HERO COMPONENT IS RENDERING - IF YOU SEE THIS, THE COMPONENT WORKS
-        </div>
-        <div style={{ color: 'white', fontSize: '18px', marginBottom: '10px', backgroundColor: 'blue', padding: '5px' }}>
-          Domain: {window.location.hostname}
-        </div>
-        <div style={{ color: 'white', fontSize: '18px', marginBottom: '10px', backgroundColor: 'green', padding: '5px' }}>
-          Protocol: {window.location.protocol}
-        </div>
-        <div style={{ color: 'white', fontSize: '18px', marginBottom: '10px', backgroundColor: 'purple', padding: '5px' }}>
-          URL: {window.location.href}
-        </div>
-        
         <div className="flex items-center justify-center gap-2 mb-8">
           <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
           <span className="text-sm font-medium text-white/80">Trusted by 500+ Elite Travelers</span>
