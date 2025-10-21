@@ -29,22 +29,28 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"
+      style={{ backgroundColor: '#0f172a' }}
+    >
       <div className="absolute inset-0 z-0">
         <img
           src={heroJet}
           alt="Luxury private jet"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-30"
           width={1920}
           height={1080}
           loading="eager"
           decoding="sync"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90"></div>
       </div>
       
       <div className="container mx-auto px-6 z-10 text-center pt-20">
+        {/* Debug test */}
+        <div className="text-white text-2xl mb-4">Hero Component is Rendering</div>
+        
         <div className="flex items-center justify-center gap-2 mb-8">
           <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
           <span className="text-sm font-medium text-white/80">Trusted by 500+ Elite Travelers</span>
