@@ -6,6 +6,9 @@ import { ManageriusIcon } from "./ManageriusIcon";
 import heroJet from "@/assets/hero-jet.jpg";
 
 export const Hero = () => {
+  // Debug logging for production
+  console.log('Hero component rendering...');
+  
   // Temporarily disabled speed insights
   const trackEvent = (event: string, properties?: Record<string, any>) => {};
   const trackPageView = () => {};
@@ -26,7 +29,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <img
           src={heroJet}
@@ -38,22 +41,22 @@ export const Hero = () => {
           decoding="sync"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
       </div>
       
       <div className="container mx-auto px-6 z-10 text-center pt-20">
         <div className="flex items-center justify-center gap-2 mb-8">
           <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-          <span className="text-sm font-medium text-muted-foreground">Trusted by 500+ Elite Travelers</span>
+          <span className="text-sm font-medium text-white/80">Trusted by 500+ Elite Travelers</span>
         </div>
         
-        <ManageriusIcon className="w-8 h-8 mx-auto mb-8 text-accent animate-float" />
+        <ManageriusIcon className="w-8 h-8 mx-auto mb-8 text-white animate-float" />
         
-        <h1 className="text-6xl md:text-8xl font-serif font-bold mb-6 animate-fade-in leading-tight">
+        <h1 className="text-6xl md:text-8xl font-serif font-bold mb-6 animate-fade-in leading-tight text-white">
           Meet us in the clouds.
         </h1>
         
-        <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in">
+        <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto animate-fade-in">
           Experience unparalleled luxury with our exclusive private jet charter service.
           Travel in comfort, style, and privacy to destinations worldwide.
         </p>
@@ -74,20 +77,20 @@ export const Hero = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto animate-fade-in">
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-1">5,000+</div>
-            <p className="text-sm text-muted-foreground">Airports Worldwide</p>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-1">5,000+</div>
+            <p className="text-sm text-white/70">Airports Worldwide</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-1">24/7</div>
-            <p className="text-sm text-muted-foreground">Concierge Service</p>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-1">24/7</div>
+            <p className="text-sm text-white/70">Concierge Service</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-1">99.8%</div>
-            <p className="text-sm text-muted-foreground">On-Time Performance</p>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-1">99.8%</div>
+            <p className="text-sm text-white/70">On-Time Performance</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary mb-1">2hr</div>
-            <p className="text-sm text-muted-foreground">Average Response</p>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-1">2hr</div>
+            <p className="text-sm text-white/70">Average Response</p>
           </div>
         </div>
       </div>
