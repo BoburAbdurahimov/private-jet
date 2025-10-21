@@ -2,10 +2,16 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Plane, Briefcase, Users, Star, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 
 const AirAcer = () => {
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Air Acer | Private Jet Charter Partner | Managerius"
+        description="Discover Air Acer's premium private jet charter services through our trusted partner network. Luxury aviation solutions for business and leisure travel."
+        canonical="https://managerius.com/air-acer"
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">

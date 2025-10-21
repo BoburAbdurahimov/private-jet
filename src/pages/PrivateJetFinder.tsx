@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight, Plane, Search, Shield, Star, TrendingDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
 
 const PrivateJetFinder = () => {
   useEffect(() => {
@@ -11,6 +12,11 @@ const PrivateJetFinder = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Private Jet Finder | Charter Services | Managerius"
+        description="Find the perfect private jet charter for your travel needs. Compare prices and book luxury aviation services through our comprehensive private jet finder platform."
+        canonical="https://managerius.com/private-jet-finder"
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">

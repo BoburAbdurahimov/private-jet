@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ExternalLink, Star, Globe, Users, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 
 const affiliates = [
   {
@@ -18,6 +19,11 @@ const affiliates = [
 const Affiliates = () => {
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Private Jet Partners | Luxury Aviation Network | Managerius"
+        description="Discover our trusted network of premium private jet charter partners. Access exclusive luxury aviation services through our verified partner network."
+        canonical="https://managerius.com/partners"
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">

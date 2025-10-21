@@ -60,6 +60,10 @@ export const Fleet = () => {
           <img 
             src={jetInterior} 
             alt="Luxury jet interior" 
+            width={1200}
+            height={600}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex items-end">

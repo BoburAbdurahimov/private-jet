@@ -20,18 +20,24 @@ const PrivateJetSafety = () => {
             </Link>
 
             <article className="prose prose-lg max-w-none">
-              <div className="mb-8">
-                <span className="bg-primary text-primary-foreground px-3 py-1 text-sm font-medium rounded-full">
+              {/* Header Section */}
+              <div className="mb-12">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <Calendar className="w-4 h-4" />
                   Safety
-                </span>
-                <h1 className="font-serif text-4xl md:text-5xl mt-6 mb-4">
+                </div>
+                <h1 className="font-serif text-5xl md:text-6xl mb-6">
                   Behind the Scenes: Private Jet Operations and Safety
                 </h1>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
+                <p className="text-xl text-muted-foreground mb-8">
+                  Safety is the cornerstone of private aviation, with rigorous standards and protocols that often exceed those of commercial airlines. Understanding the comprehensive safety measures in place provides confidence and peace of mind for private jet travelers.
+                </p>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     March 8, 2025
                   </div>
+                  <span>•</span>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
                     6 min read
@@ -39,10 +45,15 @@ const PrivateJetSafety = () => {
                 </div>
               </div>
               
-              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
+              {/* Featured Image */}
+              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-12">
                 <img 
                   src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center" 
                   alt="Private Jet Safety"
+                  width={800}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

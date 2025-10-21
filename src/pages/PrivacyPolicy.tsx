@@ -7,8 +7,8 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
       <SEOHead 
-        title="Privacy Policy - Managerius"
-        description="Learn how Managerius collects, uses, and protects your personal information."
+        title="Privacy Policy | Private Jet Charter Data Protection | Managerius"
+        description="Learn how Managerius protects your personal information when using our private jet charter services. Your privacy and data security are our priority."
         canonical="https://managerius.com/privacy-policy"
       />
       <Navigation />

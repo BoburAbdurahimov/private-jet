@@ -20,18 +20,24 @@ const BusinessAviationTrends = () => {
             </Link>
 
             <article className="prose prose-lg max-w-none">
-              <div className="mb-8">
-                <span className="bg-primary text-primary-foreground px-3 py-1 text-sm font-medium rounded-full">
+              {/* Header Section */}
+              <div className="mb-12">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <Calendar className="w-4 h-4" />
                   Business
-                </span>
-                <h1 className="font-serif text-4xl md:text-5xl mt-6 mb-4">
+                </div>
+                <h1 className="font-serif text-5xl md:text-6xl mb-6">
                   Business Aviation Trends: What Executives Need to Know
                 </h1>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
+                <p className="text-xl text-muted-foreground mb-8">
+                  Stay ahead of the curve with the latest trends shaping business aviation. From sustainability initiatives to technological innovations, discover what's driving the future of executive travel.
+                </p>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     March 15, 2025
                   </div>
+                  <span>•</span>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
                     7 min read
@@ -39,10 +45,15 @@ const BusinessAviationTrends = () => {
                 </div>
               </div>
 
-              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
+              {/* Featured Image */}
+              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-12">
                 <img 
                   src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&crop=center"
                   alt="Business Aviation Trends"
+                  width={800}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

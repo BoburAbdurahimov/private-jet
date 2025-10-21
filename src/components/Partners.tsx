@@ -45,6 +45,8 @@ export const Partners = () => {
                   <img 
                     src={partner.image} 
                     alt={partner.name}
+                    width={400}
+                    height={225}
                     loading="lazy"
                     decoding="async"
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

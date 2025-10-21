@@ -2,10 +2,16 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Plane, Shield, DollarSign, Star, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 
 const JetLuxe = () => {
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Jet Luxe | Premium Private Jet Charter | Managerius"
+        description="Experience Jet Luxe's premium private jet charter services with transparent pricing and exceptional luxury. Book your private flight through our trusted partner network."
+        canonical="https://managerius.com/jet-luxe"
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">

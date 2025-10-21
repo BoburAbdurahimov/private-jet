@@ -43,6 +43,10 @@ const GlobalHotspots2024 = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop&crop=center"
                   alt="Global Hotspots 2024"
+                  width={800}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

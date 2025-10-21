@@ -114,7 +114,7 @@ const AdvancedAdminBlogForm = () => {
 
   const insertImage = () => {
     if (imageUrl.trim()) {
-      execCommand('insertHTML', `<img src="${imageUrl}" alt="Image" style="max-width: 100%; height: auto; margin: 10px 0; border-radius: 8px;" />`);
+      execCommand('insertHTML', `<img src="${imageUrl}" alt="Blog post image" width="800" height="450" style="max-width: 100%; height: auto; margin: 10px 0; border-radius: 8px;" />`);
       setImageUrl("");
       setShowImageDialog(false);
     }

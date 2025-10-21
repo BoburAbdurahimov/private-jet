@@ -7,8 +7,8 @@ const CookiePolicy = () => {
   return (
     <div className="min-h-screen">
       <SEOHead 
-        title="Cookie Policy - Managerius"
-        description="Learn about how Managerius uses cookies and similar technologies to enhance your browsing experience."
+        title="Cookie Policy | Private Jet Charter Website | Managerius"
+        description="Learn about how Managerius uses cookies to enhance your private jet charter booking experience and improve our luxury aviation services."
         canonical="https://managerius.com/cookie-policy"
       />
       <Navigation />

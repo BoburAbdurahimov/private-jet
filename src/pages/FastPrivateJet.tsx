@@ -2,10 +2,16 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Plane, Zap, Clock, Star, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 
 const FastPrivateJet = () => {
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Fast Private Jet | Quick Charter Services | Managerius"
+        description="Book fast private jet charter services for urgent travel needs. Quick booking, immediate availability, and premium luxury aviation solutions."
+        canonical="https://managerius.com/fast-private-jet"
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">

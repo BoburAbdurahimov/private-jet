@@ -237,7 +237,19 @@ const PrivateJetEtiquette = () => {
                   href="https://valens.jetluxe.com/affiliate/managerius"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-medium transition-colors shadow-lg"
+                  style={{
+                    backgroundColor: '#2563eb',
+                    color: 'white',
+                    textDecoration: 'none',
+                    border: 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#1d4ed8';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#2563eb';
+                  }}
                 >
                   Book Your Flight <ArrowRight className="w-4 h-4" />
                 </a>

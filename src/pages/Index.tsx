@@ -17,9 +17,10 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead 
-        title="Managerius - Premium Private Aviation Services"
-        description="Experience unparalleled luxury with Managerius' exclusive private jet charter services. Travel in comfort, style, and privacy to destinations worldwide."
-        keywords="private jet, charter, aviation, luxury travel, business aviation, private aircraft, jet rental"
+        title="Private Jet Charter Services | Luxury Aviation | Managerius"
+        description="Premium private jet charter services for luxury travel and business aviation. Experience unparalleled comfort and privacy with our exclusive fleet of private aircraft."
+        canonical="https://managerius.com/"
+        keywords="private jet charter, luxury aviation, business aviation, private aircraft, jet rental, premium travel"
       />
       <Navigation />
       <Hero />

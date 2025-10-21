@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BlogDataManager, BlogPost } from "@/lib/blog-data";
+import SEOHead from "@/components/SEOHead";
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
@@ -21,6 +22,11 @@ const Blog = () => {
   if (loading) {
     return (
       <div className="min-h-screen">
+        <SEOHead 
+          title="Private Jet Blog | Aviation Insights | Managerius"
+          description="Expert insights on private jet travel, aviation trends, and luxury travel. Discover the latest in private aviation and business travel."
+          canonical="https://managerius.com/blog"
+        />
         <Navigation />
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-6">
@@ -51,6 +57,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Private Jet Blog | Aviation Insights | Managerius"
+        description="Expert insights on private jet travel, aviation trends, and luxury travel. Discover the latest in private aviation and business travel."
+        canonical="https://managerius.com/blog"
+      />
       <Navigation />
       
       <main className="pt-32 pb-20">
@@ -80,6 +91,10 @@ const Blog = () => {
                       <img 
                         src={post.image} 
                         alt={post.title}
+                        width={400}
+                        height={225}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-3 left-3">

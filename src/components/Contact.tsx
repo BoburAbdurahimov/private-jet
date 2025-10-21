@@ -107,9 +107,9 @@ export const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
               Let's take flight.
-            </h2>
+            </h1>
             <p className="text-lg text-muted-foreground mb-12">
               Ready to experience luxury aviation? Contact our team to book your next journey or learn more about our services.
             </p>

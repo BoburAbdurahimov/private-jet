@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Star, Wind, Shield, Plane, Users, CheckCircle, ArrowRight } from "lucide-react";
 import { BlogDataManager, BlogPost } from "@/lib/blog-data";
 import SEOHead from "@/components/SEOHead";
 import ArticleSchema from "@/components/ArticleSchema";
 import BlogCTA from "@/components/BlogCTA";
+import { marked } from 'marked';
 
 const DynamicBlogPost = () => {
   const { id } = useParams();
@@ -78,13 +79,21 @@ const DynamicBlogPost = () => {
     );
   }
 
-  // Render HTML content safely
+  // Render HTML content with beautiful card layouts
   const renderContent = (content: string) => {
+    // Strip frontmatter (content between --- markers)
+    const strippedContent = content.replace(/^---[\s\S]*?---\n\n/, '');
+    
+    // Parse markdown to HTML
+    const htmlContent = marked(strippedContent);
+    
     return (
-      <div 
-        className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-code:bg-muted prose-code:text-foreground prose-pre:bg-muted prose-pre:border-border"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div className="space-y-8">
+        <div 
+          className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-foreground prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-8 prose-h1:mt-12 prose-h2:text-3xl prose-h2:font-semibold prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-border prose-h2:pb-2 prose-h3:text-2xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-4 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg prose-strong:text-foreground prose-strong:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-primary prose-blockquote:bg-card prose-blockquote:border prose-blockquote:border-border prose-blockquote:rounded-lg prose-blockquote:p-6 prose-blockquote:italic prose-code:bg-muted prose-code:text-foreground prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-muted prose-pre:border-border prose-pre:p-4 prose-ul:list-disc prose-ul:ml-6 prose-ol:list-decimal prose-ol:ml-6 prose-li:mb-3 prose-li:text-lg prose-li:leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      </div>
     );
   };
 
@@ -119,18 +128,24 @@ const DynamicBlogPost = () => {
             </Link>
 
             <article className="prose prose-lg max-w-none">
-              <div className="mb-8">
-                <span className="bg-primary text-primary-foreground px-3 py-1 text-sm font-medium rounded-full">
+              {/* Header Section */}
+              <div className="mb-12">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <Star className="w-4 h-4" />
                   {post.category}
-                </span>
-                <h1 className="font-serif text-4xl md:text-5xl mt-6 mb-4">
+                </div>
+                <h1 className="font-serif text-5xl md:text-6xl mb-6">
                   {post.title}
                 </h1>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
+                <p className="text-xl text-muted-foreground mb-8">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {post.date}
                   </div>
+                  <span>•</span>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
                     {post.readTime}
@@ -138,17 +153,40 @@ const DynamicBlogPost = () => {
                 </div>
               </div>
 
-              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
+              {/* Featured Image */}
+              <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-12">
                 <img 
                   src={post.image}
                   alt={post.title}
+                  width={800}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              <div className="text-lg text-muted-foreground leading-relaxed">
+              {/* Content with Enhanced Styling */}
+              <div className="space-y-8">
                 {renderContent(post.content)}
               </div>
+
+              {/* Tags Section */}
+              {post.tags && post.tags.length > 0 && (
+                <div className="mt-12 pt-8 border-t border-border">
+                  <h3 className="font-serif text-xl mb-4">Tags</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag, index) => (
+                      <span 
+                        key={index}
+                        className="bg-muted text-muted-foreground px-3 py-1 text-sm rounded-full border border-border"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               <BlogCTA />
             </article>

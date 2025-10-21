@@ -43,6 +43,10 @@ const LuxuryJetInteriors = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=450&fit=crop&crop=center"
                   alt="Luxury Jet Interiors"
+                  width={800}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

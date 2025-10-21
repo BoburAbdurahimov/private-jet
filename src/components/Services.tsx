@@ -42,6 +42,10 @@ export const Services = () => {
             <img 
               src={jetEngine} 
               alt="Private jet engine detail" 
+              width={800}
+              height={500}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </div>

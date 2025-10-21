@@ -29,23 +29,7 @@ const defaultBlogPosts: BlogPost[] = [
     id: "private-jet-travel-benefits",
     title: "Why Choose Private Jet Travel with JetLuxe: Top 5 Benefits",
     excerpt: "Discover 5 powerful reasons leaders prefer flying private—time, privacy, flexibility, safety, and tailored service.",
-    content: `---
-title: "Why Choose Private Jet Travel with JetLuxe: Top 5 Benefits"
-slug: "private-jet-travel-benefits"
-description: "Discover 5 powerful reasons leaders prefer flying private—time, privacy, flexibility, safety, and tailored service."
-author: "Managerius Editorial"
-date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1557161045-995e41c2a5b3"
-tags: ["private jets","JetLuxe","luxury travel","business travel"]
-primaryKeyword: "private jet travel benefits"
-secondaryKeywords: ["JetLuxe private jet","why fly private","private jet charter benefits"]
-ogTitle: "Why Fly Private with JetLuxe – 5 Exclusive Benefits"
-ogImage: "https://images.unsplash.com/photo-1557161045-995e41c2a5b3"
-canonical: "https://managerius.com/blog/private-jet-travel-benefits"
-readingTimeMinutes: 7
----
-
-Private jet travel offers unparalleled advantages that go far beyond luxury. Here are the top 5 benefits that make private aviation the smart choice for business and leisure travelers.
+    content: `Private jet travel offers unparalleled advantages that go far beyond luxury. Here are the top 5 benefits that make private aviation the smart choice for business and leisure travelers.
 
 ## 1. Time is Your Most Valuable Asset
 

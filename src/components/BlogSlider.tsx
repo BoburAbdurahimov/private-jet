@@ -130,6 +130,8 @@ export const BlogSlider = () => {
                         <img 
                           src={post.image} 
                           alt={post.title}
+                          width={400}
+                          height={225}
                           loading="lazy"
                           decoding="async"
                           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

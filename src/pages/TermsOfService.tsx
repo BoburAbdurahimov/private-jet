@@ -7,8 +7,8 @@ const TermsOfService = () => {
   return (
     <div className="min-h-screen">
       <SEOHead 
-        title="Terms of Service - Managerius"
-        description="Read the terms and conditions for using Managerius private aviation services."
+        title="Terms of Service | Private Jet Charter Agreement | Managerius"
+        description="Read the terms and conditions for using Managerius private jet charter services. Understand your rights and responsibilities when booking luxury aviation."
         canonical="https://managerius.com/terms-of-service"
       />
       <Navigation />

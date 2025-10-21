@@ -57,12 +57,15 @@ export const LazyImage = ({
         <img
           src={src}
           alt={alt}
+          width={800}
+          height={450}
           onLoad={handleLoad}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-300",
             isLoaded ? "opacity-100" : "opacity-0"
           )}
           loading="lazy"
+          decoding="async"
         />
       )}
     </div>
