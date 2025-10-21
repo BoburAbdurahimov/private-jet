@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import SpeedInsights from "./components/SpeedInsights";
 import Index from "./pages/Index";
 import Affiliates from "./pages/Affiliates";
 import Blog from "./pages/Blog";
@@ -30,7 +30,6 @@ import AdvancedAdminBlogForm from "./pages/AdvancedAdminBlogForm";
 import AdminBlogForm from "./pages/AdminBlogForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ErrorBoundary from "./components/ErrorBoundary";
-import SpeedInsights from "./components/SpeedInsights";
 import NotFound from "./pages/NotFound";
 import ServerError from "./pages/ServerError";
 import BadGateway from "./pages/BadGateway";
@@ -84,14 +83,6 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        <SpeedInsights 
-          beforeSend={(data) => {
-            // Add custom metadata to performance data
-            data.url = window.location.href;
-            data.timestamp = Date.now();
-            return data;
-          }}
-        />
       </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>

@@ -25,12 +25,19 @@
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.privatejetfinder.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-    <link rel="preload" href="/src/assets/hero-jet.jpg" as="image" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vsZELXJYQ3FkNJ1W72x0.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" type="font/woff2" crossorigin>
 
-    <!-- Private Jet Finder Widget Script -->
-    <script type="text/javascript" src="https://www.privatejetfinder.com/js/partner.min.js"></script>
+    <!-- Private Jet Finder Widget Script - Load after page load -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.src = 'https://www.privatejetfinder.com/js/partner.min.js';
+        script.defer = true;
+        document.head.appendChild(script);
+      });
+    </script>
 
     <meta property="og:title" content="Private Jet Charter Services | Luxury Aviation | Managerius" />
     <meta property="og:description" content="Premium private jet charter services for luxury travel and business aviation. Experience unparalleled comfort and privacy with our exclusive fleet of private aircraft." />
@@ -64,12 +71,5 @@
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
-        });
-      }
-    </script>
   </body>
 </html>

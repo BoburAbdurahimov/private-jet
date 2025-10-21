@@ -3,14 +3,15 @@ import { ArrowRight, Play, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LazyImage } from "./LazyImage";
 import { ManageriusIcon } from "./ManageriusIcon";
-import { useSpeedInsights, SpeedInsightsEvents } from "@/hooks/useSpeedInsights";
 import heroJet from "@/assets/hero-jet.jpg";
 
 export const Hero = () => {
-  const { trackEvent, trackPageView } = useSpeedInsights();
+  // Temporarily disabled speed insights
+  const trackEvent = (event: string, properties?: Record<string, any>) => {};
+  const trackPageView = () => {};
 
   const handleCTAClick = () => {
-    trackEvent(SpeedInsightsEvents.BUSINESS.CTA_CLICK, {
+    trackEvent('cta_click', {
       button: 'book-flight',
       location: 'hero',
       page: 'homepage'
@@ -25,23 +26,18 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{
-      background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'
-    }}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <picture>
-          <source srcSet={heroJet.replace('.jpg', '.webp')} type="image/webp" />
-          <img
-            src={heroJet}
-            alt="Luxury private jet"
-            className="w-full h-full object-cover opacity-40"
-            width={1920}
-            height={1080}
-            loading="eager"
-            decoding="sync"
-            fetchPriority="high"
-          />
-        </picture>
+        <img
+          src={heroJet}
+          alt="Luxury private jet"
+          className="w-full h-full object-cover opacity-40"
+          width={1920}
+          height={1080}
+          loading="eager"
+          decoding="sync"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
       </div>
       
