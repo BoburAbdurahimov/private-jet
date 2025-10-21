@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url><loc>https://managerius.com/</loc></url>
+  <url><loc>https://managerius.com/contact</loc></url>
+  <url><loc>https://managerius.com/partners</loc></url>
+  
+  <!-- Legal Pages -->
+  <url><loc>https://managerius.com/privacy-policy</loc></url>
+  <url><loc>https://managerius.com/terms-of-service</loc></url>
+  <url><loc>https://managerius.com/cookie-policy</loc></url>
+  
+  <!-- Partner Pages -->
+  <url><loc>https://managerius.com/air-acer</loc></url>
+  <url><loc>https://managerius.com/private-jet-finder</loc></url>
+  <url><loc>https://managerius.com/jet-luxe</loc></url>
+  
+  <!-- Blog Pages -->
   <url><loc>https://managerius.com/blog/</loc></url>
   <url><loc>https://managerius.com/blog/private-jet-travel-benefits</loc></url>
   <url><loc>https://managerius.com/blog/how-to-charter-private-jet</loc></url>
@@ -11,4 +27,8 @@
   <url><loc>https://managerius.com/blog/business-private-jet-travel</loc></url>
   <url><loc>https://managerius.com/blog/jet-card-vs-charter</loc></url>
   <url><loc>https://managerius.com/blog/sustainable-private-aviation</loc></url>
+  <url><loc>https://managerius.com/blog/luxury-jet-interiors</loc></url>
+  <url><loc>https://managerius.com/blog/business-aviation-trends</loc></url>
+  <url><loc>https://managerius.com/blog/global-hotspots-2024</loc></url>
+  <url><loc>https://managerius.com/blog/private-jet-safety</loc></url>
 </urlset>
