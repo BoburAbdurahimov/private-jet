@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
+import AdSense from "@/components/AdSense";
 const Marquee = lazy(() => import("@/components/Marquee").then(m => ({ default: m.Marquee })));
 const Services = lazy(() => import("@/components/Services").then(m => ({ default: m.Services })));
 const Fleet = lazy(() => import("@/components/Fleet").then(m => ({ default: m.Fleet })));
@@ -38,17 +39,11 @@ const Index = () => {
       </Suspense>
       {/* Google AdSense Ad */}
       <div className="py-8 px-4 max-w-7xl mx-auto">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2824780291268916"
-             crossOrigin="anonymous"></script>
-        <ins className="adsbygoogle"
-             style={{display:'block'}}
-             data-ad-client="ca-pub-2824780291268916"
-             data-ad-slot="2678296543"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script dangerouslySetInnerHTML={{
-          __html: '(adsbygoogle = window.adsbygoogle || []).push({});'
-        }}></script>
+        <AdSense 
+          adSlot="2678296543"
+          adFormat="auto"
+          fullWidthResponsive={true}
+        />
       </div>
       {/* <Suspense fallback={<div className="py-12" />}>
         <BlogSlider />

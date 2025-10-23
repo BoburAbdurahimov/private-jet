@@ -7,6 +7,7 @@ import { BlogDataManager, BlogPost } from "@/lib/blog-data";
 import SEOHead from "@/components/SEOHead";
 import ArticleSchema from "@/components/ArticleSchema";
 import BlogCTA from "@/components/BlogCTA";
+import AdSense from "@/components/AdSense";
 import { marked } from 'marked';
 
 const DynamicBlogPost = () => {
@@ -172,17 +173,12 @@ const DynamicBlogPost = () => {
                 
                 {/* Google AdSense In-Article Ad */}
                 <div className="my-12 p-4 bg-muted/30 rounded-lg border border-border">
-                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2824780291268916"
-                       crossOrigin="anonymous"></script>
-                  <ins className="adsbygoogle"
-                       style={{display:'block', textAlign:'center'}}
-                       data-ad-layout="in-article"
-                       data-ad-format="fluid"
-                       data-ad-client="ca-pub-2824780291268916"
-                       data-ad-slot="6098666803"></ins>
-                  <script dangerouslySetInnerHTML={{
-                    __html: '(adsbygoogle = window.adsbygoogle || []).push({});'
-                  }}></script>
+                  <AdSense 
+                    adSlot="6098666803"
+                    adFormat="fluid"
+                    adLayout="in-article"
+                    style={{display:'block', textAlign:'center'}}
+                  />
                 </div>
               </div>
 
