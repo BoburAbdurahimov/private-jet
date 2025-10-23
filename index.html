@@ -70,6 +70,15 @@
         function logCTA(evt){
           const payload = {event_type:'cta', rid:getRid(), cid:getCid(), url:location.href, ts:new Date().toISOString()};
           navigator.sendBeacon('https://YOUR_N8N_DOMAIN/webhook/cta', new Blob([JSON.stringify(payload)], {type:'application/json'}));
+          
+          // Google Analytics 4 tracking
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'cta_click', {
+              'event_category': 'engagement',
+              'event_label': evt.target.textContent || 'CTA Button',
+              'value': 1
+            });
+          }
         }
         document.addEventListener('DOMContentLoaded', function(){
           document.querySelectorAll('.cta-track').forEach(btn => btn.addEventListener('click', logCTA));
