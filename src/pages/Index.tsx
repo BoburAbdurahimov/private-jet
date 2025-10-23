@@ -36,6 +36,20 @@ const Index = () => {
       <Suspense fallback={<div className="py-12" />}>
         <Fleet />
       </Suspense>
+      {/* Google AdSense Ad */}
+      <div className="py-8 px-4 max-w-7xl mx-auto">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2824780291268916"
+             crossOrigin="anonymous"></script>
+        <ins className="adsbygoogle"
+             style={{display:'block'}}
+             data-ad-client="ca-pub-2824780291268916"
+             data-ad-slot="2678296543"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script dangerouslySetInnerHTML={{
+          __html: '(adsbygoogle = window.adsbygoogle || []).push({});'
+        }}></script>
+      </div>
       {/* <Suspense fallback={<div className="py-12" />}>
         <BlogSlider />
       </Suspense> */}
