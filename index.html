@@ -3,8 +3,8 @@
   <head>
     <!-- Google Analytics - Deferred for better LCP -->
     <script>
-      // Defer Google Analytics to improve LCP
-      window.addEventListener('load', function() {
+      // Defer Google Analytics to improve LCP - load after 5 seconds
+      setTimeout(function() {
         const script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GSSLG1EEM5';
@@ -14,7 +14,7 @@
         function gtag(){dataLayer.push(arguments);} 
         gtag('js', new Date());
         gtag('config', 'G-GSSLG1EEM5');
-      });
+      }, 5000);
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,14 +25,14 @@
     <meta name="google-adsense-account" content="ca-pub-2824780291268916">
     <!-- AdSense - Deferred for better LCP -->
     <script>
-      // Defer AdSense to improve LCP
-      window.addEventListener('load', function() {
+      // Defer AdSense to improve LCP - load after 3 seconds
+      setTimeout(function() {
         const script = document.createElement('script');
         script.async = true;
         script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2824780291268916';
         script.crossOrigin = 'anonymous';
         document.head.appendChild(script);
-      });
+      }, 3000);
     </script>
     
     <!-- Favicon -->
@@ -56,7 +56,7 @@
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.privatejetfinder.com https://googleads.g.doubleclick.net;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.privatejetfinder.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com;
       img-src 'self' data: https: blob:;
