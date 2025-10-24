@@ -103,41 +103,11 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap&v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap&v=2"></noscript>
 
-    <!-- Private Jet Finder Widget Script - Load after page load -->
-    <script defer>
-      // Load Private Jet Finder script after user interaction or 3 seconds
-      let loaded = false;
-      const loadPrivateJetFinder = () => {
-        if (loaded || document.querySelector('script[src*="privatejetfinder.com"]')) return;
-        loaded = true;
-        
-        // Create script element with proper error handling
-        const script = document.createElement('script');
-        script.src = 'https://www.privatejetfinder.com/js/partner.min.js';
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        
-        // Add error handling for CORS issues
-        script.onerror = function() {
-          console.warn('Private Jet Finder script failed to load due to CORS policy');
-          this.remove();
-        };
-        
-        script.onload = function() {
-          console.log('Private Jet Finder script loaded successfully');
-        };
-        
-        document.head.appendChild(script);
-      };
-      
-      // Load on user interaction
-      ['click', 'scroll', 'touchstart'].forEach(event => {
-        document.addEventListener(event, loadPrivateJetFinder, { once: true, passive: true });
-      });
-      
-      // Fallback: load after 3 seconds
-      setTimeout(loadPrivateJetFinder, 3000);
-    </script>
+    <!-- Private Jet Finder Widget Script - Disabled due to CORS issues -->
+    <!-- <script defer>
+      // Private Jet Finder script disabled due to CORS policy violations
+      console.log('Private Jet Finder integration disabled due to CORS restrictions');
+    </script> -->
 
     <meta property="og:title" content="Private Jet Charter Services | Luxury Aviation | Managerius" />
     <meta property="og:description" content="Premium private jet charter services for luxury travel and business aviation. Experience unparalleled comfort and privacy with our exclusive fleet of private aircraft." />
@@ -179,31 +149,7 @@
         });
       })();
     </script>
-    <script>
-      // Load main CSS asynchronously after critical CSS is applied
-      function loadMainCSS() {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = '/assets/index-DQjOCGix.css';
-        link.media = 'print';
-        link.onload = function() { 
-          this.media = 'all';
-          console.log('CSS loaded successfully');
-        };
-        link.onerror = function() {
-          console.warn('Failed to load CSS, using critical CSS only');
-          this.remove();
-        };
-        document.head.appendChild(link);
-      }
-      
-      // Load CSS after DOM is ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadMainCSS);
-      } else {
-        loadMainCSS();
-      }
-    </script>
+    <!-- CSS is handled by Vite build process - no additional loading needed -->
     
     <!-- Defer non-critical scripts -->
     <script defer>
