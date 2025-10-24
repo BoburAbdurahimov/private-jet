@@ -3,6 +3,7 @@ import { ArrowRight, Play, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LazyImage } from "./LazyImage";
 import { ManageriusIcon } from "./ManageriusIcon";
+import OptimizedImage from "./OptimizedImage";
 import heroJet from "@/assets/hero-jet.jpg";
 
 export const Hero = () => {
@@ -31,15 +32,16 @@ export const Hero = () => {
       style={{ backgroundColor: '#0f172a' }}
     >
       <div className="absolute inset-0 z-0">
-        <img
+        <OptimizedImage
           src={heroJet}
           alt="Luxury private jet"
-          className="w-full h-full object-cover opacity-30"
           width={1920}
           height={1080}
+          className="w-full h-full object-cover opacity-30"
           loading="eager"
           decoding="sync"
           fetchPriority="high"
+          sizes="100vw"
           onError={(e) => {
             console.log('Image failed to load:', e);
             e.currentTarget.style.display = 'none';

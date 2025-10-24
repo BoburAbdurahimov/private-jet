@@ -1,5 +1,6 @@
 import { Globe, Clock, Shield, Zap } from "lucide-react";
 import { ManageriusIcon } from "./ManageriusIcon";
+import OptimizedImage from "./OptimizedImage";
 import jetEngine from "@/assets/jet-engine.jpg";
 
 const services = [
@@ -39,14 +40,15 @@ export const Services = () => {
             </p>
           </div>
           <div className="relative h-[500px] overflow-hidden">
-            <img 
-              src={jetEngine} 
-              alt="Private jet engine detail" 
-              width={800}
+            <OptimizedImage
+              src={jetEngine}
+              alt="Private jet engine detail"
+              width={500}
               height={500}
+              className="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>
