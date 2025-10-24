@@ -58,16 +58,16 @@ export const Hero = () => {
         
         <ManageriusIcon className="w-8 h-8 mx-auto mb-8 text-white animate-float" />
         
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif font-bold mb-6 leading-tight text-white" style={{fontDisplay: 'swap'}}>
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif font-bold mb-6 leading-tight text-white" style={{fontDisplay: 'swap', willChange: 'auto'}}>
           Meet us in the clouds.
         </h1>
         
-        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 max-w-2xl mx-auto animate-fade-in px-4">
+        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
           Experience unparalleled luxury with our exclusive private jet charter service.
           Travel in comfort, style, and privacy to destinations worldwide.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <a href="https://valens.jetluxe.com/affiliate/managerius" className="cta-track" onClick={handleCTAClick}>
             <Button variant="hero" size="hero" className="group">
               Book Your Flight
