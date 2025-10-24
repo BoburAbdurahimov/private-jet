@@ -41,7 +41,7 @@ const GlobalHotspots2024 = () => {
 
               <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
                 <img 
-                  src="/assets/jet-interior.svg"
+                  src="/assets/jet-interior.jpg"
                   alt="Global Hotspots 2024"
                   width={800}
                   height={450}

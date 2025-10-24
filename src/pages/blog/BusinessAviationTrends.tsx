@@ -48,7 +48,7 @@ const BusinessAviationTrends = () => {
               {/* Featured Image */}
               <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-12">
                 <img 
-                  src="/assets/jet-interior.svg"
+                  src="/assets/jet-interior.jpg"
                   alt="Business Aviation Trends"
                   width={800}
                   height={450}

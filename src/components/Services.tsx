@@ -41,7 +41,7 @@ export const Services = () => {
           </div>
           <div className="relative h-[500px] overflow-hidden">
             <OptimizedImage
-              src="/assets/jet-engine.svg"
+              src="/assets/jet-engine.jpg"
               alt="Private jet engine detail"
               width={500}
               height={500}

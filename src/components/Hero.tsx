@@ -3,6 +3,8 @@ import { ArrowRight, Play, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LazyImage } from "./LazyImage";
 import { ManageriusIcon } from "./ManageriusIcon";
+import OptimizedImage from "./OptimizedImage";
+import heroJet from "@/assets/hero-jet.jpg";
 
 export const Hero = () => {
   // Temporarily disabled speed insights
@@ -30,6 +32,21 @@ export const Hero = () => {
       style={{ backgroundColor: '#0f172a' }}
     >
       <div className="absolute inset-0 z-0">
+        <OptimizedImage
+          src={heroJet}
+          alt="Luxury private jet"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover opacity-30"
+          loading="eager"
+          decoding="sync"
+          fetchPriority="high"
+          sizes="100vw"
+          onError={(e) => {
+            console.log('Image failed to load:', e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90"></div>
       </div>
       
