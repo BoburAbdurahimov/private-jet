@@ -104,18 +104,26 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap&v=2"></noscript>
 
     <!-- Private Jet Finder Widget Script - Load after page load -->
-    <script>
-      window.addEventListener('load', () => {
-        // Only load if not already loaded
-        if (!document.querySelector('script[src*="privatejetfinder.com"]')) {
-          const script = document.createElement('script');
-          script.src = 'https://www.privatejetfinder.com/js/partner.min.js';
-          script.defer = true;
-          script.async = true;
-          script.crossOrigin = 'anonymous';
-          document.head.appendChild(script);
-        }
+    <script defer>
+      // Load Private Jet Finder script after user interaction or 3 seconds
+      let loaded = false;
+      const loadPrivateJetFinder = () => {
+        if (loaded || document.querySelector('script[src*="privatejetfinder.com"]')) return;
+        loaded = true;
+        const script = document.createElement('script');
+        script.src = 'https://www.privatejetfinder.com/js/partner.min.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        document.head.appendChild(script);
+      };
+      
+      // Load on user interaction
+      ['click', 'scroll', 'touchstart'].forEach(event => {
+        document.addEventListener(event, loadPrivateJetFinder, { once: true, passive: true });
       });
+      
+      // Fallback: load after 3 seconds
+      setTimeout(loadPrivateJetFinder, 3000);
     </script>
 
     <meta property="og:title" content="Private Jet Charter Services | Luxury Aviation | Managerius" />
@@ -175,7 +183,10 @@
       } else {
         loadMainCSS();
       }
-      
+    </script>
+    
+    <!-- Defer non-critical scripts -->
+    <script defer>
       // Unregister any service workers that might be causing issues
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
