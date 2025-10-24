@@ -41,7 +41,7 @@ const LuxuryJetInteriors = () => {
 
               <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=450&fit=crop&crop=center"
+                  src="/assets/jet-interior.jpg"
                   alt="Luxury Jet Interiors"
                   width={800}
                   height={450}

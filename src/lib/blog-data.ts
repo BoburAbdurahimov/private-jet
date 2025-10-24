@@ -52,7 +52,7 @@ Every detail is tailored to your preferences. From catering to ground transporta
 Private jets offer superior safety standards with fewer passengers, controlled environments, and the ability to avoid crowded airports and terminals.`,
     date: "December 19, 2024",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-interior.jpg",
     category: "Benefits",
     tags: ["private jets", "benefits", "luxury travel", "business aviation"],
     published: true,
@@ -76,12 +76,12 @@ slug: "how-to-charter-private-jet"
 description: "A no-nonsense guide to booking a private jet—process, aircraft types, pricing, and what to expect end-to-end."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde"
+coverImage: "/assets/hero-jet.jpg"
 tags: ["private jet charter","JetLuxe","aviation guide","jet booking"]
 primaryKeyword: "how to charter a private jet"
 secondaryKeywords: ["private jet booking process","jet charter guide","JetLuxe charter"]
 ogTitle: "Complete Guide: How to Charter a Private Jet with JetLuxe"
-ogImage: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde"
+ogImage: "/assets/hero-jet.jpg"
 canonical: "https://managerius.com/blog/how-to-charter-private-jet"
 readingTimeMinutes: 8
 ---
@@ -117,7 +117,7 @@ Carefully review the quote details including aircraft specifications, crew exper
 Complete final preparations including passenger manifests, special requests, and travel documents. Submit passenger manifests, arrange ground transportation, confirm special requests, and review travel documents.`,
     date: "December 19, 2024",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-engine.jpg",
     category: "Guide",
     tags: ["charter guide", "private jets", "booking", "aviation"],
     published: true,
@@ -141,12 +141,12 @@ slug: "private-jet-cost-breakdown"
 description: "Understand private jet pricing—hourly rates, fees, variables—and how to avoid surprise costs."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1542010589005-5e0b0f2cfe5a"
+coverImage: "/assets/jet-interior.jpg"
 tags: ["private jet cost","JetLuxe pricing","aviation costs","jet charter pricing"]
 primaryKeyword: "private jet cost"
 secondaryKeywords: ["JetLuxe pricing","private jet rates","jet charter cost"]
 ogTitle: "Private Jet Costs: Complete Pricing Guide with JetLuxe"
-ogImage: "https://images.unsplash.com/photo-1542010589005-5e0b0f2cfe5a"
+ogImage: "/assets/jet-interior.jpg"
 canonical: "https://managerius.com/blog/private-jet-cost-breakdown"
 readingTimeMinutes: 6
 ---
@@ -192,7 +192,7 @@ Understanding private jet costs helps you make informed decisions and avoid unex
 - Book during off-peak seasons`,
     date: "December 19, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-engine.jpg",
     category: "Cost Analysis",
     tags: ["private jet cost", "pricing", "charter costs", "aviation pricing"],
     published: true,
@@ -216,12 +216,12 @@ slug: "empty-leg-private-flights"
 description: "What empty legs are, how to find them, and smart tips to secure the best private jet deals."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0"
+coverImage: "/assets/jet-interior.jpg"
 tags: ["empty leg flights","JetLuxe deals","private jet savings","aviation discounts"]
 primaryKeyword: "empty leg flights"
 secondaryKeywords: ["JetLuxe empty legs","private jet deals","discounted jet charter"]
 ogTitle: "Empty Leg Flights: Save 70% on Private Jet Travel with JetLuxe"
-ogImage: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0"
+ogImage: "/assets/jet-interior.jpg"
 canonical: "https://managerius.com/blog/empty-leg-private-flights"
 readingTimeMinutes: 5
 ---
@@ -258,7 +258,7 @@ Empty-leg flights occur when a private jet needs to return to its base or reposi
 - Have backup commercial options`,
     date: "December 19, 2024",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-interior.jpg",
     category: "Cost Savings",
     tags: ["empty leg flights", "private jet deals", "cost savings", "aviation discounts"],
     published: true,
@@ -282,12 +282,12 @@ slug: "private-jet-safety-standards"
 description: "Safety first: certifications, operator audits, pilot hours, and questions to ask before you book."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1508614999368-9260051291ea"
+coverImage: "/assets/jet-engine.jpg"
 tags: ["private jet safety","JetLuxe safety","aviation safety","flight safety"]
 primaryKeyword: "private jet safety"
 secondaryKeywords: ["JetLuxe safety standards","aviation safety","jet charter safety"]
 ogTitle: "Private Jet Safety: JetLuxe's Commitment to Aviation Excellence"
-ogImage: "https://images.unsplash.com/photo-1508614999368-9260051291ea"
+ogImage: "/assets/jet-engine.jpg"
 canonical: "https://managerius.com/blog/private-jet-safety-standards"
 readingTimeMinutes: 6
 ---
@@ -332,7 +332,7 @@ Safety is paramount in private aviation. Understanding safety standards helps yo
 - Poor safety record or reputation`,
     date: "December 19, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-interior.jpg",
     category: "Safety",
     tags: ["private jet safety", "aviation safety", "jet safety standards", "flight safety"],
     published: true,
@@ -356,12 +356,12 @@ slug: "private-jet-destinations-2025"
 description: "12 stunning destinations ideal for private jets—best seasons, nearest airports, and trip tips."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+coverImage: "/assets/hero-jet.jpg"
 tags: ["private jet destinations","JetLuxe travel","luxury destinations","jet travel 2025"]
 primaryKeyword: "private jet destinations"
 secondaryKeywords: ["JetLuxe destinations","luxury jet travel","private jet travel 2025"]
 ogTitle: "Top Private Jet Destinations 2025: JetLuxe's Luxury Travel Guide"
-ogImage: "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+ogImage: "/assets/hero-jet.jpg"
 canonical: "https://managerius.com/blog/private-jet-destinations-2025"
 readingTimeMinutes: 8
 ---
@@ -401,7 +401,7 @@ Best Practices: Book accommodations well in advance, consider seasonal weather p
 Private Jet Advantages: Access to smaller, exclusive airports, flexible departure times, direct flights to remote destinations, privacy and comfort en route, customized in-flight experience`,
     date: "December 19, 2024",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-interior.jpg",
     category: "Destinations",
     tags: ["private jet destinations", "luxury travel", "jet destinations 2025", "travel destinations"],
     published: true,
@@ -425,12 +425,12 @@ slug: "private-jet-etiquette"
 description: "What to wear, when to arrive, luggage, pets, and onboard etiquette—confident, polished flying."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1573497491208-6b1acb260507"
+coverImage: "/assets/jet-interior.jpg"
 tags: ["private jet etiquette","JetLuxe etiquette","luxury travel tips","aviation manners"]
 primaryKeyword: "private jet etiquette"
 secondaryKeywords: ["JetLuxe etiquette guide","jet travel manners","private aviation etiquette"]
 ogTitle: "Private Jet Etiquette: JetLuxe's Complete Guide to Flying Like a Pro"
-ogImage: "https://images.unsplash.com/photo-1573497491208-6b1acb260507"
+ogImage: "/assets/jet-interior.jpg"
 canonical: "https://managerius.com/blog/private-jet-etiquette"
 readingTimeMinutes: 6
 ---
@@ -472,7 +472,7 @@ Mastering private jet etiquette ensures a smooth, professional experience for yo
 **Don'ts**: Don't be overly demanding, avoid controversial or offensive topics, don't interfere with crew duties, avoid excessive alcohol consumption, don't leave personal items scattered, avoid loud phone conversations`,
     date: "December 19, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-engine.jpg",
     category: "Etiquette",
     tags: ["private jet etiquette", "jet travel etiquette", "aviation manners", "luxury travel tips"],
     published: true,
@@ -496,12 +496,12 @@ slug: "business-private-jet-travel"
 description: "Cut dead time, protect confidentiality, and arrive ready—why private aviation fits executive schedules."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107"
+coverImage: "/assets/jet-engine.jpg"
 tags: ["business private jet travel","JetLuxe business","executive travel","corporate aviation"]
 primaryKeyword: "business private jet travel"
 secondaryKeywords: ["JetLuxe business travel","executive jet charter","corporate aviation"]
 ogTitle: "Business Travel Revolution: Why Executives Choose JetLuxe"
-ogImage: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107"
+ogImage: "/assets/jet-engine.jpg"
 canonical: "https://managerius.com/blog/business-private-jet-travel"
 readingTimeMinutes: 6
 ---
@@ -536,7 +536,7 @@ Private jets aren't just about luxury—they're essential tools for modern execu
 **Productivity Gains**: Work during travel time, arrive refreshed and ready, maintain business continuity, handle urgent matters in-flight, maximize meeting effectiveness`,
     date: "December 19, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-interior.jpg",
     category: "Business",
     tags: ["business private jet travel", "executive travel", "corporate aviation", "business aviation"],
     published: true,
@@ -560,12 +560,12 @@ slug: "jet-card-vs-charter"
 description: "Compare jet cards vs. on-demand: cost, flexibility, blackout dates, commitment—choose what fits you."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1495020689067-958852a7765e"
+coverImage: "/assets/jet-interior.jpg"
 tags: ["jet card vs charter","JetLuxe options","private jet comparison","aviation choices"]
 primaryKeyword: "jet card vs charter"
 secondaryKeywords: ["JetLuxe jet cards","private jet options","jet charter comparison"]
 ogTitle: "Jet Card vs Charter: JetLuxe's Complete Comparison Guide"
-ogImage: "https://images.unsplash.com/photo-1495020689067-958852a7765e"
+ogImage: "/assets/jet-interior.jpg"
 canonical: "https://managerius.com/blog/jet-card-vs-charter"
 readingTimeMinutes: 7
 ---
@@ -615,7 +615,7 @@ Choosing between jet cards and on-demand charter depends on your travel patterns
 - Have varying travel needs`,
     date: "December 19, 2024",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-engine.jpg",
     category: "Comparison",
     tags: ["jet card vs charter", "private jet options", "aviation comparison", "jet cards"],
     published: true,
@@ -639,12 +639,12 @@ slug: "sustainable-private-aviation"
 description: "Offsets, SAF, newer fleets, and how private fliers can reduce impact without sacrificing comfort."
 author: "Managerius Editorial"
 date: "2025-10-20"
-coverImage: "https://images.unsplash.com/photo-1604147706283-3b5b09c9d8b5"
+coverImage: "/assets/jet-engine.jpg"
 tags: ["sustainable private aviation","JetLuxe eco","green aviation","sustainable travel"]
 primaryKeyword: "sustainable private aviation"
 secondaryKeywords: ["JetLuxe sustainability","eco-friendly jets","green aviation"]
 ogTitle: "Sustainable Private Aviation: JetLuxe's Eco-Luxury Future"
-ogImage: "https://images.unsplash.com/photo-1604147706283-3b5b09c9d8b5"
+ogImage: "/assets/jet-engine.jpg"
 canonical: "https://managerius.com/blog/sustainable-private-aviation"
 readingTimeMinutes: 6
 ---
@@ -687,7 +687,7 @@ Private aviation is embracing sustainability through innovative technologies and
 - Support sustainable operators`,
     date: "December 19, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=450&fit=crop&crop=center",
+    image: "/assets/jet-interior.jpg",
     category: "Sustainability",
     tags: ["sustainable private aviation", "eco-friendly jets", "green aviation", "sustainable travel"],
     published: true,

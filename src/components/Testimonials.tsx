@@ -13,7 +13,7 @@ const testimonials = [
     location: "San Francisco, CA",
     content: "Elysium Jets has completely transformed how we do business travel. The efficiency and luxury they provide is unmatched. Our team can now attend meetings across the globe without the stress of commercial airlines.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    avatar: "/assets/placeholder-avatar.svg",
     trip: "San Francisco to Tokyo"
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     location: "New York, NY",
     content: "The level of service is extraordinary. From the moment I book until I land, every detail is handled perfectly. The crew is professional, the aircraft immaculate, and the experience is worth every penny.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    avatar: "/assets/placeholder-avatar.svg",
     trip: "New York to London"
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     location: "Monaco",
     content: "As someone in the luxury travel industry, I have high standards. Elysium Jets exceeds them consistently. Their attention to detail and commitment to excellence is what sets them apart.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    avatar: "/assets/placeholder-avatar.svg",
     trip: "Monaco to Dubai"
   },
   {
@@ -43,7 +43,7 @@ const testimonials = [
     location: "Los Angeles, CA",
     content: "For our film productions, time is everything. Elysium Jets gets us where we need to be, when we need to be there, in complete comfort. It's become an essential part of our operations.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    avatar: "/assets/placeholder-avatar.svg",
     trip: "Los Angeles to Vancouver"
   },
   {
@@ -53,7 +53,7 @@ const testimonials = [
     location: "Madrid, Spain",
     content: "The privacy and security Elysium Jets provides is invaluable when transporting valuable artwork. Their discretion and professionalism give me complete peace of mind.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    avatar: "/assets/placeholder-avatar.svg",
     trip: "Madrid to New York"
   },
   {
@@ -63,7 +63,7 @@ const testimonials = [
     location: "London, UK",
     content: "The convenience of private aviation has revolutionized our business operations. We can now conduct multiple meetings across continents in a single day. Elysium Jets makes the impossible possible.",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+    avatar: "/assets/placeholder-avatar.svg",
     trip: "London to Singapore"
   }
 ];

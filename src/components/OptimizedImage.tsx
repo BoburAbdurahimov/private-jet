@@ -36,14 +36,12 @@ export const OptimizedImage = ({
 
   // Generate optimized image paths
   const getOptimizedPaths = (originalSrc: string) => {
-    const baseName = originalSrc.replace(/\.[^/.]+$/, '');
-    const extension = originalSrc.split('.').pop();
-    
+    // For now, just return the original source since we don't have optimized versions yet
     return {
-      avif: `${baseName}.avif`,
-      webp: `${baseName}.webp`,
-      mobileAvif: `${baseName}-mobile.avif`,
-      mobileWebp: `${baseName}-mobile.webp`,
+      avif: originalSrc,
+      webp: originalSrc,
+      mobileAvif: originalSrc,
+      mobileWebp: originalSrc,
       fallback: originalSrc
     };
   };
@@ -62,49 +60,18 @@ export const OptimizedImage = ({
   }
 
   return (
-    <picture>
-      {/* Desktop AVIF */}
-      <source 
-        srcSet={paths.avif} 
-        type="image/avif" 
-        media="(min-width: 1024px)"
-        sizes={sizes}
-      />
-      {/* Desktop WebP */}
-      <source 
-        srcSet={paths.webp} 
-        type="image/webp" 
-        media="(min-width: 1024px)"
-        sizes={sizes}
-      />
-      {/* Mobile AVIF */}
-      <source 
-        srcSet={paths.mobileAvif} 
-        type="image/avif" 
-        media="(max-width: 1023px)"
-        sizes={sizes}
-      />
-      {/* Mobile WebP */}
-      <source 
-        srcSet={paths.mobileWebp} 
-        type="image/webp" 
-        media="(max-width: 1023px)"
-        sizes={sizes}
-      />
-      {/* Fallback */}
-      <img
-        src={paths.fallback}
-        alt={alt}
-        width={width}
-        height={height}
-        className={className}
-        loading={loading}
-        decoding={decoding}
-        fetchPriority={fetchPriority}
-        onError={handleError}
-        onLoad={onLoad}
-      />
-    </picture>
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      loading={loading}
+      decoding={decoding}
+      fetchPriority={fetchPriority}
+      onError={handleError}
+      onLoad={onLoad}
+    />
   );
 };
 

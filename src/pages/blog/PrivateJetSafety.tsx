@@ -48,7 +48,7 @@ const PrivateJetSafety = () => {
               {/* Featured Image */}
               <div className="aspect-video bg-muted overflow-hidden rounded-lg mb-12">
                 <img 
-                  src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&h=450&fit=crop&crop=center" 
+                  src="/assets/jet-engine.jpg" 
                   alt="Private Jet Safety"
                   width={800}
                   height={450}

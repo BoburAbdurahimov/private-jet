@@ -33,7 +33,7 @@ export const Hero = () => {
     >
       <div className="absolute inset-0 z-0">
         <OptimizedImage
-          src={heroJet}
+          src="/assets/hero-jet.jpg"
           alt="Luxury private jet"
           width={1920}
           height={1080}
