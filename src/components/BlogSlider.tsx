@@ -12,7 +12,7 @@ const blogPosts = [
     excerpt: "Exploring eco-friendly innovations in private jet technology and carbon-neutral flight solutions.",
     date: "March 20, 2025",
     readTime: "8 min read",
-    image: "/assets/jet-interior.jpg",
+    image: "/assets/jet-interior.svg",
     category: "Innovation"
   },
   {
@@ -21,7 +21,7 @@ const blogPosts = [
     excerpt: "Take a look inside the world's most opulent private aircraft with custom-designed luxury amenities.",
     date: "March 18, 2025",
     readTime: "6 min read",
-    image: "/assets/jet-interior.jpg",
+    image: "/assets/jet-interior.svg",
     category: "Luxury"
   },
   {
@@ -30,7 +30,7 @@ const blogPosts = [
     excerpt: "How private aviation is evolving to meet the demands of modern business travel and productivity.",
     date: "March 15, 2025",
     readTime: "7 min read",
-    image: "/assets/jet-interior.jpg",
+    image: "/assets/jet-interior.svg",
     category: "Business"
   },
   {
@@ -39,7 +39,7 @@ const blogPosts = [
     excerpt: "Essential guidelines for first-time private jet travelers and seasoned flyers alike.",
     date: "March 12, 2025",
     readTime: "5 min read",
-    image: "/assets/jet-engine.jpg",
+    image: "/assets/jet-engine.svg",
     category: "Travel Tips"
   },
   {
@@ -48,7 +48,7 @@ const blogPosts = [
     excerpt: "Discover the trending destinations that are attracting private jet travelers this year.",
     date: "March 10, 2025",
     readTime: "9 min read",
-    image: "/assets/jet-interior.jpg",
+    image: "/assets/jet-interior.svg",
     category: "Destinations"
   },
   {
@@ -57,7 +57,7 @@ const blogPosts = [
     excerpt: "An insider look at the rigorous safety standards and operational excellence in private aviation.",
     date: "March 8, 2025",
     readTime: "6 min read",
-    image: "/assets/jet-engine.jpg",
+    image: "/assets/jet-engine.svg",
     category: "Safety"
   }
 ];

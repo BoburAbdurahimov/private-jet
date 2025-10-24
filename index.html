@@ -110,10 +110,23 @@
       const loadPrivateJetFinder = () => {
         if (loaded || document.querySelector('script[src*="privatejetfinder.com"]')) return;
         loaded = true;
+        
+        // Create script element with proper error handling
         const script = document.createElement('script');
         script.src = 'https://www.privatejetfinder.com/js/partner.min.js';
         script.async = true;
         script.crossOrigin = 'anonymous';
+        
+        // Add error handling for CORS issues
+        script.onerror = function() {
+          console.warn('Private Jet Finder script failed to load due to CORS policy');
+          this.remove();
+        };
+        
+        script.onload = function() {
+          console.log('Private Jet Finder script loaded successfully');
+        };
+        
         document.head.appendChild(script);
       };
       
@@ -173,7 +186,14 @@
         link.rel = 'stylesheet';
         link.href = '/assets/index-DQjOCGix.css';
         link.media = 'print';
-        link.onload = function() { this.media = 'all'; };
+        link.onload = function() { 
+          this.media = 'all';
+          console.log('CSS loaded successfully');
+        };
+        link.onerror = function() {
+          console.warn('Failed to load CSS, using critical CSS only');
+          this.remove();
+        };
         document.head.appendChild(link);
       }
       
