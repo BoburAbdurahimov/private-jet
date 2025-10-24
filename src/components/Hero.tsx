@@ -41,7 +41,7 @@ export const Hero = () => {
         
         <ManageriusIcon className="w-8 h-8 mx-auto mb-8 text-white animate-float" />
         
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif font-bold mb-6 animate-fade-in leading-tight text-white">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif font-bold mb-6 leading-tight text-white" style={{fontDisplay: 'swap'}}>
           Meet us in the clouds.
         </h1>
         

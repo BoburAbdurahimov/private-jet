@@ -1,14 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSSLG1EEM5"></script>
+    <!-- Google Analytics - Deferred for better LCP -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);} 
-      gtag('js', new Date());
-
-      gtag('config', 'G-GSSLG1EEM5');
+      // Defer Google Analytics to improve LCP
+      window.addEventListener('load', function() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GSSLG1EEM5';
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date());
+        gtag('config', 'G-GSSLG1EEM5');
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +23,17 @@
     <meta name="description" content="Premium private jet charter services for luxury travel and business aviation. Experience unparalleled comfort and privacy with our exclusive fleet of private aircraft." />
     <meta name="author" content="Managerius" />
     <meta name="google-adsense-account" content="ca-pub-2824780291268916">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2824780291268916"
-         crossorigin="anonymous" defer></script>
+    <!-- AdSense - Deferred for better LCP -->
+    <script>
+      // Defer AdSense to improve LCP
+      window.addEventListener('load', function() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2824780291268916';
+        script.crossOrigin = 'anonymous';
+        document.head.appendChild(script);
+      });
+    </script>
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -37,6 +52,20 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.privatejetfinder.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob:;
+      connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://pagead2.googlesyndication.com;
+      frame-src 'self' https://www.privatejetfinder.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    ">
     <!-- Critical CSS for above-the-fold content -->
     <style>
       /* Critical styles for initial render - Mobile optimized */
@@ -99,9 +128,15 @@
       .w-full img { width: 100%; }
     </style>
     
-    <!-- Preload fonts with higher priority -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap&v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap&v=2"></noscript>
+    <!-- Optimized font loading for better LCP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
+    </noscript>
 
     <!-- Private Jet Finder Widget Script - Disabled due to CORS issues -->
     <!-- <script defer>
@@ -162,6 +197,7 @@
         });
       }
     </script>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Optimized main script loading for better LCP -->
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>
