@@ -24,18 +24,35 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon-managerius.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+    <!-- Mobile-optimized resource hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.privatejetfinder.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    
+    <!-- Mobile viewport optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Critical CSS for above-the-fold content -->
     <style>
-      /* Critical styles for initial render */
+      /* Critical styles for initial render - Mobile optimized */
       * { box-sizing: border-box; }
-      body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: #0f172a; color: #f8fafc; }
-      .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-      .min-h-screen { min-height: 100vh; }
+      body { 
+        margin: 0; 
+        font-family: 'Inter', system-ui, sans-serif; 
+        background: #0f172a; 
+        color: #f8fafc; 
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+      .min-h-screen { min-height: 100vh; min-height: 100dvh; }
       .flex { display: flex; }
       .items-center { align-items: center; }
       .justify-center { justify-content: center; }
@@ -53,14 +70,34 @@
       .from-black\/70 { --tw-gradient-from: rgba(0, 0, 0, 0.7); --tw-gradient-to: rgba(0, 0, 0, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
       .via-black\/80 { --tw-gradient-to: rgba(0, 0, 0, 0.8); --tw-gradient-stops: var(--tw-gradient-from), rgba(0, 0, 0, 0.8), var(--tw-gradient-to); }
       .to-black\/90 { --tw-gradient-to: rgba(0, 0, 0, 0.9); }
-      .text-6xl { font-size: 3.75rem; line-height: 1; }
+      .text-6xl { font-size: 2.5rem; line-height: 1.1; }
       .font-serif { font-family: 'Playfair Display', serif; }
       .font-bold { font-weight: 700; }
       .text-white { color: #ffffff; }
       .mb-6 { margin-bottom: 1.5rem; }
-      .animate-fade-in { animation: fadeIn 0.8s ease-out; }
-      @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-      @media (min-width: 768px) { .md\:text-8xl { font-size: 6rem; } }
+      .animate-fade-in { animation: fadeIn 0.6s ease-out; }
+      @keyframes fadeIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+      
+      /* Mobile-first responsive design */
+      @media (min-width: 640px) { 
+        .container { padding: 0 1.5rem; }
+        .text-6xl { font-size: 3.75rem; }
+      }
+      @media (min-width: 768px) { 
+        .md\:text-8xl { font-size: 6rem; }
+        .text-6xl { font-size: 4rem; }
+      }
+      
+      /* Mobile performance optimizations */
+      @media (max-width: 767px) {
+        .text-6xl { font-size: 2.25rem; line-height: 1.2; }
+        .container { padding: 0 0.75rem; }
+        .min-h-screen { min-height: 100vh; }
+      }
+      
+      /* Prevent layout shift */
+      img { max-width: 100%; height: auto; }
+      .w-full img { width: 100%; }
     </style>
     
     <!-- Preload fonts with higher priority -->

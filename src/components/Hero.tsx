@@ -58,11 +58,11 @@ export const Hero = () => {
         
         <ManageriusIcon className="w-8 h-8 mx-auto mb-8 text-white animate-float" />
         
-        <h1 className="text-6xl md:text-8xl font-serif font-bold mb-6 animate-fade-in leading-tight text-white">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif font-bold mb-6 animate-fade-in leading-tight text-white">
           Meet us in the clouds.
         </h1>
         
-        <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto animate-fade-in">
+        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 max-w-2xl mx-auto animate-fade-in px-4">
           Experience unparalleled luxury with our exclusive private jet charter service.
           Travel in comfort, style, and privacy to destinations worldwide.
         </p>
@@ -81,22 +81,22 @@ export const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto animate-fade-in">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-4xl mx-auto animate-fade-in px-4">
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-white mb-1">5,000+</div>
-            <p className="text-sm text-white/70">Airports Worldwide</p>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">5,000+</div>
+            <p className="text-xs sm:text-sm text-white/70">Airports Worldwide</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-white mb-1">24/7</div>
-            <p className="text-sm text-white/70">Concierge Service</p>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">24/7</div>
+            <p className="text-xs sm:text-sm text-white/70">Concierge Service</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-white mb-1">99.8%</div>
-            <p className="text-sm text-white/70">On-Time Performance</p>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">99.8%</div>
+            <p className="text-xs sm:text-sm text-white/70">On-Time Performance</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-white mb-1">2hr</div>
-            <p className="text-sm text-white/70">Average Response</p>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">2hr</div>
+            <p className="text-xs sm:text-sm text-white/70">Average Response</p>
           </div>
         </div>
       </div>
