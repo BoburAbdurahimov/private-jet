@@ -61,7 +61,7 @@
       font-src 'self' https://fonts.gstatic.com;
       img-src 'self' data: https: blob:;
       connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google https://www.google.com;
-      frame-src 'self' https://www.privatejetfinder.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;
+      frame-src 'self' https://www.privatejetfinder.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://www.google.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self';
@@ -127,6 +127,9 @@
       img { max-width: 100%; height: auto; }
       .w-full img { width: 100%; }
     </style>
+    
+    <!-- Preload critical hero image for faster LCP -->
+    <link rel="preload" as="image" href="/assets/hero-jet.jpg" fetchpriority="high">
     
     <!-- Optimized font loading for better LCP -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
