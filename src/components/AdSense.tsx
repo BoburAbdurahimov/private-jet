@@ -21,8 +21,6 @@ const AdSense = ({
   const isInitialized = useRef(false);
 
   useEffect(() => {
-    // Let Google AdSense handle automatic initialization
-    // Only manually push if the ad hasn't been initialized yet
     const initializeAd = () => {
       if (
         typeof window !== 'undefined' && 
@@ -33,20 +31,29 @@ const AdSense = ({
         const adElement = adRef.current.querySelector('.adsbygoogle');
         if (adElement && !adElement.hasAttribute('data-ad-status')) {
           try {
-            ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
-            isInitialized.current = true;
+            // Check if adsbygoogle is available and not already processing
+            if ((window as any).adsbygoogle && Array.isArray((window as any).adsbygoogle)) {
+              ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+              isInitialized.current = true;
+            }
           } catch (error) {
-            // AdSense already initialized - this is expected and fine
-            console.log('AdSense already initialized');
+            // AdSense already initialized or error occurred - this is expected
+            console.log('AdSense initialization handled:', error.message || 'Already initialized');
+            isInitialized.current = true;
           }
         }
       }
     };
 
-    // Try to initialize after a short delay to ensure DOM is ready
-    const timeoutId = setTimeout(initializeAd, 500);
+    // Use requestAnimationFrame to ensure DOM is ready
+    const rafId = requestAnimationFrame(() => {
+      const timeoutId = setTimeout(initializeAd, 100);
+      return () => clearTimeout(timeoutId);
+    });
     
-    return () => clearTimeout(timeoutId);
+    return () => {
+      cancelAnimationFrame(rafId);
+    };
   }, [adSlot]);
 
   return (
