@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight, Plane, Shield, DollarSign, Star, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
+import BookingWidget from "@/components/BookingWidget";
 
 const JetLuxe = () => {
   return (
@@ -108,7 +109,12 @@ const JetLuxe = () => {
                 </div>
               </div>
             </div>
+          </div>
 
+          {/* Booking Widget - Full Width */}
+          <BookingWidget />
+
+          <div className="max-w-4xl mx-auto">
             {/* Services Section */}
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               <div className="border border-border bg-card rounded-lg p-6">

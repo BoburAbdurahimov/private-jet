@@ -1,0 +1,398 @@
+{
+  "name": "ishledigani 777",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s",
+          "mode": "list",
+          "cachedResultName": "masterclass",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1564956754,
+          "mode": "list",
+          "cachedResultName": "Sheet1 (1)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s/edit#gid=1564956754"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -848,
+        -768
+      ],
+      "id": "87f63bd6-0844-4db6-ac5c-8e2123379e3f",
+      "name": "Google Sheets2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gttII27YMWs1tuOd",
+          "name": "Bobur 777"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fdc40194-662b-402b-b731-6405ce91259e",
+              "leftValue": "={{ $json[\"Send Status\"] }}",
+              "rightValue": "SENT",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -992,
+        -480
+      ],
+      "id": "f2ad4d7b-7af2-40eb-aa21-a74fea6e6771",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "options": {},
+        "batchSize": 10
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -672,
+        -496
+      ],
+      "id": "84753974-bec6-460b-9670-2764d2bc7c0c",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s",
+          "mode": "list",
+          "cachedResultName": "masterclass",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1372782788,
+          "mode": "list",
+          "cachedResultName": "Sheet2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s/edit#gid=1372782788"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -688,
+        -768
+      ],
+      "id": "2e15d402-e8d2-465b-bd04-09454c2f535a",
+      "name": "Google Sheets3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gttII27YMWs1tuOd",
+          "name": "Bobur 777"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get templates from previous node\nconst templates = items.map(item => item.json);\n\n// Check if templates exist\nif (!templates || templates.length === 0) {\n  throw new Error('No templates found');\n}\n\n// Pick a random template\nconst index = Math.floor(Math.random() * templates.length);\nconst template = templates[index];\n\n// Convert body to HTML\nconst bodyHtml = template.Body.replace(/\\n/g, '<br>');\n\n// Return in n8n-compatible format\nreturn [\n  {\n    json: {\n      subject: template.Subject,\n      body: bodyHtml\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        -672
+      ],
+      "id": "431121bb-4ddf-487d-8327-53e7b56259d8",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        -96,
+        -544
+      ],
+      "id": "4bc15966-94d0-41a7-a083-1e2dd6bb8b40",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6a6ba02-422b-4e7c-a73e-03901cc2db0c",
+              "name": "body",
+              "value": "={{ \n  ($json.body || \"\")\n    .replace(\"[name]\", $json[\"Name\"] && $json[\"Name\"].trim() !== \"\" ? $json[\"Name\"].trim() : \"there\")\n}}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        -592
+      ],
+      "id": "7dfdc475-99ce-4bb0-8aac-6237df68dc12",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        560,
+        -640
+      ],
+      "id": "1192462b-ac29-4946-a4a1-b3817965eed5",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "resource": "mail",
+        "fromEmail": "hello@managerius.com",
+        "fromName": "Managerius",
+        "toEmail": "={{ $json.Email}}",
+        "subject": "={{ $json.subject }}",
+        "contentType": "text/html",
+        "contentValue": "={{ $json.body}}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.sendGrid",
+      "typeVersion": 1,
+      "position": [
+        336,
+        -496
+      ],
+      "id": "2f753c05-93e9-41c0-845b-02738b75ee82",
+      "name": "Send an email1",
+      "credentials": {
+        "sendGridApi": {
+          "id": "FfCvICKFoEjzlEk7",
+          "name": "SendGrid account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1504,
+        -480
+      ],
+      "id": "89d4283a-572a-4372-b6d0-d99865a133d9",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s",
+          "mode": "list",
+          "cachedResultName": "masterclass",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1564956754,
+          "mode": "list",
+          "cachedResultName": "Sheet1 (1)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dwIy3WU31t0Qdz7-s4bJdzqzDsSveLvEEDcmHo2kt8s/edit#gid=1564956754"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -384,
+        -832
+      ],
+      "id": "e7bb6b17-8949-49db-b155-ad6fce412601",
+      "name": "Delete rows or columns from sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gttII27YMWs1tuOd",
+          "name": "Bobur 777"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        []
+      ]
+    },
+    "Google Sheets3": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send an email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Delete rows or columns from sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send an email1": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c1e3ccb0-e02a-4fd1-879d-0a0476f0372b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "920b524c29934c508162e326ab58b19ab01d7363993bb8d8fa7c69848ec946fa"
+  },
+  "id": "NEDPXbIWXDBxHdVi",
+  "tags": []
+}

@@ -41,6 +41,8 @@ import BadGateway from "./pages/BadGateway";
 import ServiceUnavailable from "./pages/ServiceUnavailable";
 import Forbidden from "./pages/Forbidden";
 import TooManyRequests from "./pages/TooManyRequests";
+// Lazy load Chatbot to prevent blocking app initialization
+const Chatbot = lazy(() => import("./components/Chatbot").then(module => ({ default: module.Chatbot })));
 
 const queryClient = new QueryClient();
 
@@ -101,6 +103,9 @@ const App = () => {
               </Routes>
             </Suspense>
           </BrowserRouter>
+          <Suspense fallback={null}>
+            <Chatbot />
+          </Suspense>
       </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>
