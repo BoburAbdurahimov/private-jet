@@ -134,6 +134,14 @@ export default async function handler(req, res) {
         
         // Handle 403/401 errors that return non-JSON (like HTML error pages)
         if (response.status === 403 || response.status === 401) {
+          console.error('Authentication error - Non-JSON response:', {
+            status: response.status,
+            contentType: response.headers.get('content-type'),
+            responsePreview: responseText.substring(0, 1000),
+            isHTML: responseText.trim().startsWith('<!'),
+            responseLength: responseText.length
+          });
+          
           return res.status(response.status).json({
             error: 'Authentication failed',
             message: response.status === 403 
@@ -142,7 +150,9 @@ export default async function handler(req, res) {
             status: response.status,
             statusText: response.statusText,
             contentType: response.headers.get('content-type'),
-            responsePreview: responseText.substring(0, 500),
+            responsePreview: responseText.substring(0, 1000),
+            responseLength: responseText.length,
+            isHTML: responseText.trim().startsWith('<!'),
             suggestion: 'Please verify your API token is correct and has the format: Bearer {user_id}|{token}'
           });
         }
@@ -169,21 +179,23 @@ export default async function handler(req, res) {
     }
 
     if (!response.ok) {
-      console.error('JetLuxe API error:', {
+      console.error('JetLuxe API error response:', {
         status: response.status,
         statusText: response.statusText,
         data: responseData,
-        contentType: response.headers.get('content-type')
+        contentType: response.headers.get('content-type'),
+        hasData: !!responseData,
+        dataKeys: responseData ? Object.keys(responseData) : []
       });
       
       // Handle 403 Forbidden specifically (authentication/authorization issue)
       if (response.status === 403) {
         return res.status(403).json({
           error: 'Authentication failed',
-          message: 'The API token is invalid or expired. Please check your API credentials.',
-          details: responseData,
+          message: responseData?.message || responseData?.error || 'The API token is invalid or expired. Please check your API credentials.',
+          details: responseData || { rawResponse: 'No JSON data in response' },
           status: 403,
-          suggestion: 'Verify that the API token is correct and has the proper format (Bearer {user_id}|{token})'
+          suggestion: 'Verify that the API token is correct and has the proper format (Bearer {user_id}|{token}). Check Vercel function logs for detailed error information.'
         });
       }
       
@@ -191,15 +203,15 @@ export default async function handler(req, res) {
       if (response.status === 401) {
         return res.status(401).json({
           error: 'Unauthorized',
-          message: 'Invalid or missing authentication token.',
-          details: responseData,
+          message: responseData?.message || responseData?.error || 'Invalid or missing authentication token.',
+          details: responseData || { rawResponse: 'No JSON data in response' },
           status: 401
         });
       }
       
       return res.status(response.status).json({
-        error: responseData.message || responseData.error || `API request failed with status ${response.status}`,
-        details: responseData,
+        error: responseData?.message || responseData?.error || `API request failed with status ${response.status}`,
+        details: responseData || { rawResponse: 'No JSON data in response' },
         status: response.status
       });
     }
