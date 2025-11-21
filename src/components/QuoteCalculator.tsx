@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { Calculator, Calendar as CalendarIcon, Plane, MapPin, Users, Clock } from "lucide-react";
+import { Calculator, Calendar as CalendarIcon, Plane, MapPin, Users, Clock, User, Mail, Phone } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { createTrip, getICAOCode, generateIdempotencyKey, type Customer } from "@/lib/jetluxe-api";
 
 interface QuoteData {
   departure: string;
@@ -46,14 +49,23 @@ export const QuoteCalculator = () => {
   });
   const [isCalculating, setIsCalculating] = useState(false);
   const [quote, setQuote] = useState<number | null>(null);
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
+  const [isBooking, setIsBooking] = useState(false);
+  const [customerInfo, setCustomerInfo] = useState<Customer>({
+    full_name: "",
+    contact: "",
+    email: "",
+  });
+  const [departureTime, setDepartureTime] = useState("14:30");
+  const [returnTime, setReturnTime] = useState("14:30");
 
   const selectedAircraft = aircraftTypes.find(a => a.value === quoteData.aircraftType);
 
   const calculateQuote = async () => {
-    if (!quoteData.departure || !quoteData.destination || !quoteData.aircraftType) {
+    if (!quoteData.departure || !quoteData.destination || !quoteData.aircraftType || !quoteData.departureDate) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in all required fields including departure date.",
         variant: "destructive",
       });
       return;
@@ -76,6 +88,106 @@ export const QuoteCalculator = () => {
         description: "Your personalized quote is ready.",
       });
     }, 2000);
+  };
+
+  const handleBooking = async () => {
+    if (!customerInfo.full_name || !customerInfo.email || !customerInfo.contact) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all customer information fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!quoteData.departureDate) {
+      toast({
+        title: "Missing Information",
+        description: "Please select a departure date.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const departureICAO = getICAOCode(quoteData.departure);
+    const arrivalICAO = getICAOCode(quoteData.destination);
+
+    if (!departureICAO || !arrivalICAO) {
+      toast({
+        title: "Invalid Airport",
+        description: "Please select valid departure and destination airports from the list.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsBooking(true);
+
+    try {
+      const legs = [
+        {
+          date: format(quoteData.departureDate, "yyyy-MM-dd"),
+          passengers: parseInt(quoteData.passengers),
+          arrival_icao: arrivalICAO,
+          departure_icao: departureICAO,
+          time: departureTime,
+        },
+      ];
+
+      // Add return leg if round trip
+      if (quoteData.tripType === "round-trip" && quoteData.returnDate) {
+        legs.push({
+          date: format(quoteData.returnDate, "yyyy-MM-dd"),
+          passengers: parseInt(quoteData.passengers),
+          arrival_icao: departureICAO,
+          departure_icao: arrivalICAO,
+          time: returnTime,
+        });
+      }
+
+      const tripRequest = {
+        idempotency_key: generateIdempotencyKey(),
+        legs,
+        customer: customerInfo,
+      };
+
+      const response = await createTrip(tripRequest);
+
+      toast({
+        title: "Booking Successful!",
+        description: `Your trip has been created. Trip Reference: ${response.trip_ref}`,
+      });
+
+      setIsBookingDialogOpen(false);
+      
+      // Reset form
+      setQuoteData({
+        departure: "",
+        destination: "",
+        passengers: "",
+        aircraftType: "",
+        departureDate: undefined,
+        returnDate: undefined,
+        tripType: "one-way",
+      });
+      setCustomerInfo({
+        full_name: "",
+        contact: "",
+        email: "",
+      });
+      setQuote(null);
+      setDepartureTime("14:30");
+      setReturnTime("14:30");
+    } catch (error) {
+      console.error("Booking error:", error);
+      toast({
+        title: "Booking Failed",
+        description: error instanceof Error ? error.message : "An error occurred while processing your booking. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsBooking(false);
+    }
   };
 
   return (
@@ -299,11 +411,122 @@ export const QuoteCalculator = () => {
                   <p className="text-sm text-muted-foreground mt-2">
                     *This is an estimated quote. Final pricing may vary based on specific requirements, fuel costs, and availability.
                   </p>
-                  <Button className="mt-4" variant="hero">
+                  <Button 
+                    className="mt-4" 
+                    variant="hero"
+                    onClick={() => setIsBookingDialogOpen(true)}
+                  >
                     Book This Flight
                   </Button>
                 </div>
               )}
+
+              {/* Booking Dialog */}
+              <Dialog open={isBookingDialogOpen} onOpenChange={setIsBookingDialogOpen}>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle>Complete Your Booking</DialogTitle>
+                    <DialogDescription>
+                      Please provide your contact information to complete the booking.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-4 py-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="full_name" className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        Full Name *
+                      </Label>
+                      <Input
+                        id="full_name"
+                        placeholder="John Doe"
+                        value={customerInfo.full_name}
+                        onChange={(e) => setCustomerInfo(prev => ({ ...prev, full_name: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="flex items-center gap-2">
+                        <Mail className="w-4 h-4" />
+                        Email *
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="john@example.com"
+                        value={customerInfo.email}
+                        onChange={(e) => setCustomerInfo(prev => ({ ...prev, email: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="contact" className="flex items-center gap-2">
+                        <Phone className="w-4 h-4" />
+                        Phone Number *
+                      </Label>
+                      <Input
+                        id="contact"
+                        type="tel"
+                        placeholder="+1234567890"
+                        value={customerInfo.contact}
+                        onChange={(e) => setCustomerInfo(prev => ({ ...prev, contact: e.target.value }))}
+                        required
+                      />
+                    </div>
+                    {quoteData.departureDate && (
+                      <div className="space-y-2">
+                        <Label htmlFor="departure_time" className="flex items-center gap-2">
+                          <Clock className="w-4 h-4" />
+                          Departure Time *
+                        </Label>
+                        <Input
+                          id="departure_time"
+                          type="time"
+                          value={departureTime}
+                          onChange={(e) => setDepartureTime(e.target.value)}
+                          required
+                        />
+                      </div>
+                    )}
+                    {quoteData.tripType === "round-trip" && quoteData.returnDate && (
+                      <div className="space-y-2">
+                        <Label htmlFor="return_time" className="flex items-center gap-2">
+                          <Clock className="w-4 h-4" />
+                          Return Time *
+                        </Label>
+                        <Input
+                          id="return_time"
+                          type="time"
+                          value={returnTime}
+                          onChange={(e) => setReturnTime(e.target.value)}
+                          required
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <DialogFooter>
+                    <Button
+                      variant="outline"
+                      onClick={() => setIsBookingDialogOpen(false)}
+                      disabled={isBooking}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      onClick={handleBooking}
+                      disabled={isBooking || !customerInfo.full_name || !customerInfo.email || !customerInfo.contact}
+                    >
+                      {isBooking ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Booking...
+                        </>
+                      ) : (
+                        "Confirm Booking"
+                      )}
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
             </CardContent>
           </Card>
         </div>
