@@ -2,6 +2,10 @@
 // This serverless function acts as a proxy to avoid CORS issues
 
 const API_BASE_URL = "https://jetluxe.jetlink.app";
+// API Token - format according to docs: "Bearer {user_id}|{token}"
+// The example shows "Bearer 12|your_token_here"
+// If your token already includes the user ID, use it as-is
+// If not, you may need to add the user ID prefix
 const API_TOKEN = "223oLxcHMcaQ8TVatNAsLRJ2acpLQkqtXBbQY9yqg010dc8e8f";
 
 export default async function handler(req, res) {
@@ -124,10 +128,26 @@ export default async function handler(req, res) {
         console.error('Failed to parse JSON response:', {
           error: parseError.message,
           responseType: response.headers.get('content-type'),
-          responsePreview: responseText.substring(0, 500)
+          responsePreview: responseText.substring(0, 500),
+          status: response.status
         });
         
-        // Return more detailed error information
+        // Handle 403/401 errors that return non-JSON (like HTML error pages)
+        if (response.status === 403 || response.status === 401) {
+          return res.status(response.status).json({
+            error: 'Authentication failed',
+            message: response.status === 403 
+              ? 'The API token is invalid, expired, or you do not have permission to access this resource.'
+              : 'Invalid or missing authentication token.',
+            status: response.status,
+            statusText: response.statusText,
+            contentType: response.headers.get('content-type'),
+            responsePreview: responseText.substring(0, 500),
+            suggestion: 'Please verify your API token is correct and has the format: Bearer {user_id}|{token}'
+          });
+        }
+        
+        // Return more detailed error information for other errors
         return res.status(response.ok ? 500 : response.status).json({
           error: 'Invalid response from API',
           message: 'The server returned a response that could not be parsed as JSON',
@@ -152,8 +172,30 @@ export default async function handler(req, res) {
       console.error('JetLuxe API error:', {
         status: response.status,
         statusText: response.statusText,
-        data: responseData
+        data: responseData,
+        contentType: response.headers.get('content-type')
       });
+      
+      // Handle 403 Forbidden specifically (authentication/authorization issue)
+      if (response.status === 403) {
+        return res.status(403).json({
+          error: 'Authentication failed',
+          message: 'The API token is invalid or expired. Please check your API credentials.',
+          details: responseData,
+          status: 403,
+          suggestion: 'Verify that the API token is correct and has the proper format (Bearer {user_id}|{token})'
+        });
+      }
+      
+      // Handle 401 Unauthorized
+      if (response.status === 401) {
+        return res.status(401).json({
+          error: 'Unauthorized',
+          message: 'Invalid or missing authentication token.',
+          details: responseData,
+          status: 401
+        });
+      }
       
       return res.status(response.status).json({
         error: responseData.message || responseData.error || `API request failed with status ${response.status}`,
