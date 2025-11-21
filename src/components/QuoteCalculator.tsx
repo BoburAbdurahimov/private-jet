@@ -151,6 +151,17 @@ export const QuoteCalculator = () => {
         customer: customerInfo,
       };
 
+      // Log the request for debugging
+      console.log('Sending trip request:', {
+        idempotency_key: tripRequest.idempotency_key,
+        legs: tripRequest.legs,
+        customer: {
+          name: tripRequest.customer.full_name,
+          email: tripRequest.customer.email,
+          contact: tripRequest.customer.contact
+        }
+      });
+
       const response = await createTrip(tripRequest);
 
       toast({

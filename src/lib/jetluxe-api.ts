@@ -79,10 +79,22 @@ export const createTrip = async (
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(
-        errorData.error || errorData.message || `API request failed with status ${response.status}`
-      );
+      let errorData;
+      try {
+        errorData = await response.json();
+      } catch (e) {
+        const text = await response.text();
+        throw new Error(`API request failed with status ${response.status}: ${text.substring(0, 100)}`);
+      }
+      
+      const errorMessage = errorData.error || errorData.message || `API request failed with status ${response.status}`;
+      console.error('API Error Response:', {
+        status: response.status,
+        error: errorMessage,
+        details: errorData
+      });
+      
+      throw new Error(errorMessage);
     }
 
     const data: CreateTripResponse = await response.json();

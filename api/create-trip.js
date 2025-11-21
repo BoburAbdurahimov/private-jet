@@ -21,6 +21,14 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Log incoming request for debugging
+    console.log('Received request:', {
+      method: req.method,
+      hasBody: !!req.body,
+      bodyKeys: req.body ? Object.keys(req.body) : [],
+      bodyPreview: req.body ? JSON.stringify(req.body).substring(0, 200) : 'No body'
+    });
+
     const tripData = req.body;
 
     // Validate required fields
@@ -50,17 +58,70 @@ export default async function handler(req, res) {
       customer_email: tripData.customer.email
     });
 
-    // Make request to JetLuxe API
-    const response = await fetch(`${API_BASE_URL}/api/affiliate/valens/v1/trip/new`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_TOKEN}`,
-      },
-      body: JSON.stringify(tripData),
+    // Log the request being sent (without sensitive data)
+    console.log('Sending request to JetLuxe API:', {
+      url: `${API_BASE_URL}/api/affiliate/valens/v1/trip/new`,
+      legs: tripData.legs.map(leg => ({
+        date: leg.date,
+        passengers: leg.passengers,
+        departure: leg.departure_icao,
+        arrival: leg.arrival_icao,
+        time: leg.time
+      })),
+      customer: {
+        name: tripData.customer.full_name,
+        email: tripData.customer.email
+      }
     });
 
-    const responseData = await response.json();
+    // Make request to JetLuxe API
+    let response;
+    let responseData;
+    
+    try {
+      // Format Authorization header according to API docs: "Bearer 12|your_token_here"
+      // The example shows "12|" as a user ID prefix, but we'll use the token as provided
+      // Standard Bearer token format
+      const authHeader = `Bearer ${API_TOKEN}`;
+      
+      console.log('Making API request:', {
+        url: `${API_BASE_URL}/api/affiliate/valens/v1/trip/new`,
+        method: 'POST',
+        authHeaderPrefix: authHeader.substring(0, 15) + '...'
+      });
+
+      response = await fetch(`${API_BASE_URL}/api/affiliate/valens/v1/trip/new`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': authHeader,
+        },
+        body: JSON.stringify(tripData),
+      });
+
+      // Try to parse JSON response
+      const responseText = await response.text();
+      console.log('API Response status:', response.status);
+      console.log('API Response text:', responseText);
+      
+      try {
+        responseData = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('Failed to parse JSON response:', parseError);
+        return res.status(500).json({
+          error: 'Invalid response from API',
+          message: 'The server returned an invalid response format',
+          responseText: responseText.substring(0, 200) // First 200 chars for debugging
+        });
+      }
+    } catch (fetchError) {
+      console.error('Fetch error:', fetchError);
+      return res.status(500).json({
+        error: 'Network error',
+        message: fetchError.message || 'Failed to connect to JetLuxe API',
+        details: process.env.NODE_ENV === 'development' ? fetchError.stack : undefined
+      });
+    }
 
     if (!response.ok) {
       console.error('JetLuxe API error:', {
@@ -70,8 +131,9 @@ export default async function handler(req, res) {
       });
       
       return res.status(response.status).json({
-        error: responseData.message || `API request failed with status ${response.status}`,
-        details: responseData
+        error: responseData.message || responseData.error || `API request failed with status ${response.status}`,
+        details: responseData,
+        status: response.status
       });
     }
 
@@ -89,10 +151,14 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error('Error creating trip:', error);
+    console.error('Error creating trip:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
     return res.status(500).json({ 
       error: 'Failed to create trip',
-      message: error.message,
+      message: error.message || 'An unexpected error occurred',
       details: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
