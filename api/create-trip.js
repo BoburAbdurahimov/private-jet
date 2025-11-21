@@ -3,10 +3,8 @@
 
 const API_BASE_URL = "https://jetluxe.jetlink.app";
 // API Token - format according to docs: "Bearer {user_id}|{token}"
-// The example shows "Bearer 12|your_token_here"
-// If your token already includes the user ID, use it as-is
-// If not, you may need to add the user ID prefix
-const API_TOKEN = "223oLxcHMcaQ8TVatNAsLRJ2acpLQkqtXBbQY9yqg010dc8e8f";
+// Token already includes user ID prefix: "23|..."
+const API_TOKEN = "23|soWmYgEK6NlvpXn0y4LPmlBhXNmKrSijPFChumXG6d8894e4";
 
 export default async function handler(req, res) {
   // Set CORS headers
