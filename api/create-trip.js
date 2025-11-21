@@ -84,14 +84,16 @@ export default async function handler(req, res) {
     
     try {
       // Format Authorization header according to API docs: "Bearer 12|your_token_here"
-      // The example shows "12|" as a user ID prefix, but we'll use the token as provided
-      // Standard Bearer token format
+      // The example shows "12|" as a user ID prefix
+      // Try the token as-is first (standard Bearer format)
       const authHeader = `Bearer ${API_TOKEN}`;
       
-      console.log('Making API request:', {
+      console.log('Making API request to JetLuxe:', {
         url: `${API_BASE_URL}/api/affiliate/valens/v1/trip/new`,
         method: 'POST',
-        authHeaderPrefix: authHeader.substring(0, 15) + '...'
+        authHeaderFormat: authHeader.substring(0, 20) + '...',
+        tokenLength: API_TOKEN.length,
+        tokenStartsWith: API_TOKEN.substring(0, 10)
       });
 
       response = await fetch(`${API_BASE_URL}/api/affiliate/valens/v1/trip/new`, {
