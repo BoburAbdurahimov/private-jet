@@ -75,10 +75,18 @@ export default async function handler(req, res) {
       });
     }
 
-    console.log('Trip created successfully:', responseData);
+    // Log successful trip creation
+    console.log('Trip created successfully:', {
+      id: responseData.id,
+      trip_ref: responseData.trip_ref
+    });
 
-    // Return success response
-    return res.status(201).json(responseData);
+    // Return success response with the exact format from API
+    // Expected format: { id: "uuid", trip_ref: "RT5G7" }
+    return res.status(201).json({
+      id: responseData.id,
+      trip_ref: responseData.trip_ref
+    });
 
   } catch (error) {
     console.error('Error creating trip:', error);

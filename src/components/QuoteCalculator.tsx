@@ -155,7 +155,14 @@ export const QuoteCalculator = () => {
 
       toast({
         title: "Booking Successful!",
-        description: `Your trip has been created. Trip Reference: ${response.trip_ref}`,
+        description: `Your trip has been created successfully. Trip Reference: ${response.trip_ref}`,
+        duration: 5000,
+      });
+
+      // Show additional success info in console for debugging
+      console.log("Trip created successfully:", {
+        id: response.id,
+        trip_ref: response.trip_ref,
       });
 
       setIsBookingDialogOpen(false);
