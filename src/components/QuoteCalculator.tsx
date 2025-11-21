@@ -180,9 +180,27 @@ export const QuoteCalculator = () => {
       setReturnTime("14:30");
     } catch (error) {
       console.error("Booking error:", error);
+      
+      let errorMessage = "An error occurred while processing your booking. Please try again.";
+      
+      if (error instanceof Error) {
+        errorMessage = error.message;
+        
+        // Provide more user-friendly messages for common errors
+        if (error.message.includes("Network error") || error.message.includes("fetch")) {
+          errorMessage = "Unable to connect to the server. Please check your internet connection and try again.";
+        } else if (error.message.includes("400")) {
+          errorMessage = "Invalid booking information. Please check all fields and try again.";
+        } else if (error.message.includes("401") || error.message.includes("403")) {
+          errorMessage = "Authentication error. Please contact support.";
+        } else if (error.message.includes("500")) {
+          errorMessage = "Server error. Please try again later or contact support.";
+        }
+      }
+      
       toast({
         title: "Booking Failed",
-        description: error instanceof Error ? error.message : "An error occurred while processing your booking. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {

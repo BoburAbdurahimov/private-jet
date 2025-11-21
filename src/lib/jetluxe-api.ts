@@ -1,7 +1,7 @@
 // JetLuxe Affiliate API Service
+// Using proxy endpoint to avoid CORS issues
 
-const API_BASE_URL = "https://jetluxe.jetlink.app";
-const API_TOKEN = "223oLxcHMcaQ8TVatNAsLRJ2acpLQkqtXBbQY9yqg010dc8e8f";
+const API_PROXY_URL = "/api/create-trip";
 
 export interface TripLeg {
   date: string; // YYYY-MM-DD
@@ -64,16 +64,16 @@ export const generateIdempotencyKey = (): string => {
 
 /**
  * Create a new trip via JetLuxe Affiliate API
+ * Uses proxy endpoint to avoid CORS issues
  */
 export const createTrip = async (
   request: CreateTripRequest
 ): Promise<CreateTripResponse> => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/affiliate/valens/v1/trip/new`, {
+    const response = await fetch(API_PROXY_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${API_TOKEN}`,
       },
       body: JSON.stringify(request),
     });
@@ -81,7 +81,7 @@ export const createTrip = async (
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        errorData.message || `API request failed with status ${response.status}`
+        errorData.error || errorData.message || `API request failed with status ${response.status}`
       );
     }
 
@@ -89,6 +89,12 @@ export const createTrip = async (
     return data;
   } catch (error) {
     console.error("Error creating trip:", error);
+    
+    // Provide more helpful error messages
+    if (error instanceof TypeError && error.message.includes('fetch')) {
+      throw new Error("Network error: Unable to connect to the server. Please check your internet connection and try again.");
+    }
+    
     throw error;
   }
 };
