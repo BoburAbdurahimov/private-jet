@@ -99,19 +99,44 @@ export default async function handler(req, res) {
         body: JSON.stringify(tripData),
       });
 
-      // Try to parse JSON response
+      // Get response as text first to handle both JSON and non-JSON responses
       const responseText = await response.text();
       console.log('API Response status:', response.status);
-      console.log('API Response text:', responseText);
+      console.log('API Response headers:', Object.fromEntries(response.headers.entries()));
+      console.log('API Response text (first 500 chars):', responseText.substring(0, 500));
+      console.log('API Response text length:', responseText.length);
       
+      // Check if response is empty
+      if (!responseText || responseText.trim().length === 0) {
+        console.error('Empty response from API');
+        return res.status(500).json({
+          error: 'Empty response from API',
+          message: 'The API returned an empty response',
+          status: response.status,
+          statusText: response.statusText
+        });
+      }
+      
+      // Try to parse JSON response
       try {
         responseData = JSON.parse(responseText);
       } catch (parseError) {
-        console.error('Failed to parse JSON response:', parseError);
-        return res.status(500).json({
+        console.error('Failed to parse JSON response:', {
+          error: parseError.message,
+          responseType: response.headers.get('content-type'),
+          responsePreview: responseText.substring(0, 500)
+        });
+        
+        // Return more detailed error information
+        return res.status(response.ok ? 500 : response.status).json({
           error: 'Invalid response from API',
-          message: 'The server returned an invalid response format',
-          responseText: responseText.substring(0, 200) // First 200 chars for debugging
+          message: 'The server returned a response that could not be parsed as JSON',
+          status: response.status,
+          statusText: response.statusText,
+          contentType: response.headers.get('content-type'),
+          responsePreview: responseText.substring(0, 1000), // First 1000 chars for debugging
+          isHTML: responseText.trim().startsWith('<!'),
+          isText: !responseText.trim().startsWith('{') && !responseText.trim().startsWith('[')
         });
       }
     } catch (fetchError) {
